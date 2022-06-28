@@ -2,33 +2,57 @@
 
 # Nombre del proyecto
 
-> Instrucciones: *remplazar el título con el nombre del proyecto*
+> Serenity
 
 ## Descripción
 
-> Instrucciones: *escribir la descripción general del proyecto*
+> Los propietarios de peluquerías y salones de belleza tienen una baja cultura de autocontrol y realizan la mayoría de las operaciones de forma manual (papel-cuaderno), lo que genera lentitud, datos inexactos y escasa información para toma de decisiones.
+•	Imprecisión en cálculo de comisiones de colaboradores.
+•	Perdidas y daños y vencimientos de productos.
+•	Baja recurrencia de clientes, sin saber las razones.
+
+
+## Solución
+
+> Sistema de gestión para peluquerías, barberías y salones de belleza. Solución tipo Software as a Service, que permite a los gerentes agilizar las operaciones básicas de negocio y calcular métricas para mejorar la experiencia de sus clientes.
 
 ## Requerimientos funcionales
 
-> Instrucciones: *listar los requerimientos que se consideran para el MVP. Respetar el formato de listado indicado*
-
 - Admin
-  - [x] Requerimiento 1
-  - [ ] Requerimiento 2
-  - [ ] ...
+  - [ ] Autenticarse en el sistema
+  - [ ] Crear negocio o salón
+  - [ ] CRUD estilistas
+  - [ ] Asignar permisos a estilistas
+  - [ ] CRUD Productos y/o servicios
+  - [ ] CRUD Gastos
+  - [ ] Establecer tipo de contrato
+  - [ ] Reporte de negocio (Ventas, Gastos, Top clientes, Nómina, Caja, Cartera)
+  - [ ] CRUD Proveedores
 
-- User 
-  - [ ] Requerimiento 1
-  - [ ] Requerimiento 2
-  - [ ] ...
+- Cajero 
+  - [ ] CRUD clientes
+  - [ ] Facturación de productos
+  - [ ] Registrar préstamos, anticipos
+  - [ ] Registrar gastos
+  - [ ] Registrar pagos de cuentas por cobrar
 
+- Estilista
+  - [ ] Asignación de servicios y productos a cliente
+  - [ ] Consultar sus comisiones o salario en tiempo real
+
+- Cliente
+  - [ ] Agendar citas
+  - [ ] Consultar precios de productos y/o servicios
+    
 ## Requerimientos no funcionales
 
-> Instrucciones: *listar los requerimientos que se consideran para el MVP. Respetar el formato de listado indicado*
-
-- [ ] Requerimiento 1
-- [ ] Requerimiento 2
-- [ ] ...
+- [ ] Despliegue en la nube (Heroku, Google, Azure, Amazon)
+- [ ] Base de datos Postgres
+- [ ] Diseño responsivo
+- [ ] Ruby on rails 7
+- [ ] Utilizar SandiMeter para analizar el código y refactorizar el código
+- [ ] Puntuación en Rubycritic 85 en la carpeta de la App y al menos 65 en las pruebas
+- [ ] Pruebas unitarias (TDD) 
 
 ## Plan de ejecución
 
