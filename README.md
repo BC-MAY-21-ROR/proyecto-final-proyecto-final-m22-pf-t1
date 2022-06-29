@@ -1,10 +1,6 @@
 ![BrightCoders Logo](img/logo-bc.png)
 
-# Nombre del proyecto
-
-> Serenity
-
-## Descripción
+# Serenity
 
 > Los propietarios de peluquerías y salones de belleza tienen una baja cultura de autocontrol y realizan la mayoría de las operaciones de forma manual (papel-cuaderno), lo que genera lentitud, datos inexactos y escasa información para toma de decisiones.
 •	Imprecisión en cálculo de comisiones de colaboradores.
