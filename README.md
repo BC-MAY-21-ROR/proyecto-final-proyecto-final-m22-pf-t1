@@ -2,16 +2,11 @@
 
 # Serenity
 
-Los propietarios de peluquerías y salones de belleza tienen una baja cultura de autocontrol y realizan la mayoría de las operaciones de forma manual (papel-cuaderno), lo que genera lentitud, datos inexactos y escasa información para toma de decisiones.
-
-- Impresición en cálculo de comisiones de colaboradores.
-- Perdidas y daños y vencimientos de productos.
-- Baja recurrencia de clientes, sin saber las razones.
-
+Los propietarios de peluquerías y salones de belleza tienen una baja cultura de autocontrol, combinan las cuentas del negocio con las personales y realizan la mayoría de las operaciones de forma manual (papel-cuaderno), lo que genera lentitud, datos inexactos y escasa información para toma de decisiones.
 
 ## Solución
 
-> Sistema de gestión para peluquerías, barberías y salones de belleza. Solución tipo Software as a Service, que permite a los gerentes agilizar las operaciones básicas de negocio y calcular métricas para mejorar la experiencia de sus clientes.
+> Sistema de gestión para peluquerías, barberías y salones de belleza. Solución Software as a Service, que permite a los gerentes agilizar las operaciones básicas de negocio y calcular métricas para mejorar la experiencia de sus clientes.
 
 ## Requerimientos funcionales
 
