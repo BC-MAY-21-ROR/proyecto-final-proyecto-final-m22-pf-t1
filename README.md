@@ -18,7 +18,7 @@ Como Administrador del sistema, quiero configurar mi salón y definir reglas ope
 -	Gestionar colaboradores
 -	Establecer cánones
 
-- Requerimientos funcionales
+### Requerimientos funcionales
   - [ ] Sistema de autenticación 
   - [ ] Sistema de autorización
   - [ ] CRUD estilistas
