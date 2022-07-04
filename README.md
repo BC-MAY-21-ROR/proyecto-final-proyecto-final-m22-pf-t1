@@ -8,8 +8,6 @@ Los propietarios de peluquerías y salones de belleza tienen una baja cultura de
 
 > Sistema de gestión para peluquerías, barberías y salones de belleza. Solución Software as a Service, que permite a los gerentes agilizar las operaciones básicas de negocio y calcular métricas para mejorar la experiencia de sus clientes.
 
-## Requerimientos funcionales
-
 ## Historia de usuario
 
 Como Administrador del sistema, quiero configurar mi salón y definir reglas operacionales. 
