@@ -17,6 +17,28 @@ Sistema de gestión para peluquerías, barberías y salones de belleza. Solució
 - [ ] Gestionar colaboradores
 - [ ]	Establecer canones o comisiones
 
+> Como **Cajero**, necesito facturar en menos de un minuto para evitar fatiga en los clientes.
+
+- [ ]	Asignar cliente a factura
+- [ ]	Asignar productos a factura
+- [ ]	Asignación de colaborador x cada item
+- [ ]	calcular totales y subtotales
+- [ ]	Definir metodo de pago 
+- [ ]	Permitir pagos de contado y a crédito
+
+> Como **Cajero**, requiero añadir préstamos y anticipos entregados a colaboradores, para que sean descontados al realizar la nómina.
+
+- [ ] Multas
+- [ ] Descuentos
+- [ ] Préstamos
+
+> Como **Cajero**, necesito disponer de los saldos de deudores, para realizar cobros en términos de vencimiento y exactitud.
+
+- [ ]	Registrar pagos de cuentas por cobrar
+- [ ]	Ver facturas pendientes x cliente
+- [ ]	Realizar pago total del saldo
+- [ ]	Realizar pagos parciales por factura
+
 > Como **Propietario de negocio**, necesito acceder a informes, para saber si mi negocio es rentable.
 
 - [ ]	Ventas x día, Ventas x mes
@@ -31,30 +53,6 @@ Sistema de gestión para peluquerías, barberías y salones de belleza. Solució
 - [ ]	Remuneración x comisiones
 - [ ]	Remuneración x Fija
 - [ ]	Remuneración mixta
-
-> Como Cajero, requiero de añadir préstamos y anticipos entregados a colaboradores, para que sean descontados al realizar la nómina.
-
-- [ ] Multas
-- [ ] Descuentos
-- [ ] Préstamos
-
-
-> Como **Cajero**, necesito facturar en menos de un minuto para evitar fatiga en los clientes.
-
-- [ ]	Asignar cliente a factura
-- [ ]	Asignar productos a factura
-- [ ]	Asignación de colaborador x cada item
-- [ ]	calcular totales y subtotales
-- [ ]	Definir metodo de pago 
-- [ ]	Permitir pagos de contado y a crédito
-
-
-> Como **Cajero**, necesito disponer de los saldos de deudores, para realizar cobros en términos de vencimiento y exactitud.
-
-- [ ]	Registrar pagos de cuentas por cobrar
-- [ ]	Ver facturas pendientes x cliente
-- [ ]	Realizar pago total del saldo
-- [ ]	Realizar pagos parciales por factura
 
 ## Requerimientos no funcionales
 
