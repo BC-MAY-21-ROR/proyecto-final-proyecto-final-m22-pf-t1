@@ -12,13 +12,14 @@ Sistema de gestión para peluquerías, barberías y salones de belleza. Solució
 
 > Como Administrador del sistema, quiero configurar mi salón y definir reglas operacionales. 
 
--	Crear negocio o salón
--	Administrar productos y/o servicios
--	Gestionar colaboradores
--	Establecer cánones
+- [ ]	Crear negocio o salón
+- [ ]	Administrar productos y/o servicios
+- [ ] Gestionar colaboradores
+- [ ]	Establecer cánones
 
 #### Requerimientos funcionales
-  [ ] Sistema de autenticación 
+
+ - [ ] Sistema de autenticación 
   [ ] Sistema de autorización
   [ ] CRUD estilistas
   [ ] Asignar permisos a estilistas
