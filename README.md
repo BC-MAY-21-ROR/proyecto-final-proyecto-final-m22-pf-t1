@@ -8,33 +8,24 @@ Los propietarios de peluquerías y salones de belleza tienen una baja cultura de
 
 Sistema de gestión para peluquerías, barberías y salones de belleza. Solución Software as a Service, que permite a los gerentes agilizar las operaciones básicas de negocio y calcular métricas para mejorar la experiencia de sus clientes.
 
-## Historias de usuario
+## Historias de usuario y requerimientos funcionales
 
 > Como Administrador del sistema, quiero configurar mi salón y definir reglas operacionales. 
 
 - [ ]	Crear negocio o salón
 - [ ]	Administrar productos y/o servicios
 - [ ] Gestionar colaboradores
-- [ ]	Establecer cánones
+- [ ]	Establecer canones o comisiones
 
-#### Requerimientos funcionales
-
- - [ ] Sistema de autenticación 
-  [ ] Sistema de autorización
-  [ ] CRUD estilistas
-  [ ] Asignar permisos a estilistas
-  [ ] CRUD Productos y/o servicios
-  [ ] CRUD Gastos
-  [ ] Establecer tipo de contrato
 
 > Como Cajero, necesito facturar en menos de un minuto para evitar fatiga en los clientes.
 
--	Asignar cliente a factura
--	Asignar productos  a factura
--	Asignación de colaborador x cada item
--	calcular totales y subtotales
--	Definir metodo de pago 
--	Permitir pagos de contado y a crédito
+- [ ]	Asignar cliente a factura
+- [ ]	Asignar productos a factura
+- [ ]	Asignación de colaborador x cada item
+- [ ]	calcular totales y subtotales
+- [ ]	Definir metodo de pago 
+- [ ]	Permitir pagos de contado y a crédito
 
 #### Requerimientos funcionales
  
