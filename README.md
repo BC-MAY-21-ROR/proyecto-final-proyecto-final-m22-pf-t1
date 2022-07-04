@@ -8,29 +8,41 @@ Los propietarios de peluquerías y salones de belleza tienen una baja cultura de
 
 Sistema de gestión para peluquerías, barberías y salones de belleza. Solución Software as a Service, que permite a los gerentes agilizar las operaciones básicas de negocio y calcular métricas para mejorar la experiencia de sus clientes.
 
-## Historia de usuario
+## Historias de usuario
 
 > Como Administrador del sistema, quiero configurar mi salón y definir reglas operacionales. 
+
 -	Crear negocio o salón
 -	Administrar productos y/o servicios
 -	Gestionar colaboradores
 -	Establecer cánones
 
-### Requerimientos funcionales
-  - [ ] Sistema de autenticación 
-  - [ ] Sistema de autorización
-  - [ ] CRUD estilistas
-  - [ ] Asignar permisos a estilistas
-  - [ ] CRUD Productos y/o servicios
-  - [ ] CRUD Gastos
-  - [ ] Establecer tipo de contrato
-  
-- Cajero 
-  - [ ] CRUD clientes
-  - [ ] Facturación de productos
-  - [ ] Registrar préstamos, anticipos
-  - [ ] Registrar gastos
-  - [ ] Registrar pagos de cuentas por cobrar
+#### Requerimientos funcionales
+  [ ] Sistema de autenticación 
+  [ ] Sistema de autorización
+  [ ] CRUD estilistas
+  [ ] Asignar permisos a estilistas
+  [ ] CRUD Productos y/o servicios
+  [ ] CRUD Gastos
+  [ ] Establecer tipo de contrato
+
+> Como Cajero, necesito facturar en menos de un minuto para evitar fatiga en los clientes.
+
+-	Asignar cliente a factura
+-	Asignar productos  a factura
+-	Asignación de colaborador x cada item
+-	calcular totales y subtotales
+-	Definir metodo de pago 
+-	Permitir pagos de contado y a crédito
+
+#### Requerimientos funcionales
+ 
+ Otros
+ 
+  [ ] Facturación de productos
+  [ ] Registrar préstamos, anticipos
+  [ ] Registrar gastos
+  [ ] Registrar pagos de cuentas por cobrar
 
 - Estilista
   - [ ] Asignación de servicios y productos a cliente
@@ -52,7 +64,7 @@ Sistema de gestión para peluquerías, barberías y salones de belleza. Solució
 
 ## Plan de ejecución
 
-> Instrucciones:*considerando que el tiempo que tienen para desarrollar el proyecto es relativamente corto, es importante elaborar una planeación que permita dimensionar el máximo avance posible. Se trata solamente de un plan que pudiera ir cambiando, pero servirá como referencia. Haz una copia de [este template en Google Sheets](https://docs.google.com/spreadsheets/d/1e3kxrdzytEhMlVp1hoItIa-eFhUjE4oFR_iy4MoDiAU/edit?usp=sharing) y actualiza los requerimientos y tiempos para este proyecto. Una vez terminado inserta el enlace al documento y asegúrate de dar acceso a todos quienes tengan este enlace.
+> Instrucciones:*considerando que el tiempo que tienen para desarrollar el proyecto es relativamente corto, es importante elaborar una planeación que permita dimensionar el máximo avance posible. 
 
 - [Ver el plan de ejecución](inserta aquí el enlace a tu documento)
 
