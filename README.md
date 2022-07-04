@@ -10,15 +10,36 @@ Sistema de gestión para peluquerías, barberías y salones de belleza. Solució
 
 ## Historias de usuario y requerimientos funcionales
 
-> Como Administrador del sistema, quiero configurar mi salón y definir reglas operacionales. 
+> Como **Administrador del sistema**, quiero configurar mi salón y definir reglas operacionales. 
 
 - [ ]	Crear negocio o salón
 - [ ]	Administrar productos y/o servicios
 - [ ] Gestionar colaboradores
 - [ ]	Establecer canones o comisiones
 
+> Como **Propietario de negocio**, necesito acceder a informes, para saber si mi negocio es rentable.
 
-> Como Cajero, necesito facturar en menos de un minuto para evitar fatiga en los clientes.
+- [ ]	Ventas x día, Ventas x mes
+- [ ] Gastos x día, Gastos x mes
+- [ ]	Top clientes, clientes con mayor facturación media
+- [ ]	Total de comisiones x semana
+- [ ]	Informe Caja (Efectivo vs tarjetas y otros medios)
+- [ ]	Informe de Cartera (Total deudores)
+
+> Como **Propietario de negocio**, necesito llevar un registro de las ventas	y deducciones del personal para calcular el canon a pagar de los estilistas.
+
+- [ ]	Remuneración x comisiones
+- [ ]	Remuneración x Fija
+- [ ]	Remuneración mixta
+
+> Como Cajero, requiero de añadir préstamos y anticipos entregados a colaboradores, para que sean descontados al realizar la nómina.
+
+- [ ] Multas
+- [ ] Descuentos
+- [ ] Préstamos
+
+
+> Como **Cajero**, necesito facturar en menos de un minuto para evitar fatiga en los clientes.
 
 - [ ]	Asignar cliente a factura
 - [ ]	Asignar productos a factura
@@ -27,23 +48,14 @@ Sistema de gestión para peluquerías, barberías y salones de belleza. Solució
 - [ ]	Definir metodo de pago 
 - [ ]	Permitir pagos de contado y a crédito
 
-#### Requerimientos funcionales
- 
- Otros
- 
-  [ ] Facturación de productos
-  [ ] Registrar préstamos, anticipos
-  [ ] Registrar gastos
-  [ ] Registrar pagos de cuentas por cobrar
 
-- Estilista
-  - [ ] Asignación de servicios y productos a cliente
-  - [ ] Consultar sus comisiones o salario en tiempo real
+> Como **Cajero**, necesito disponer de los saldos de deudores, para realizar cobros en términos de vencimiento y exactitud.
 
-- Cliente
-  - [ ] Agendar citas
-  - [ ] Consultar precios de productos y/o servicios
-    
+- [ ]	Registrar pagos de cuentas por cobrar
+- [ ]	Ver facturas pendientes x cliente
+- [ ]	Realizar pago total del saldo
+- [ ]	Realizar pagos parciales por factura
+
 ## Requerimientos no funcionales
 
 - [ ] Despliegue en la nube (Heroku, Google, Azure, Amazon)
