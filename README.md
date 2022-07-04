@@ -10,17 +10,23 @@ Los propietarios de peluquerías y salones de belleza tienen una baja cultura de
 
 ## Requerimientos funcionales
 
-- Admin
-  - [ ] Autenticarse en el sistema
-  - [ ] Crear negocio o salón
+## Historia de usuario
+
+Como Administrador del sistema, quiero configurar mi salón y definir reglas operacionales. 
+-	Crear negocio o salón
+-	Administrar productos y/o servicios
+-	Gestionar colaboradores
+-	Establecer cánones
+
+- Requerimientos funcionales
+  - [ ] Sistema de autenticación 
+  - [ ] Sistema de autorización
   - [ ] CRUD estilistas
   - [ ] Asignar permisos a estilistas
   - [ ] CRUD Productos y/o servicios
   - [ ] CRUD Gastos
   - [ ] Establecer tipo de contrato
-  - [ ] Reporte de negocio (Ventas, Gastos, Top clientes, Nómina, Caja, Cartera)
-  - [ ] CRUD Proveedores
-
+  
 - Cajero 
   - [ ] CRUD clientes
   - [ ] Facturación de productos
