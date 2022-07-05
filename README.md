@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ![BrightCoders Logo](img/logo-bc.png)
 
 # Serenity
