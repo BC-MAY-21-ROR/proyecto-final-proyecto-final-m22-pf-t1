@@ -61,7 +61,7 @@ Sistema de gestión para peluquerías, barberías y salones de belleza. Solució
 - [ ] Diseño responsivo
 - [ ] Ruby on rails 7
 - [ ] Utilizar SandiMeter para analizar el código y refactorizar el código
-- [ ] Puntuación en Rubycritic 85 en la carpeta de la App y al menos 65 en las pruebas
+- [ ] Puntuación en Rubycritic 90 en la carpeta de la App y al menos 65 en las pruebas
 - [ ] Pruebas unitarias (TDD) 
 
 ## Plan de ejecución
