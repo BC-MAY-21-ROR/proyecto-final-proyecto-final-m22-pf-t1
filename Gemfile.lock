@@ -211,6 +211,8 @@ GEM
     regexp_parser (2.5.0)
     reline (0.3.1)
       io-console (~> 0.5)
+    repo-small-badge (0.2.7)
+      victor (~> 0.2.8)
     rexml (3.2.5)
     rspec-core (3.11.0)
       rspec-support (~> 3.11.0)
@@ -241,6 +243,13 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.18.0)
       parser (>= 3.1.1.0)
+    rubocop-performance (1.14.2)
+      rubocop (>= 1.7.0, < 2.0)
+      rubocop-ast (>= 0.4.0)
+    rubocop-rails (2.15.1)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.7.0, < 2.0)
     ruby-progressbar (1.11.0)
     ruby_parser (3.19.1)
       sexp_processor (~> 4.16)
@@ -255,6 +264,8 @@ GEM
       simplecov (>= 0.17.0)
       tty-which (~> 0.4.0)
       virtus (~> 1.0)
+    rubycritic-small-badge (0.2.1)
+      repo-small-badge (~> 0.2.7)
     rubyzip (2.3.2)
     sandi_meter (1.2.0)
       json
@@ -295,6 +306,7 @@ GEM
     tzinfo-data (1.2022.1)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.2.0)
+    victor (0.2.8)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -333,7 +345,10 @@ DEPENDENCIES
   rails (~> 7.0.3)
   rspec-rails
   rubocop
+  rubocop-performance
+  rubocop-rails
   rubycritic
+  rubycritic-small-badge
   sandi_meter (~> 1.2)
   selenium-webdriver
   sprockets-rails

@@ -37,6 +37,9 @@ group :development, :test do
   gem 'sandi_meter', '~> 1.2'
   gem "rubycritic", require: false
   gem 'rubycritic-small-badge', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
 end
 
 group :development do
