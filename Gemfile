@@ -8,11 +8,6 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "importmap-rails"
 
-# Provide a quality report of your Ruby code
-gem "rubycritic", require: false
-gem 'sandi_meter', '~> 1.2'
-gem 'rubocop', require: false
-
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 gem "stimulus-rails"
@@ -35,9 +30,13 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  # Provide a quality report and test of your Ruby code
   gem "rspec-rails"
   gem "factory_bot_rails"
   gem "faker"
+  gem 'sandi_meter', '~> 1.2'
+  gem "rubycritic", require: false
+  gem 'rubycritic-small-badge', require: false
 end
 
 group :development do
