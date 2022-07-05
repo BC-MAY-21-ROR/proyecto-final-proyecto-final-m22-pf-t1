@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ![BrightCoders Logo](img/logo-bc.png)
 
 # Serenity
@@ -83,3 +84,31 @@ Sistema de gestión para peluquerías, barberías y salones de belleza. Solució
 - [El proceso de pensamiento de diseño](https://www.youtube.com/watch?v=_r0VX-aU_T8)
 - [Metodología Design Thinking. Ejemplos](https://www.youtube.com/watch?v=_ul3wfKss58)
 - [Design Thinking ejemplo sencillo](https://www.youtube.com/watch?v=_H33tA2-j0s)
+=======
+# README
+
+[![RubyCritic](badges/rubycritic_badge_score.svg)]
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+>>>>>>> origin/Feature#3-Rails-project-setup

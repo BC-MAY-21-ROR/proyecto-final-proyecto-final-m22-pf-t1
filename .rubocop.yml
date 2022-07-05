@@ -1,0 +1,13 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "bin/**/*"
+    - "config/**/*"
+    - "db/**/*"
+    - "public/**/*"
+    - "tmp/**/*"
+Style/Documentation:
+  Enabled: false
