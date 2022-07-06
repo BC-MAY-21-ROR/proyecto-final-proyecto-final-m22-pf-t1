@@ -4,6 +4,12 @@
 
 Los propietarios de peluquerías y salones de belleza tienen una baja cultura de autocontrol, combinan las cuentas del negocio con las personales y realizan la mayoría de las operaciones de forma manual (papel-cuaderno), lo que genera lentitud, datos inexactos y escasa información para toma de decisiones.
 
+## Sprint Leader
+
+| Sprint 1 | Sprint 2 | Sprint 3 | Sprint 4 | Sprint 5 | Sprint 6 | Sprint 7 | Sprint 8 |
+|---|---|---|---|---|---|---|---|
+| Diego |
+
 ## Solución
 
 Sistema de gestión para peluquerías, barberías y salones de belleza. Solución Software as a Service, que permite a los gerentes agilizar las operaciones básicas de negocio y calcular métricas para mejorar la experiencia de sus clientes.
