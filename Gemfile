@@ -7,6 +7,8 @@ gem "sprockets-rails"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "importmap-rails"
+gem "devise"
+gem 'bootstrap', '~> 5.1.3'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
