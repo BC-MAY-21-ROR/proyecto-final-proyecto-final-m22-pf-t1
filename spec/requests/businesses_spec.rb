@@ -14,9 +14,9 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe '/catalogs', type: :request do
+RSpec.describe '/businesses', type: :request do
   # This should return the minimal set of attributes required to create a valid
-  # Catalog. As you add validations to Catalog, be sure to
+  # Business. As you add validations to Business, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
     skip('Add a hash of attributes valid for your model')
@@ -28,58 +28,58 @@ RSpec.describe '/catalogs', type: :request do
 
   describe 'GET /index' do
     it 'renders a successful response' do
-      Catalog.create! valid_attributes
-      get catalogs_url
+      Business.create! valid_attributes
+      get businesses_url
       expect(response).to be_successful
     end
   end
 
   describe 'GET /show' do
     it 'renders a successful response' do
-      catalog = Catalog.create! valid_attributes
-      get catalog_url(catalog)
+      business = Business.create! valid_attributes
+      get business_url(business)
       expect(response).to be_successful
     end
   end
 
   describe 'GET /new' do
     it 'renders a successful response' do
-      get new_catalog_url
+      get new_business_url
       expect(response).to be_successful
     end
   end
 
   describe 'GET /edit' do
     it 'renders a successful response' do
-      catalog = Catalog.create! valid_attributes
-      get edit_catalog_url(catalog)
+      business = Business.create! valid_attributes
+      get edit_business_url(business)
       expect(response).to be_successful
     end
   end
 
   describe 'POST /create' do
     context 'with valid parameters' do
-      it 'creates a new Catalog' do
+      it 'creates a new Business' do
         expect do
-          post catalogs_url, params: { catalog: valid_attributes }
-        end.to change(Catalog, :count).by(1)
+          post businesses_url, params: { business: valid_attributes }
+        end.to change(Business, :count).by(1)
       end
 
-      it 'redirects to the created catalog' do
-        post catalogs_url, params: { catalog: valid_attributes }
-        expect(response).to redirect_to(catalog_url(Catalog.last))
+      it 'redirects to the created business' do
+        post businesses_url, params: { business: valid_attributes }
+        expect(response).to redirect_to(business_url(Business.last))
       end
     end
 
     context 'with invalid parameters' do
-      it 'does not create a new Catalog' do
+      it 'does not create a new Business' do
         expect do
-          post catalogs_url, params: { catalog: invalid_attributes }
-        end.to change(Catalog, :count).by(0)
+          post businesses_url, params: { business: invalid_attributes }
+        end.to change(Business, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
-        post catalogs_url, params: { catalog: invalid_attributes }
+        post businesses_url, params: { business: invalid_attributes }
         expect(response).to be_successful
       end
     end
@@ -91,42 +91,42 @@ RSpec.describe '/catalogs', type: :request do
         skip('Add a hash of attributes valid for your model')
       end
 
-      it 'updates the requested catalog' do
-        catalog = Catalog.create! valid_attributes
-        patch catalog_url(catalog), params: { catalog: new_attributes }
-        catalog.reload
+      it 'updates the requested business' do
+        business = Business.create! valid_attributes
+        patch business_url(business), params: { business: new_attributes }
+        business.reload
         skip('Add assertions for updated state')
       end
 
-      it 'redirects to the catalog' do
-        catalog = Catalog.create! valid_attributes
-        patch catalog_url(catalog), params: { catalog: new_attributes }
-        catalog.reload
-        expect(response).to redirect_to(catalog_url(catalog))
+      it 'redirects to the business' do
+        business = Business.create! valid_attributes
+        patch business_url(business), params: { business: new_attributes }
+        business.reload
+        expect(response).to redirect_to(business_url(business))
       end
     end
 
     context 'with invalid parameters' do
       it "renders a successful response (i.e. to display the 'edit' template)" do
-        catalog = Catalog.create! valid_attributes
-        patch catalog_url(catalog), params: { catalog: invalid_attributes }
+        business = Business.create! valid_attributes
+        patch business_url(business), params: { business: invalid_attributes }
         expect(response).to be_successful
       end
     end
   end
 
   describe 'DELETE /destroy' do
-    it 'destroys the requested catalog' do
-      catalog = Catalog.create! valid_attributes
+    it 'destroys the requested business' do
+      business = Business.create! valid_attributes
       expect do
-        delete catalog_url(catalog)
-      end.to change(Catalog, :count).by(-1)
+        delete business_url(business)
+      end.to change(Business, :count).by(-1)
     end
 
-    it 'redirects to the catalogs list' do
-      catalog = Catalog.create! valid_attributes
-      delete catalog_url(catalog)
-      expect(response).to redirect_to(catalogs_url)
+    it 'redirects to the businesses list' do
+      business = Business.create! valid_attributes
+      delete business_url(business)
+      expect(response).to redirect_to(businesses_url)
     end
   end
 end
