@@ -1,14 +1,20 @@
+<div class="page-header">
 <p style="color: green"><%= notice %></p>
 
-<h1>Catalogs</h1>
+<%= link_to "Agregar", new_catalog_path, :class=>"btn btn-success pull-right" %>
+<h1>Productos ó servicios</h1>
+
+</div>
 
 <div id="catalogs">
   <% @catalogs.each do |catalog| %>
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+  
     <%= render catalog %>
     <p>
-      <%= link_to "Show this catalog", catalog %>
+      <%= link_to "Mostrar", catalog, :class=>"btn btn-success " %>
     </p>
+   </div> 
   <% end %>
 </div>
 
-<%= link_to "New catalog", new_catalog_path %>

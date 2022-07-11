@@ -11,32 +11,33 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :reference, style: "display: block" %>
-    <%= form.text_field :reference %>
+  <div class="form-group">
+    <%= form.label :reference,   :class=>"form-label" %>
+    <%= form.text_field :reference,  :class=>"form-control" %>
   </div>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="form-group">
+    <%= form.label :name, :class=>"form-label" %>
+    <%= form.text_field :name,  :class=>"form-control" %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <div class="form-group">
+    <%= form.label :description, :class=>"form-label" %>
+    <%= form.text_area :description,  :class=>"form-control" %>
   </div>
 
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
+  <div class="form-group">
+    <%= form.label :price, :class=>"form-label" %>
+    <%= form.number_field :price,  :class=>"form-control" %>
   </div>
 
-  <div>
-    <%= form.label :actived, style: "display: block" %>
-    <%= form.check_box :actived %>
+  <div class="btn-group">
+    <%= form.label :actived, :class=>"form-label" %>
+    <%= form.check_box :actived,  :class=>"btn-check" %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+    <ul class="list-inline">
+    <li> <%= form.submit "Registrar", :class=>"btn btn-success" %></li>
+    <li><%= button_tag "Limpiar", type: :reset, :class=>"btn btn-danger" %></li>
+  </ul>
 <% end %>
