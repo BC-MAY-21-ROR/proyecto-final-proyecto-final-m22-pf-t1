@@ -1,5 +1,5 @@
 ![BrightCoders Logo](img/logo-bc.png)
-[![RubyCritic](badges/rubycritic_badge_score.svg)]
+![RubyCritic](badges/rubycritic_badge_score.svg)
 
 # Serenity
 
