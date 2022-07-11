@@ -529,7 +529,8 @@ hr {
 }
 
 .card {
-    padding: 2% 7%
+    padding: 2% 7%;
+    background-color: none;
 }
 
 .social>i {
@@ -548,9 +549,14 @@ hr {
 
 .heading {
     font-family: 'Titillium Web', sans-serif;
-    color: black
+    color: white
 }
 
 .divider {
     border-top: 2px solid
+}
+
+.main-footer {
+  padding-top: 33px;
+  background-color: #2C2C2C;
 }
