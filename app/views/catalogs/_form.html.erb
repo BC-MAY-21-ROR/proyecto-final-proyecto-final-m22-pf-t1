@@ -1,42 +1,60 @@
-<%= form_with(model: catalog) do |form| %>
-  <% if catalog.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(catalog.errors.count, "error") %> prohibited this catalog from being saved:</h2>
+<div class="card col-lg-4">
+  <div class="card-header">
+    Datos del producto o servicio
+  </div>
+  <div class="card-body">
+    <%= form_with(model: catalog) do |form| %>
+    <% if catalog.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(catalog.errors.count, "error") %> prohibited this catalog from being saved:</h2>
 
-      <ul>
-        <% catalog.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% catalog.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="row mb-3">
+      <%= form.label :referencia, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= form.text_field :reference, class:"form-control", placeholder:"Referencia" %>
+      </div>
     </div>
-  <% end %>
 
-  <div>
-    <%= form.label :reference, style: "display: block" %>
-    <%= form.text_field :reference %>
-  </div>
+    <div class="row mb-3">
+      <%= form.label :nombre, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= form.text_field :name, class:"form-control", placeholder:"Nombre del producto" %>
+      </div>
+    </div>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="row mb-3">
+      <%= form.label :descripción, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= form.text_area :description, class:"form-control", placeholder:"Nombre del producto" %>
+      </div>
+    </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
+    <div class="row mb-3">
+      <%= form.label :precio, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= form.number_field :price, class:"form-control", placeholder:"Precio" %>
+      </div>
+    </div>
 
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
-  </div>
+    <div class="row mb-3">
+      <%= form.label :activado, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= form.check_box :actived %>
+      </div>
+    </div>
 
-  <div>
-    <%= form.label :actived, style: "display: block" %>
-    <%= form.check_box :actived %>
+    <div>
+      <%= form.submit class:"btn btn-primary" %>
+    </div>
+  <% end %>    
   </div>
+</div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
