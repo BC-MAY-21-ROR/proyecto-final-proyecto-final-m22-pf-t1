@@ -1,15 +1,10 @@
-<div class="page-header">
-  <ul class="list-inline pull-right">
-  <li><%= link_to "Modificar", edit_catalog_path(@catalog), :class=>"btn btn-success" %></li> 
-  <li><%=  link_to "Atras", catalogs_path, :class=>"btn btn-primary" %></li>
-  </ul>
-  <h1>
-   <p style="color: green"><%= notice %></p>
-  <br>  
-  </h1>
-</div>
 <p style="color: green"><%= notice %></p>
+
 <%= render @catalog %>
+
 <div>
-  <%= button_to "Eliminar", @catalog, :class=>"btn btn-danger", method: :delete %>
+  <%= link_to "Edit this catalog", edit_catalog_path(@catalog) %> |
+  <%= link_to "Back to catalogs", catalogs_path %>
+
+  <%= button_to "Destroy this catalog", @catalog, method: :delete %>
 </div>

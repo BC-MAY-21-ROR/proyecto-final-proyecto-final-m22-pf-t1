@@ -1,43 +1,61 @@
-<%= form_with(model: catalog) do |form| %>
-  <% if catalog.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(catalog.errors.count, "error") %> prohibited this catalog from being saved:</h2>
+<div class="card col-lg-4">
+  <div class="card-header">
+    Datos del producto o servicio
+  </div>
+  <div class="card-body">
+    <%= form_with(model: catalog) do |form| %>
+    <% if catalog.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(catalog.errors.count, "error") %> prohibited this catalog from being saved:</h2>
 
-      <ul>
-        <% catalog.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% catalog.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="row mb-3">
+      <%= form.label :referencia, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= form.text_field :reference, class:"form-control", placeholder:"Referencia" %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="form-group">
-    <%= form.label :reference,   :class=>"form-label" %>
-    <%= form.text_field :reference,  :class=>"form-control" %>
+    <div class="row mb-3">
+      <%= form.label :nombre, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= form.text_field :name, class:"form-control", placeholder:"Nombre del producto" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <%= form.label :descripción, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= form.text_area :description, class:"form-control", placeholder:"Nombre del producto" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <%= form.label :precio, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= form.number_field :price, class:"form-control", placeholder:"Precio" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <%= form.label :activado, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= form.check_box :actived %>
+      </div>
+    </div>
+
+    <div>
+      <%= form.submit "Guardar",class:"btn btn-primary" %>
+      <%= link_to "Cancelar", catalogs_path, class:"btn btn-warning d-inline float-end" %>
+    </div>
+  <% end %>    
   </div>
+</div>
 
-  <div class="form-group">
-    <%= form.label :name, :class=>"form-label" %>
-    <%= form.text_field :name,  :class=>"form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :description, :class=>"form-label" %>
-    <%= form.text_area :description,  :class=>"form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :price, :class=>"form-label" %>
-    <%= form.number_field :price,  :class=>"form-control" %>
-  </div>
-
-  <div class="btn-group">
-    <%= form.label :actived, :class=>"form-label" %>
-    <%= form.check_box :actived,  :class=>"btn-check" %>
-  </div>
-
-    <ul class="list-inline">
-    <li> <%= form.submit "Registrar", :class=>"btn btn-success" %></li>
-    <li><%= button_tag "Limpiar", type: :reset, :class=>"btn btn-danger" %></li>
-  </ul>
-<% end %>
