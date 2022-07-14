@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
   root 'home#index'
+  devise_scope :user do
+    get "users", to: "devise/sessions#new"
+  end
+  devise_for :users
+  
   resources :stylists
   resources :businesses
   resources :catalogs
