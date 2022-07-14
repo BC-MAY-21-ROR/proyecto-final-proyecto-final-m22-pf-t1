@@ -17,14 +17,14 @@
     <% end %>
 
     <div class="row mb-3">
-      <%= form.label :dni, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <%= form.label :dni, "DNI", style: "display: block", class:"col-sm-3 col-form-label" %>
       <div class="col-sm-9">
         <%= form.text_field :dni, class:"form-control", placeholder:"Documento de identidad" %>
       </div>
     </div>
 
     <div class="row mb-3">
-      <%= form.label :nombre, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <%= form.label :name, "Nombre", style: "display: block", class:"col-sm-3 col-form-label" %>
       <div class="col-sm-9">
         <%= form.text_field :name, class:"form-control", placeholder:"Nombre y apellido" %>
       </div>
@@ -32,14 +32,14 @@
 
 
     <div class="row mb-3">
-      <%= form.label :activado, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <%= form.label :actived, "Activo", style: "display: block", class:"col-sm-3 col-form-label" %>
       <div class="col-sm-9">
         <%= form.check_box :actived %>
       </div>
     </div>
 
     <div class="row mb-3">
-      <%= form.label :rol, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <%= form.label :role, "Rol", style: "display: block", class:"col-sm-3 col-form-label" %>
       <div class="col-sm-9">
         <%= form.text_field :role, class:"form-control", placeholder:"Cargo o rol" %>
       </div>

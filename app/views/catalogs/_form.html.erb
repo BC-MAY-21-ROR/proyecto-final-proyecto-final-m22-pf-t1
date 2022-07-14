@@ -17,35 +17,35 @@
     <% end %>
 
     <div class="row mb-3">
-      <%= form.label :referencia, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <%= form.label :reference, "Referencia", style: "display: block", class:"col-sm-3 col-form-label" %>
       <div class="col-sm-9">
         <%= form.text_field :reference, class:"form-control", placeholder:"Referencia" %>
       </div>
     </div>
 
     <div class="row mb-3">
-      <%= form.label :nombre, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <%= form.label :name, "Nombre", style: "display: block", class:"col-sm-3 col-form-label" %>
       <div class="col-sm-9">
         <%= form.text_field :name, class:"form-control", placeholder:"Nombre del producto" %>
       </div>
     </div>
 
     <div class="row mb-3">
-      <%= form.label :descripción, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <%= form.label :description, "Descripción", style: "display: block", class:"col-sm-3 col-form-label" %>
       <div class="col-sm-9">
         <%= form.text_area :description, class:"form-control", placeholder:"Nombre del producto" %>
       </div>
     </div>
 
     <div class="row mb-3">
-      <%= form.label :precio, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <%= form.label :price, "Precio", style: "display: block", class:"col-sm-3 col-form-label" %>
       <div class="col-sm-9">
         <%= form.number_field :price, class:"form-control", placeholder:"Precio" %>
       </div>
     </div>
 
     <div class="row mb-3">
-      <%= form.label :activado, style: "display: block", class:"col-sm-3 col-form-label" %>
+      <%= form.label :actived, "Activo", style: "display: block", class:"col-sm-3 col-form-label" %>
       <div class="col-sm-9">
         <%= form.check_box :actived %>
       </div>
