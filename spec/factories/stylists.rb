@@ -1,10 +1,9 @@
-# frozen_string_literal: true
-
 FactoryBot.define do
   factory :stylist do
-    dni { 'MyString' }
-    name { 'MyString' }
+    dni { "MyString" }
+    name { "MyString" }
+    role { "MyString" }
     actived { false }
-    role { 'MyString' }
+    business { nil }
   end
 end

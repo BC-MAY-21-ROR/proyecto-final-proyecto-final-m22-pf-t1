@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'home#index'
   resources :stylists
   resources :businesses
-  resources :catalogs
+  resources :order_items
+  resources :invoices
+  resources :payments
+  resources :subcategories
+  resources :categories
+  resources :products
+  resources :customers
+  root 'home#index'
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+  devise_for :users
+  
 end
