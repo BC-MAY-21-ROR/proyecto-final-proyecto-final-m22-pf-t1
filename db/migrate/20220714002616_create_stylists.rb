@@ -9,5 +9,6 @@ class CreateStylists < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_index :stylists, :dni, unique: true
   end
 end
