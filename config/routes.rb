@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  root 'home#index'
+  
+  devise_for :users
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
   resources :stylists
   resources :businesses
   resources :order_items
@@ -8,10 +15,5 @@ Rails.application.routes.draw do
   resources :categories
   resources :products
   resources :customers
-  root 'home#index'
-  devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
-  devise_for :users
   
 end

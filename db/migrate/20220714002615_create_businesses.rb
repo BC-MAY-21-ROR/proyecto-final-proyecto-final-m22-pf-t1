@@ -3,7 +3,7 @@ class CreateBusinesses < ActiveRecord::Migration[7.0]
     create_table :businesses do |t|
       t.string :name
       t.string :nit, unique: true
-      t.string :country
+      t.string :country, default: "Colombia"
       t.string :city
       t.string :telephone
       t.string :email
