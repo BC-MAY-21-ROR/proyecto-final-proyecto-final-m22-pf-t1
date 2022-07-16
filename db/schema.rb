@@ -89,6 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_235538) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["reference"], name: "index_products_on_reference"
   end
 
   create_table "stylists", force: :cascade do |t|
