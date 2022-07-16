@@ -1,0 +1,52 @@
+<div class="card col-lg-4">
+  <div class="card-header">
+    Estilista
+  </div>
+  <div class="card-body">
+    <%= form_with(model: stylist) do |form| %>
+    <% if stylist.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(stylist.errors.count, "error") %> prohibited this stylist from being saved:</h2>
+
+        <ul>
+          <% stylist.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="row mb-3">
+      <%= form.label :dni, "DNI", style: "display: block", class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= form.text_field :dni, class:"form-control", placeholder:"Documento de identidad" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <%= form.label :name, "Nombre", style: "display: block", class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= form.text_field :name, class:"form-control", placeholder:"Nombre y apellido" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <%= form.label :role, "Rol", style: "display: block", class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= form.text_field :role, class:"form-control", placeholder:"Cargo o rol" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <%= form.label :actived, "Activo", style: "display: block", class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= form.check_box :actived %>
+      </div>
+    </div>
+   
+      <%= form.submit class:"btn btn-primary" %>
+    </div>
+  <% end %>    
+  </div>
+</div>
+

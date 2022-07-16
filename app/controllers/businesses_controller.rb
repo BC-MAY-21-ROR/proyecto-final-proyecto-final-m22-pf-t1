@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Create Logic for Business 
+# Create Logic for Business
 class BusinessesController < ApplicationController
   before_action :set_business, only: %i[show edit update destroy]
 
