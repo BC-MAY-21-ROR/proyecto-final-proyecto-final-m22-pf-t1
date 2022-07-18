@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_235538) do
   create_table "businesses", force: :cascade do |t|
     t.string "name"
     t.string "nit"
-    t.string "country"
+    t.string "country", default: "Colombia"
     t.string "city"
     t.string "telephone"
     t.string "email"
@@ -70,7 +70,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_235538) do
   create_table "payments", force: :cascade do |t|
     t.datetime "date", null: false
     t.bigint "invoice_id", null: false
-    t.integer "value"
+    t.integer "value", null: false
     t.string "type"
     t.string "note"
     t.datetime "created_at", null: false
@@ -84,22 +84,25 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_235538) do
     t.text "description"
     t.integer "price", null: false
     t.boolean "actived", default: true
-    t.float "cannon", default: 0.0
+    t.decimal "cannon", default: "0.0"
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["reference"], name: "index_products_on_reference", unique: true
   end
 
   create_table "stylists", force: :cascade do |t|
     t.string "dni", null: false
     t.string "name"
+    t.string "telephone"
     t.string "role"
-    t.boolean "actived"
+    t.boolean "actived", default: true
     t.bigint "business_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["business_id"], name: "index_stylists_on_business_id"
+    t.index ["dni"], name: "index_stylists_on_dni", unique: true
   end
 
   create_table "subcategories", force: :cascade do |t|
