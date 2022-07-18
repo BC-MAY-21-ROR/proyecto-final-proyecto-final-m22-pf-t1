@@ -25,16 +25,16 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     if @customer.save
-      redirect_to customer_url(@customer), notice: 'Customer was successfully created.' 
+      redirect_to customer_url(@customer), notice: 'Customer was successfully created.'
     else
-      render :new, status: :unprocessable_entity 
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /customers/1 or /customers/1.json
   def update
     if @customer.update(customer_params)
-      redirect_to customer_url(@customer), notice: 'Customer was successfully updated.' 
+      redirect_to customer_url(@customer), notice: 'Customer was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
