@@ -95,6 +95,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_235538) do
   create_table "stylists", force: :cascade do |t|
     t.string "dni", null: false
     t.string "name"
+    t.string "telephone"
     t.string "role"
     t.boolean "actived", default: true
     t.bigint "business_id", null: false
