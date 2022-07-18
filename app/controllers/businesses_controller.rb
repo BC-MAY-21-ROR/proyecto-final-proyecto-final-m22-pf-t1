@@ -22,7 +22,7 @@ class BusinessesController < ApplicationController
 
   # POST /businesses or /businesses.json
   def create
-    @business = Business.new(business_params)
+    @business = current_user.create_business(business_params)
 
     respond_to do |format|
       if @business.save
