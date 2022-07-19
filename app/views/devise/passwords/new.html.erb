@@ -1,16 +1,26 @@
-<h2>Forgot your password?</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="card col-4">
+  <div class="card-body p-4 p-sm-5">
+  <div class="row flex-between-center mb-2">
+  <div class="col-auto"><h5>Olvidaste tu contraseña?</h5></div>
+    <section data-dashlane-rid="fa3f30e7db01eedc" data-form-type="sing up">
+        <p class="col-auto">*Por favor llena los campos correspondientes<br>
+        </p>
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="mb-3"><br>
+          <%= f.label :email, "Ingresa tu correo electronico" ,class:"col-auto" %><br />
+             <%= f.email_field :email, autofocus: true, autocomplete: "correo electronico", class:"form-control" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Enviarme las instrucciones para cambiar mi contraseña", class:"btn btn-primary d-block w-100 mt-3" %>
+        </div>
+        <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <%= link_to "Iniciar sesion", user_session_path, method: :get, class:"col-auto fs--1 text-600 mb-0 undefined" %>
+        <p>ó</p>
+        <%= link_to "Registrarse", new_user_registration_path, method: :get, class:"col-auto fs--1 text-600 mb-0 undefined" %>
+    </section>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    </div>
+</div>

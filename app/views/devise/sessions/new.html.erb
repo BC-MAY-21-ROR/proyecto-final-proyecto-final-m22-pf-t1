@@ -1,32 +1,35 @@
-<body class="backgroud">
-  <div class="box1">
-    <section class="box2">
-        <%= image_tag 'serenity_logo_negro.png', class:"logo"%>
-        <p class="description">*Please fill in your unique admin login details below<br>
+
+<div class="card col-4">
+  <div class="card-body p-4 p-sm-5">
+  <div class="row flex-between-center mb-2">
+  <div class="col-auto"><h5>Iniciar sesion</h5></div>
+  <div class="col-auto fs--1 text-600"><span class="mb-0 undefined">o</span> <%= link_to "Registrarse", new_user_registration_path, method: :get, class:"col-auto fs--1 text-600 mb-0 undefined" %></div>
+    <section data-dashlane-rid="fa3f30e7db01eedc" data-form-type="login">
+        <p class="col-auto">*Ingresa tu correo electronico y contraseña para acceder como administrador<br>
         </p>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field mail"><br>
-          <%= f.label :email, "Email address", class:"label_devise" %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input_devise" %>
+        <div class="mb-3"><br>
+          <%= f.label :email, "Correo Electronico", class:"col-auto" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
         </div>
-        <div class="field pass"><br>
-          <%= f.label :password, "Password", class:"label_devise" %><br />
-            <%= f.password_field :password, autocomplete: "current-password", class:"input_devise" %>
+        <div class="mb-3"><br>
+          <%= f.label :password, "Contraseña", class:"col-auto" %><br />
+            <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
         </div>
         <% if devise_mapping.rememberable? %>
-        <div class="field remember">
+        <div class="form-check mb-0">
           <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
+              <%= f.label :remember_me, "Recordar usuario" %>
         </div>
         <% end %>
-          <div class="link_s"><br>
-              <%= render "devise/shared/links" %>
-            </div>
-          <div class="login"><br>
-            <%= f.submit "Sign in", class:"button_login" %>
+          <div class="mb-3"><br>
+            <%= f.submit "Iniciar Sesion", class:"btn btn-primary d-block w-100 mt-3" %>
           </div>
         <% end %>
+        </div>
+          <%= link_to "Olvido su contraseña?", new_user_password_path, method: :get, class:"col-auto fs--1 text-600 mb-0 undefined" %>
+        </div>
     </section>
 
     </div>
-</body>
+</div>
