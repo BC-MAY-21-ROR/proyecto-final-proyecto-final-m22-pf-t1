@@ -1,26 +1,53 @@
 
-<div class="card col-4">
-  <div class="card-body p-4 p-sm-5">
-  <div class="row flex-between-center mb-2">
-  <div class="col-auto"><h5>Olvidaste tu contraseña?</h5></div>
-    <section data-dashlane-rid="fa3f30e7db01eedc" data-form-type="sing up">
-        <p class="col-auto">*Por favor llena los campos correspondientes<br>
-        </p>
-        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-            <%= render "devise/shared/error_messages", resource: resource %>
-        <div class="mb-3"><br>
-          <%= f.label :email, "Ingresa tu correo electronico" ,class:"col-auto" %><br />
-             <%= f.email_field :email, autofocus: true, autocomplete: "correo electronico", class:"form-control" %>
+<div class="bg-primary">
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Cambio de contraseña</h3></div>
+                                    <div class="card-body">
+                                        <div class="small mb-3 text-muted">Ingresa tu correo electronico y enviaremos las instrucciones para cambiar tu contraseña.</div>
+                                        <section>
+                                        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+                                          <%= render "devise/shared/error_messages", resource: resource %>
+                                            <div class="form-floating mb-3">
+                                               <%= f.label :email, "Correo electronico" ,class:"col-auto" %><br />
+                                                <%= f.email_field :email, autofocus: true, autocomplete: "correo electronico", class:"form-control" %>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                                <a><%= link_to "Volver al Inicio", user_session_path, method: :get, class:"col-auto fs--1 text-600 mb-0 undefined" %></a>
+                                                <a><%= f.submit "Cambiar mi contraseña", class:"btn btn-primary d-block w-100 mt-3" %></a>
+                                            </div>
+                                            <% end %>
+                                        </section>
+                                    </div>
+                                    <div class="card-footer text-center py-3">
+                                        <div class="small"><a><%= link_to "Registrarse", new_user_registration_path, method: :get, class:"col-auto fs--1 text-600 mb-0 undefined" %></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <div id="layoutAuthentication_footer">
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; SERENITY 2022</div>
+                            <div>
+                                <a href="#">Politicas de privacidad</a>
+                                &middot;
+                                <a href="#">Terminos &amp; Condiciones</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
         </div>
-        <div class="actions">
-          <%= f.submit "Enviarme las instrucciones para cambiar mi contraseña", class:"btn btn-primary d-block w-100 mt-3" %>
-        </div>
-        <% end %>
-
-        <%= link_to "Iniciar sesion", user_session_path, method: :get, class:"col-auto fs--1 text-600 mb-0 undefined" %>
-        <p>ó</p>
-        <%= link_to "Registrarse", new_user_registration_path, method: :get, class:"col-auto fs--1 text-600 mb-0 undefined" %>
-    </section>
-
-    </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
 </div>
