@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# invoices
+# Create Logic for Invoices
 class InvoicesController < ApplicationController
   before_action :set_invoice, only: %i[show edit update destroy]
 
@@ -8,10 +8,21 @@ class InvoicesController < ApplicationController
   def index
     @invoices = Invoice.all
   end
+
+  # GET /invoices/1 or /invoices/1.json
+  def show; end
+
   # GET /invoices/new
   def new
     @invoice = Invoice.new
+    @invoice.order_items.build
   end
+
+  # GET /invoices/1/edit
+  def edit
+    @invoice.order_items.build
+  end
+
   # POST /invoices or /invoices.json
   def create
     @invoice = Invoice.new(invoice_params)
@@ -19,18 +30,23 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       if @invoice.save
         format.html { redirect_to invoice_url(@invoice), notice: 'Invoice was successfully created.' }
+        format.json { render :show, status: :created, location: @invoice }
       else
         format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @invoice.errors, status: :unprocessable_entity }
       end
     end
   end
+
   # PATCH/PUT /invoices/1 or /invoices/1.json
   def update
     respond_to do |format|
       if @invoice.update(invoice_params)
         format.html { redirect_to invoice_url(@invoice), notice: 'Invoice was successfully updated.' }
+        format.json { render :show, status: :ok, location: @invoice }
       else
         format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @invoice.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,6 +57,7 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to invoices_url, notice: 'Invoice was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 
@@ -52,7 +69,9 @@ class InvoicesController < ApplicationController
   end
 
   # Only allow a list of trusted parameters through.
+
   def invoice_params
-    params.require(:invoice).permit(:date, :amount, :customer_id)
+    params.require(:invoice).permit(:date, :amount, :customer_id,
+                                    order_items_attributes: %i[id quantity adjustment stylist_id product_id _destroy])
   end
 end

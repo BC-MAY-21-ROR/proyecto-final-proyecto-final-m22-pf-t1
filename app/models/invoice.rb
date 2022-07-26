@@ -5,5 +5,5 @@ class Invoice < ApplicationRecord
 
   has_many :order_items, dependent: :destroy
 
-  accepts_nested_attributes_for :order_items, reject_if: proc { |attr| attr['stylist_id'].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :order_items
 end
