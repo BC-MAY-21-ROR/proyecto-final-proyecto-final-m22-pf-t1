@@ -7,13 +7,12 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-   resources :invoices do
-	 resources :order_items
+  resources :invoices do
+	  resources :order_items
 	end
 	 
- resources :stylists
+  resources :stylists
   resources :businesses
- 
   resources :payments
   resources :subcategories
   resources :categories
