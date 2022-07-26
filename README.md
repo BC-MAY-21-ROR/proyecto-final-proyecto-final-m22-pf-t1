@@ -9,7 +9,7 @@ Los propietarios de peluquerías y salones de belleza tienen una baja cultura de
 
 | Sprint 1 | Sprint 2 | Sprint 3 | Sprint 4 | Sprint 5 | Sprint 6 | Sprint 7 | Sprint 8 |
 |---|---|---|---|---|---|---|---|
-| Diego | Juan | Edward |
+| Diego | Juan | Edward |Alex
 
 ## Solución
 
@@ -19,25 +19,25 @@ Sistema de gestión para peluquerías, barberías y salones de belleza. Solució
 
 > Como **Administrador del sistema**, quiero configurar mi salón y definir reglas operacionales. 
 
-- [ ]	Crear negocio o salón
-- [ ]	Administrar productos y/o servicios
-- [ ] Gestionar colaboradores
-- [ ]	Establecer canones o comisiones
+- [x]	Crear negocio o salón
+- [x]	Administrar productos y/o servicios
+- [x] Gestionar colaboradores
+- [x]	Establecer canones o comisiones
 
 > Como **Cajero**, necesito facturar en menos de un minuto para evitar fatiga en los clientes.
 
-- [ ]	Asignar cliente a factura
-- [ ]	Asignar productos a factura
-- [ ]	Asignación de colaborador x cada item
+- [x]	Asignar cliente a factura
+- [x]	Asignar productos a factura
+- [x]	Asignación de colaborador x cada item
 - [ ]	calcular totales y subtotales
 - [ ]	Definir metodo de pago 
 - [ ]	Permitir pagos de contado y a crédito
 
 > Como **Cajero**, requiero añadir préstamos y anticipos entregados a colaboradores, para que sean descontados al realizar la nómina.
 
-- [ ] Multas
-- [ ] Descuentos
-- [ ] Préstamos
+- [x] Multas
+- [x] Descuentos
+- [x] Préstamos
 
 > Como **Cajero**, necesito disponer de los saldos de deudores, para realizar cobros en términos de vencimiento y exactitud.
 
@@ -64,11 +64,11 @@ Sistema de gestión para peluquerías, barberías y salones de belleza. Solució
 ## Requerimientos no funcionales
 
 - [ ] Despliegue en la nube (Heroku, Google, Azure, Amazon)
-- [ ] Base de datos Postgres
+- [x] Base de datos Postgres
 - [ ] Diseño responsivo
-- [ ] Ruby on rails 7
-- [ ] Utilizar SandiMeter para analizar el código y refactorizar el código
-- [ ] Puntuación en Rubycritic 90 en la carpeta de la App y al menos 65 en las pruebas
+- [x] Ruby on rails 7
+- [x] Utilizar SandiMeter para analizar el código y refactorizar el código
+- [x] Puntuación en Rubycritic 90 en la carpeta de la App y al menos 65 en las pruebas
 - [ ] Pruebas unitarias (TDD) 
 
 ## Plan de ejecución

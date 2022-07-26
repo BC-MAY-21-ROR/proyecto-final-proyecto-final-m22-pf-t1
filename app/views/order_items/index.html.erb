@@ -1,0 +1,35 @@
+
+<h2> <strong><%= @invoice.customer.business.name%></strong></h2>
+<h3>Factura : <strong><%= @invoice.id%></strong></h3>
+<h3>Fecha : <strong><%= @invoice.date%></strong></h3>
+<h3>Cliente : <strong><%= @invoice.customer.full_name%></strong></h3>
+<strong>Agregar articulos</strong>
+<table>
+  <tr>
+    <td>Producto</td>
+    <td>Cantidad </td>
+    <td>Precio </td>
+    <td> Ajuste </td>
+    <td>Estilista</td>
+  </tr>
+<tbody>
+<div id="order_items">
+  <% @order_items.each do |item| %>
+  <tr>
+    <td><%=item.product.name %></td>
+    <td><%=item.quantity %></td>
+    <td><%=item.product.price %></td>
+     <td><%=item.adjustment %></td>
+    <td><%=item.stylist.name %></td>
+  </tr>
+  <% end %>
+  <tr>
+    <td> <strong>Subtotal</strong></td>
+    <td><strong><%= @sub_total %></strong></td>
+  </tr>
+</div>
+</tbody>
+</table>
+
+<%= link_to "New order item", new_invoice_order_item_path %>
+  <%= link_to "Back to invoices", invoices_path %>

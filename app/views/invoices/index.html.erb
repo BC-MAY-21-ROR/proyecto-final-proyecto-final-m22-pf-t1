@@ -1,0 +1,46 @@
+
+<div class="container">
+<div class="row">
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-header">
+        <%= link_to "Nueva factura", new_invoice_path, class:"btn btn-primary float-end" %>
+        <h4 class="card-title">Facturas</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Factura</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Artículos</th>
+      <th scope="col">Monto</th>
+      <th scope="col">Cliente</th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+  <% @invoices.each do |invoice| %>
+    <tr>
+      <th scope="row"><%= invoice.id %></th>
+      <td><%= invoice.date %></td>
+      <td><%= invoice.order_items.count  %></td>
+      <td><%= invoice.amount  %></td>
+      <td><%= invoice.customer.full_name  %></td>
+      <td><%= link_to "Detalle",invoice,  class:"btn btn-info float-end"   %></td>
+
+    </tr>
+    <tr>
+
+  <% end %>
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
