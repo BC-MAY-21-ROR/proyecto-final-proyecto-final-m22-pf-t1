@@ -1,14 +1,11 @@
 # frozen_string_literal: true
 
-# calculate total amount
 class OrderItemsController < ApplicationController
   before_action :set_order_item, only: %i[show edit update destroy]
-  before_action :get_invoice
 
   # GET /order_items or /order_items.json
   def index
-    @order_items = @invoice.order_items
-    get_sub_total
+    @order_items = OrderItem.all
   end
 
   # GET /order_items/1 or /order_items/1.json
@@ -16,7 +13,7 @@ class OrderItemsController < ApplicationController
 
   # GET /order_items/new
   def new
-    @order_item = @invoice.order_items.build
+    @order_item = OrderItem.new
   end
 
   # GET /order_items/1/edit
@@ -24,15 +21,15 @@ class OrderItemsController < ApplicationController
 
   # POST /order_items or /order_items.json
   def create
-    @order_item = @invoice.order_items.build(order_item_params)
-
-    OrderItem.new(order_item_params)
+    @order_item = OrderItem.new(order_item_params)
 
     respond_to do |format|
       if @order_item.save
-        format.html { redirect_to invoice_order_items_path(@invoice), notice: 'Order item was successfully created.' }
+        format.html { redirect_to order_item_url(@order_item), notice: 'Order item was successfully created.' }
+        format.json { render :show, status: :created, location: @order_item }
       else
         format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @order_item.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,9 +38,11 @@ class OrderItemsController < ApplicationController
   def update
     respond_to do |format|
       if @order_item.update(order_item_params)
-        format.html { redirect_to invoice_order_items_path(@invoice), notice: 'Order item was successfully updated.' }
+        format.html { redirect_to order_item_url(@order_item), notice: 'Order item was successfully updated.' }
+        format.json { render :show, status: :ok, location: @order_item }
       else
         format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @order_item.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,29 +53,19 @@ class OrderItemsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to order_items_url, notice: 'Order item was successfully destroyed.' }
-    end
-  end
-
-  def get_sub_total
-    @sub_total = 0
-    @order_items.each do |item|
-      @sub_total += ((item.quantity * item.product.price) + item.adjustment)
+      format.json { head :no_content }
     end
   end
 
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def get_invoice
-    @invoice = Invoice.find(params[:invoice_id])
-  end
-
   def set_order_item
     @order_item = OrderItem.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def order_item_params
-    params.require(:order_item).permit(:quantity, :adjustment, :stylist_id, :invoice_id, :product_id)
+    params.require(:order_item).permit(:invoice_id, :quantity, :adjustment, :stylist_id, :product_id)
   end
 end

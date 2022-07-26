@@ -5,6 +5,8 @@
 <br>
 
 <div>
-  <%= link_to "Show this order item", @order_item %> |
-  <%= link_to "Back to order items", order_items_path %>
+  <%= link_to "Show this order item", [@invoice, @order_item]  %> |
+  <%= link_to "Back to order items", invoice_order_items_path(@invoice) %>
+  <%= link_to 'Edit', invoice_order_items_path(@invoice, @order_item) %> |
+<%= link_to 'Back', invoice_order_items_path(@invoice) %>
 </div>
