@@ -1,3 +1,5 @@
+
+
 <%= form_with(model: invoice) do |form| %>
   <% if invoice.errors.any? %>
     <div style="color: red">
@@ -25,6 +27,39 @@
     <%= form.label :customer_id, style: "display: block" %>
     <%= form.text_field :customer_id %>
   </div>
+ <h2>Artículos </h2>
+
+<%= form.fields_for :order_items do | item | %>
+
+  <div>
+    <%= item.label :quantity, style: "display: block" %>
+    <%= item.number_field :quantity %>
+  </div>
+
+  <div>
+    <%= item.label :adjustment, style: "display: block" %>
+    <%= item.number_field :adjustment %>
+  </div>
+
+  <div>
+    <%= item.label :stylist_id, style: "display: block" %>
+    <%= item.text_field :stylist_id %>
+  </div>
+
+
+  <div>
+    <%= item.label :product_id, style: "display: block" %>
+    <%= item.text_field :product_id %>
+  </div>
+
+  <div >
+        <%= item.label :_destroy, "borrar" %><br>
+        <%= item.check_box :_destroy %>
+      </div>
+
+
+
+<% end %>
 
   <div>
     <%= form.submit %>
