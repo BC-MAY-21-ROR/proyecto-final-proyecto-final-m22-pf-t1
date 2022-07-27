@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :deductions
   root 'home#index'
   
   devise_for :users
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
 	  resources :order_items
 	end
 	 
+  resources :deductions
   resources :stylists
   resources :businesses
   resources :payments
