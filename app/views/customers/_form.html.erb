@@ -1,67 +1,70 @@
-<div class="card col-lg-4">
-  <div class="card-header">
-    Cliente
-  </div>
-  <div class="card-body">
-    <%= form_with(model: customer) do |form| %>
-    <% if customer.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
-
-        <ul>
-          <% customer.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="row mb-3">
-      <%= form.label :dni, "DNI", style: "display: block", class:"col-sm-3 col-form-label" %>
-      <div class="col-sm-9">
-        <%= form.text_field :dni, class:"form-control", placeholder:"Documento de identidad" %>
-      </div>
+<div class="container">
+  <div class="card col-lg-4">
+    <div class="card-header">
+      Cliente
     </div>
+    <div class="card-body">
+      <%= form_with(model: customer) do |form| %>
+      <% if customer.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
 
-    <div class="row mb-3">
-      <%= form.label :full_name, "Nombre", style: "display: block", class:"col-sm-3 col-form-label" %>
-      <div class="col-sm-9">
-        <%= form.text_field :full_name, class:"form-control", placeholder:"Nombre y apellido" %>
-      </div>
-    </div>
+          <ul>
+            <% customer.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-    <div class="row mb-3">
-      <%= form.label :telephone, "Teléfono", style: "display: block", class:"col-sm-3 col-form-label" %>
-      <div class="col-sm-9">
-        <%= form.text_field :telephone, class:"form-control", placeholder:"Teléfono" %>
+      <div class="row mb-3">
+        <%= form.label :dni, "DNI", style: "display: block", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-8">
+          <%= form.text_field :dni, class:"form-control", placeholder:"Documento de identidad" %>
+        </div>
       </div>
-    </div>
 
-    <div class="row mb-3">
-      <%= form.label :birthday, "Cumpleaños", style: "display: block", class:"col-sm-3 col-form-label" %>
-      <div class="col-sm-9">
-        <%= form.text_field :birthday, class:"form-control", placeholder:"Cumpleaños" %>
+      <div class="row mb-3">
+        <%= form.label :full_name, "Nombre", style: "display: block", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-8">
+          <%= form.text_field :full_name, class:"form-control", placeholder:"Nombre y apellido" %>
+        </div>
       </div>
-    </div>
 
-    <div class="row mb-3">
-      <%= form.label :email, "Correo", style: "display: block", class:"col-sm-3 col-form-label" %>
-      <div class="col-sm-9">
-        <%= form.text_field :email, class:"form-control", placeholder:"Correo electrónico" %>
+      <div class="row mb-3">
+        <%= form.label :telephone, "Teléfono", style: "display: block", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-8">
+          <%= form.text_field :telephone, class:"form-control", placeholder:"Teléfono" %>
+        </div>
       </div>
-    </div>
 
-    <div class="row mb-3">
-      <%= form.label :business_id, style: "display: block", class:"col-sm-3 col-form-label" %>
-      <div class="col-sm-9">
-        <%= form.text_field :business_id, class:"form-control", placeholder:"business_id" %>
+      <div class="row mb-3">
+        <%= form.label :birthday, "Cumpleaños", style: "display: block", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-8">
+          <%= form.text_field :birthday, class:"form-control", placeholder:"Cumpleaños" %>
+        </div>
       </div>
+
+      <div class="row mb-3">
+        <%= form.label :email, "Correo", style: "display: block", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-8">
+          <%= form.text_field :email, class:"form-control", placeholder:"Correo electrónico" %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <%= form.label :business_id, style: "display: block", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-8">
+          <%= form.text_field :business_id, class:"form-control", placeholder:"business_id"  %>
+        </div>
+      </div>
+      
+      <div>
+        <%= link_to "Back to customers", customers_path, class:"btn btn-outline-secondary" %>
+        <%= form.submit class:"btn btn-primary" %>
+      </div>
+    <% end %>    
     </div>
-    
-    <div>
-      <%= form.submit class:"btn btn-primary" %>
-    </div>
-  <% end %>    
   </div>
 </div>
 
