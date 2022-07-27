@@ -1,38 +1,46 @@
-<div id="<%= dom_id business %>">
-  <p>
-    <strong>Name:</strong>
-    <%= business.name %>
-  </p>
-
-  <p>
-    <strong>Nit:</strong>
-    <%= business.nit %>
-  </p>
-
-  <p>
-    <strong>Country:</strong>
-    <%= business.country %>
-  </p>
-
-  <p>
-    <strong>City:</strong>
-    <%= business.city %>
-  </p>
-
-  <p>
-    <strong>Telephone:</strong>
-    <%= business.telephone %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= business.email %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= business.user_id %>
-  </p>
-
+<div class="container">
+  <div id="<%= dom_id business %>">
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        <h4 class="card-title">My business</h4>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <strong>Name:</strong>
+          <%= business.name %>
+        </li>
+        <li class="list-group-item">
+        <strong>Nit:</strong>
+        <%= business.nit %>
+        </li>
+        <li class="list-group-item">
+        <strong>Country:</strong>
+          <%= business.country %>
+        </li>
+        <li class="list-group-item">
+        <strong>City:</strong>
+          <%= business.city %>
+        </li>
+        <li class="list-group-item">
+        <strong>Telephone:</strong>
+          <%= business.telephone %>
+        </li>
+        <li class="list-group-item">
+        <strong>Email:</strong>
+          <%= business.email %>
+        </li>
+        <li class="list-group-item">
+        <strong>Telephone:</strong>
+          <%= business.telephone %>
+        </li>
+        <li class="list-group-item">
+        <strong>User:</strong>
+          <%= business.user_id %>
+        </li>
+      </ul>
+      <div class="card-footer">
+         <%# link_to "Edit this business", edit_business_path(@business), class:"btn btn-primary" %> | 
+      </div>
+    </div>
+  </div>
 </div>
-

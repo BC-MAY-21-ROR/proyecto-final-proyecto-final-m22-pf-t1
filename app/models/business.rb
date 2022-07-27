@@ -6,4 +6,5 @@ class Business < ApplicationRecord
   has_many :stylists, dependent: :destroy
 
   validates :name, presence: true
+  validates :user, presence: true, uniqueness: { message: 'The business has a owner' }
 end
