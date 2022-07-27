@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Create products for business
 class Product < ApplicationRecord
   belongs_to :category
 
