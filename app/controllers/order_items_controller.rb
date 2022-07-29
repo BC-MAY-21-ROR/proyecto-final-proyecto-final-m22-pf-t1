@@ -4,6 +4,8 @@
 class OrderItemsController < ApplicationController
   before_action :set_order_item, only: %i[show edit update destroy]
   before_action :get_invoice
+  before_action :get_products
+  before_action :get_stylists
 
   # GET /order_items or /order_items.json
   def index
@@ -62,6 +64,15 @@ class OrderItemsController < ApplicationController
     @order_items.each do |item|
       @sub_total += ((item.quantity * item.product.price) + item.adjustment)
     end
+    @invoice.update(amount: @sub_total) if @sub_total > 0
+  end
+
+  def get_products
+    @products=Product.select(:id, :reference, :description).all
+  end
+
+  def get_stylists
+    @stylists=Stylist.select(:id, :name).all
   end
 
   private

@@ -11,16 +11,19 @@
     <td>Precio </td>
     <td> Ajuste </td>
     <td>Estilista</td>
+    <td>Opciones</td>
   </tr>
 <tbody>
 <div id="order_items">
   <% @order_items.each do |item| %>
   <tr>
-    <td><%=item.product.name %></td>
-    <td><%=item.quantity %></td>
+    <td><%= item.product.reference %></td>
+    <td><%= item.quantity %></td>
     <td><%=item.product.price %></td>
      <td><%=item.adjustment %></td>
     <td><%=item.stylist.name %></td>
+    <td><%= link_to 'Edit', edit_invoice_order_item_path(@invoice,item) %>
+      <td>
   </tr>
   <% end %>
   <tr>
@@ -31,5 +34,6 @@
 </tbody>
 </table>
 
-<%= link_to "New order item", new_invoice_order_item_path %>
+<%= link_to "Agregar item", new_invoice_order_item_path %>
   <%= link_to "Back to invoices", invoices_path %>
+  <%= button_to "Destroy ", @invoice, method: :delete %>
