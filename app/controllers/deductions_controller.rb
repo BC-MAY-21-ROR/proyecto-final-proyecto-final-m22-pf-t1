@@ -20,23 +20,23 @@ class DeductionsController < ApplicationController
     @deduction = Deduction.new(deduction_params)
 
     if @deduction.save
-      redirect_to deductions_url, notice: 'Deduction was successfully created.' 
+      redirect_to deductions_url, notice: 'Deduction was successfully created.'
     else
-      render :new, status: :unprocessable_entity 
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
     if @deduction.update(deduction_params)
-      redirect_to deductions_url, notice: 'Deduction was successfully updated.' 
+      redirect_to deductions_url, notice: 'Deduction was successfully updated.'
     else
-      render :edit, status: :unprocessable_entity 
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @deduction.destroy
-    redirect_to deductions_url, notice: 'Deduction was successfully destroyed.' 
+    redirect_to deductions_url, notice: 'Deduction was successfully destroyed.'
   end
 
   private

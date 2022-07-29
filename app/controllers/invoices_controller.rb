@@ -8,10 +8,12 @@ class InvoicesController < ApplicationController
   def index
     @invoices = Invoice.all
   end
+
   # GET /invoices/new
   def new
     @invoice = Invoice.new
   end
+
   # POST /invoices or /invoices.json
   def create
     @invoice = Invoice.new(invoice_params)
@@ -24,6 +26,7 @@ class InvoicesController < ApplicationController
       end
     end
   end
+
   # PATCH/PUT /invoices/1 or /invoices/1.json
   def update
     respond_to do |format|

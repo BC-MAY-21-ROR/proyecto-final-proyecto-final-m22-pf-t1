@@ -18,18 +18,18 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-      if @product.save
-        redirect_to products_url, notice: 'Product was successfully created.'
-      else
-        render :new, status: :unprocessable_entity
-      end
+    if @product.save
+      redirect_to products_url, notice: 'Product was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def update
     if @product.update(product_params)
       redirect_to products_url, notice: 'Product was successfully updated.'
     else
-      render :edit, status: :unprocessable_entity 
+      render :edit, status: :unprocessable_entity
     end
   end
 
