@@ -19,31 +19,24 @@ class DeductionsController < ApplicationController
   def create
     @deduction = Deduction.new(deduction_params)
 
-    respond_to do |format|
-      if @deduction.save
-        format.html { redirect_to deduction_url(@deduction), notice: 'Deduction was successfully created.' }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @deduction.save
+      redirect_to deductions_url, notice: 'Deduction was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    respond_to do |format|
-      if @deduction.update(deduction_params)
-        format.html { redirect_to deduction_url(@deduction), notice: 'Deduction was successfully updated.' }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+    if @deduction.update(deduction_params)
+      redirect_to deductions_url, notice: 'Deduction was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @deduction.destroy
-
-    respond_to do |format|
-      format.html { redirect_to deductions_url, notice: 'Deduction was successfully destroyed.' }
-    end
+    redirect_to deductions_url, notice: 'Deduction was successfully destroyed.'
   end
 
   private

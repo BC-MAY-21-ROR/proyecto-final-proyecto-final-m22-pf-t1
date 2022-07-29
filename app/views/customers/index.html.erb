@@ -32,11 +32,9 @@
               <button type="button" class="btn btn-info">
 							<%= link_to "", edit_customer_path(customer), class:"bi bi-pencil text-white" %> 
               </button>
-              <button type="button" class="btn btn-warning">
-							<%= link_to "", edit_customer_path(customer), class:"bi bi-plug text-white" %> 
-              </button>
               <button type="button" class="btn btn-danger">
-							<%= link_to "", edit_customer_path(customer), class:"bi bi-trash text-white" %> 
+							<%= link_to "", customer_path(customer),  data: {turbo_method: :delete, 
+								turbo_confirm: "Are you sure?" }, class:"bi bi-trash text-white" %>  
               </button>
             </td>
 					</tr>

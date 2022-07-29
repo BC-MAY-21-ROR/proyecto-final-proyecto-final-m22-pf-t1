@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Create a deduction for stylist
 class Deduction < ApplicationRecord
   belongs_to :stylist
 

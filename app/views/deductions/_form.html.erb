@@ -1,59 +1,62 @@
-<div class="card col-lg-4">
-  <div class="card-header">
-    Deducciones 
-  </div>
-  <div class="card-body">
-    <%= form_with(model: deduction) do |form| %>
-    <% if deduction.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(deduction.errors.count, "error") %> prohibited this deduction from being saved:</h2>
-
-        <ul>
-          <% deduction.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="row mb-3">
-      <%= form.label :date, style: "display: block", class:"col-sm-3 col-form-label" %>
-      <div class="col-sm-9">
-        <%= form.datetime_field :date, value: DateTime.now.strftime("%Y-%m-%dT%T") %>
-      </div>
+<div class="container">
+  <div class="card col-lg-4">
+    <div class="card-header">
+      Deducciones 
     </div>
+    <div class="card-body px-2">
+      <%= form_with(model: deduction) do |form| %>
+      <% if deduction.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(deduction.errors.count, "error") %> prohibited this deduction from being saved:</h2>
 
-    <div class="row mb-3">
-      <%= form.label :amount, style: "display: block", class:"col-sm-3 col-form-label" %>
-      <div class="col-sm-9">
-        <%= form.number_field :amount, step: 1000, class:"form-control" %>
+          <ul>
+            <% deduction.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="row mb-3">
+        <%= form.label :date, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-9">
+          <%= form.datetime_field :date, value: DateTime.now.strftime("%Y-%m-%dT%T"),  class:'form-select' %>
+        </div>
       </div>
-    </div>
 
-    <div class="row mb-3">
-      <%= form.label :stylist_id, style: "display: block", class:"col-sm-3 col-form-label" %>
-      <div class="col-sm-9">
-        <%= form.collection_select :stylist_id, Stylist.order(:name), :id, :name %>
+      <div class="row mb-3">
+        <%= form.label :amount, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-9">
+          <%= form.number_field :amount, min: 1000, step: 1000, class:"form-control" %>
+        </div>
       </div>
-    </div>
 
-    <div class="row mb-3">
-      <%= form.label :description, style: "display: block", class:"col-sm-3 col-form-label" %>
-      <div class="col-sm-9">
-        <%= form.text_area :description, class:"form-control", placeholder:"Descripción" %>
+      <div class="row mb-3">
+        <%= form.label :stylist_id, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-9">
+          <%= form.collection_select :stylist_id, Stylist.order(:name), :id, :name, {}, class:'form-select' %>
+        </div>
       </div>
-    </div>
 
-    <div class="row mb-3">
-      <%= form.label :telephone, style: "display: block", class:"col-sm-3 col-form-label" %>
-      <div class="col-sm-9">
-        <%= form.select :status, ["CxC", "Descontado"], class:"form-control" %>
+      <div class="row mb-3">
+        <%= form.label :description, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-9">
+          <%= form.text_area :description, class:"form-control", placeholder:"Descripción" %>
+        </div>
       </div>
-    </div>
 
-    <div>
-      <%= form.submit class:"btn btn-primary" %>
+      <div class="row mb-3">
+        <%= form.label :status, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-9">
+          <%= form.select :status, ["CxC", "Descontado"], {}, { :class => 'form-select' } %>
+        </div>
+      </div>
+
+      <div>
+        <%= link_to "Back to deductions", deductions_path, class:"btn btn-outline-secondary" %>
+        <%= form.submit class:"btn btn-primary" %>
+      </div>
+    <% end %>    
     </div>
-  <% end %>    
   </div>
 </div>
