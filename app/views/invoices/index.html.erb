@@ -5,6 +5,8 @@
     <div class="card">
       <div class="card-header">
         <%= link_to "Nueva factura", new_invoice_path, class:"btn btn-primary float-end" %>
+        
+
         <h4 class="card-title">Facturas</h4>
       </div>
       <div class="card-body">
@@ -29,7 +31,7 @@
       <td><%= invoice.order_items.count  %></td>
       <td><%= invoice.amount  %></td>
       <td><%= invoice.customer.full_name  %></td>
-      <td><%= link_to "Detalle",invoice,  class:"btn btn-info float-end"   %></td>
+      <td><%= link_to "Detalle",invoice_order_items_path(invoice),  class:"btn btn-info float-end"   %></td>
 
     </tr>
     <tr>

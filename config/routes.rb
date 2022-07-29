@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 	 
  resources :stylists
   resources :businesses
- 
   resources :payments
   resources :subcategories
   resources :categories
