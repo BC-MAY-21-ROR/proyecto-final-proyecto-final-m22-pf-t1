@@ -2,6 +2,11 @@
   <% @businesses.each do |business| %>
     <%= render business %>
   <% end %>
+
+  <% if current_user.business.nil? %>
+    <%= link_to "New business", new_business_path, class:"btn btn-primary" %>
+  <% end %>
+
 </div>
 
-<%= link_to "New business", new_business_path, class:"btn btn-primary" %>
+
