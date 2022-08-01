@@ -4,7 +4,6 @@
 class OrderItemsController < ApplicationController
   before_action :set_order_item, only: %i[show edit update destroy]
   before_action :get_invoice
-  before_action :get_products
   before_action :get_stylists
 
   # GET /order_items or /order_items.json
@@ -19,6 +18,7 @@ class OrderItemsController < ApplicationController
   # GET /order_items/new
   def new
     @order_item = @invoice.order_items.build
+    @product_data = search_product(params[:_query]) if params[:_query].present?
   end
 
   # GET /order_items/1/edit
@@ -64,15 +64,16 @@ class OrderItemsController < ApplicationController
     @order_items.each do |item|
       @sub_total += ((item.quantity * item.product.price) + item.adjustment)
     end
-    @invoice.update(amount: @sub_total) if @sub_total > 0
+    @invoice.update(amount: @sub_total) if @sub_total.positive?
   end
 
-  def get_products
-    @products=Product.select(:id, :reference, :description).all
+  def search_product(search)
+    Product.select(:id, :reference, :name, :description).where('lower(reference) LIKE ? OR lower(name) like ?',
+                                                               "%#{search.downcase}%", "%#{search.downcase}%")
   end
 
   def get_stylists
-    @stylists=Stylist.select(:id, :name).all
+    @stylists = Stylist.select(:id, :name).all
   end
 
   private
@@ -89,5 +90,9 @@ class OrderItemsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def order_item_params
     params.require(:order_item).permit(:quantity, :adjustment, :stylist_id, :invoice_id, :product_id)
+  end
+
+  def search_product_params
+    params.require(:invoice).permit(:_query)
   end
 end
