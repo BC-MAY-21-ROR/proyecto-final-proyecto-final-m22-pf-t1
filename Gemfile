@@ -64,5 +64,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem 'rails_12factor', group: :production
