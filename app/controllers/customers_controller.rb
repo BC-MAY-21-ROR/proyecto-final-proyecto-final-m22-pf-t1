@@ -9,6 +9,15 @@ class CustomersController < ApplicationController
     @customers = Customer.all
   end
 
+  def desactivate
+    if params[:_query].present?
+      @customers = Customer.with_name_or_dni(params[:_query])
+    else
+
+      # @customers = Customer.all
+    end
+  end
+
   # GET /customers/1 or /customers/1.json
   def show; end
 
@@ -56,5 +65,9 @@ class CustomersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def customer_params
     params.require(:customer).permit(:dni, :full_name, :telephone, :birthday, :email, :business_id)
+  end
+
+  def search_params
+    params.require(:customer).permit(:_query)
   end
 end

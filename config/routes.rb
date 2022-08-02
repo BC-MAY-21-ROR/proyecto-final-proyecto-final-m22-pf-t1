@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
+  get 'customers/desactivate' => 'customers#desactivate'
   
   devise_for :users
   devise_scope :user do
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
   resources :invoices do
 	  resources :order_items
 	end
+
+    
 	 
   resources :deductions
   resources :stylists
@@ -18,5 +21,6 @@ Rails.application.routes.draw do
   resources :categories
   resources :products
   resources :customers
+  
   
 end
