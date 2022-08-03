@@ -1,0 +1,24 @@
+
+
+<%= form_with url: stylists_desactivate_path, method: :get do |form|  %>
+
+  <%= form.label :query, "Estilista:" %>
+
+  <%= form.search_field :_query,  placeholder: "Nombre completo ó dni" %>
+
+    <%= form.submit "Search", class: 'btn btn-primary '  %>
+<% end %>
+
+
+<%= form_with url: stylists_desactivate_path, method: :get do |form|  %>
+
+  <%= form.label :query, "Estilista:" %>
+
+  <% if @stylists %>
+  <%= form.collection_select :stylist_id, @stylists.order(:name), :id, :name %>
+  <% end %>
+
+
+  <%= form.submit "desactivar", class: 'btn btn-primary '  %>
+<% end %>
+
