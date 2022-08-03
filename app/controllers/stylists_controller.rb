@@ -14,6 +14,16 @@ class StylistsController < ApplicationController
     @stylist = Stylist.new
   end
 
+  def desactivate
+    if params[:_query].present?
+      @stylists = Stylist.with_name_or_dni(params[:_query])
+    end
+
+    if params[:stylist_id].present?
+       Stylist.find(params[:stylist_id]).toggle(:actived).save
+    end
+  end
+
   def edit; end
 
   def create
@@ -54,5 +64,13 @@ class StylistsController < ApplicationController
 
   def stylist_params
     params.require(:stylist).permit(:dni, :name, :telephone, :actived, :role, :business_id)
+  end
+
+  def search_params
+    params.require(:stylist).permit(:_query)
+  end
+
+  def desactivate_params
+    params.require(:stylist).permit(:id, :_query)
   end
 end
