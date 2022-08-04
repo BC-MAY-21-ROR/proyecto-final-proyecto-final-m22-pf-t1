@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row d-flex align-items-center justify-content-center">
     <div class="col-lg-4">
-      <div class="card card-body text-center p-4 p-sm-5">
+      <div class="card card-body text-center p-4 p-sm-5 mt-5">
         <h1 class="mb-2">Login</h1>
         <p class="my-3">Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name) %> </p>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }, class:"mt-sm-4") do |f| %>
           <div class="mb-3 input-group-lg">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"Enter your email"%>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"Enter your email" %>
           </div>
           <div class="mb-3 position-relative">
             <div class="input-group input-group-lg">
@@ -29,7 +29,6 @@
             <%= f.submit "Log in", class:"btn btn-lg btn-primary" %>
           </div>
         <% end %>
-        <p class="mb-0 mt-3">©2022 <a target="_blank" href="#">Serenity</a> All rights reserved</p>
       </div>
     </div>
   </div>
