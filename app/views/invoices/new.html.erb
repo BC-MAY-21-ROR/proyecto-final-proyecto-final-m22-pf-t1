@@ -1,13 +1,6 @@
  <%= render "form_search"%>
 
 
-<%if @custom_data%>
-
-<% @custom_data.each do |c|%>
-  <%@custom_id=c.id%>
-  <p><strong><%= c.full_name%></strong></p>
-  <% end%>
-<% end %>
 
 
 
@@ -15,7 +8,9 @@
  
     <%= form.hidden_field :date, value:@time_now %>
     <%= form.hidden_field:amount %>
-    <%= form.hidden_field :customer_id, value: @custom_id %>
+    <%if @custom_data%>
+    <%= form.collection_select :customer_id, @custom_data.order(:full_name), :id, :full_name %>
+    <% end %>
 
   <div>
     <%= form.submit %>

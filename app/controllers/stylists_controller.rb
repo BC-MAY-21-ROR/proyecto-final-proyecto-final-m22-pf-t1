@@ -15,13 +15,9 @@ class StylistsController < ApplicationController
   end
 
   def desactivate
-    if params[:_query].present?
-      @stylists = Stylist.with_name_or_dni(params[:_query])
-    end
+    @stylists = Stylist.with_name_or_dni(params[:_query]) if params[:_query].present?
 
-    if params[:stylist_id].present?
-       Stylist.find(params[:stylist_id]).toggle(:actived).save
-    end
+    Stylist.find(params[:stylist_id]).toggle(:actived).save if params[:stylist_id].present?
   end
 
   def edit; end
