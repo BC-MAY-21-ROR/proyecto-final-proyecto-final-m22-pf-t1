@@ -1,10 +1,13 @@
-<p style="color: green"><%= notice %></p>
+<div id="deductions">
+  <%= render "layouts/sidenav" %>
+  <p style="color: green"><%= notice %></p>
 
-<%= render @deduction %>
+  <%= render @deduction %>
 
-<div>
-  <%= link_to "Edit this deduction", edit_deduction_path(@deduction) %> |
-  <%= link_to "Back to deductions", deductions_path %>
+  <div>
+    <%= link_to "Edit this deduction", edit_deduction_path(@deduction) %> |
+    <%= link_to "Back to deductions", deductions_path %>
 
-  <%= button_to "Destroy this deduction", @deduction, method: :delete %>
+    <%= button_to "Destroy this deduction", @deduction, method: :delete %>
+  </div>
 </div>

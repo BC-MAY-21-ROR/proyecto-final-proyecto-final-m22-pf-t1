@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :products
   resources :customers
+  resources :dashboard
   resources :reports
   
-  
-end
+  end
