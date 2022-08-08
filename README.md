@@ -9,7 +9,7 @@ Los propietarios de peluquerías y salones de belleza tienen una baja cultura de
 
 | Sprint 1 | Sprint 2 | Sprint 3 | Sprint 4 | Sprint 5 | Sprint 6 | Sprint 7 | Sprint 8 |
 |---|---|---|---|---|---|---|---|
-| Diego | Juan | Edward | Alex | Juan |
+| Diego | Juan | Edward | Alex | Juan | Diego |
 
 ## Solución
 

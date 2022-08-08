@@ -1,8 +1,4 @@
-
 <%= render "form_search_product" %>
-
-
-
 
 <%= form_with(model: [@invoice, order_item]) do |form| %>
   <% if order_item.errors.any? %>
@@ -18,8 +14,19 @@
   <% end %>
 
   <div>
+    <% @product_data %>
+  </div>
+
+  <div>
+    <%= form.label  :name, style: "display: block" %>
+    <%if @product_data%>
+    <%= form.collection_select :product_id, @product_data.order(:name), :id, :name %>
+    <% end %>
+  </div>
+
+  <div>
     <%= form.label :quantity, style: "display: block" %>
-    <%= form.number_field :quantity %>
+    <%= form.number_field :quantity, min: 1, class:"form-control" %>
   </div>
 
   <div>
@@ -31,19 +38,7 @@
      <%= form.label :stylist_id, style: "display: block" %>
       <%= form.collection_select :stylist_id, Stylist.order(:name), :id, :name %>
   </div>
- <% @product_data%>
-  
-
-  <div>
-    <%= form.label  :name, style: "display: block" %>
-    <%if @product_data%>
-    <%= form.collection_select :product_id, @product_data.order(:name), :id, :name %>
-    <% end %>
-    
-   
-    
-  </div>
-
+ 
   <div>
     <%= form.submit %>
   </div>

@@ -24,7 +24,7 @@
       </ul>
       <form class="d-flex">
         <% if user_signed_in? %>
-        <button class="btn btn-outline-prymary" disabled type="submit"><%= current_user.email %></button>
+        <button class="btn btn-outline-prymary me-2" disabled type="submit"><%= current_user.email %></button>
         <%=  link_to  "Cerrar sesión", destroy_user_session_path, method: :delete, class:"btn btn-secondary", data: { turbo_method: :delete } %><br />
         <% else %>
         <%= link_to "Prueba Gratis", new_user_registration_path, class:"btn btn-success me-2" %><br />

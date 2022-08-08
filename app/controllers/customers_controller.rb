@@ -6,16 +6,8 @@ class CustomersController < ApplicationController
 
   # GET /customers or /customers.json
   def index
-    @customers = Customer.all
-  end
-
-  def desactivate
-    if params[:_query].present?
-      @customers = Customer.with_name_or_dni(params[:_query])
-    else
-
-      # @customers = Customer.all
-    end
+    @business = current_user.business
+    @customers = @business.customers
   end
 
   # GET /customers/1 or /customers/1.json
@@ -31,7 +23,7 @@ class CustomersController < ApplicationController
 
   # POST /customers or /customers.json
   def create
-    @customer = Customer.new(customer_params)
+    @customer = current_user.business.customers.build(customer_params)
 
     if @customer.save
       redirect_to customer_url(@customer), notice: 'Customer was successfully created.'

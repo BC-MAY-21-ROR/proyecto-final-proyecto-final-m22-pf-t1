@@ -4,6 +4,7 @@
 class Business < ApplicationRecord
   belongs_to :user, inverse_of: :business
   has_many :stylists, dependent: :destroy
+  has_many :customers, dependent: :destroy
 
   validates :name, presence: true
   validates :user, uniqueness: { message: 'The business has a owner' }

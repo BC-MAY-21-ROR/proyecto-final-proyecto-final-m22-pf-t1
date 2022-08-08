@@ -1,14 +1,17 @@
 <%= render "layouts/sidenav" %>
 <div id="businesses">
+<<<<<<< HEAD
+  <% if current_user.business %>
+    <%= render current_user.business %>
+  <% else %>
+=======
   
   <% @businesses.each do |business| %>
     <%= render business %>
   <% end %>
 
   <% if current_user.business.nil? %>
+>>>>>>> de8ed140b0667e476edbfce3a44b7eb8813124bf
     <%= link_to "New business", new_business_path, class:"btn btn-primary" %>
   <% end %>
-
 </div>
-
-
