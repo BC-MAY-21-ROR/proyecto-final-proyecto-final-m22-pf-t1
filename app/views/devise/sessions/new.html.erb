@@ -1,17 +1,18 @@
 <%= render "layouts/nav" %>
-<div class="container">
-  <div class="row d-flex align-items-center justify-content-center">
-    <div class="col-lg-4">
+<div class="container col-lg-4">
+  <div class="shadow mt-5 mb-4">
+  <div class="row align-items-center justify-content-center">
+    <div class="">
       <div class="card card-body text-center p-4 p-sm-5">
-        <h1 class="mb-2">Login</h1>
-        <p class="my-3">Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name) %> </p>
+        <h1 class="mb-2">Iniciar Sesion</h1>
+        <p class="my-3">No estas registrado? <%= link_to "Registrate Aqui", new_registration_path(resource_name) %> </p>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }, class:"mt-sm-4") do |f| %>
           <div class="mb-3 input-group-lg">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"Enter your email"%>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"Correo Electronico"%>
           </div>
           <div class="mb-3 position-relative">
             <div class="input-group input-group-lg">
-              <%= f.password_field :password, autocomplete: "current-password", class:"form-control", placeholder:"Enter your password" %>
+              <%= f.password_field :password, autocomplete: "current-password", class:"form-control", placeholder:"Contraseña" %>
             </div>
           </div>
           <div class="mb-3 d-sm-flex justify-content-between">
@@ -23,16 +24,22 @@
             <% end %>
             
             <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-              <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+              <%= link_to "Olvidaste tu contraseña?", new_password_path(resource_name) %><br />
             <% end %>
           </div>
           <div class="actions d-grid">
-            <%= f.submit "Log in", class:"btn btn-lg btn-primary" %>
+            <%= f.submit "Iniciar Sesion", class:"btn btn-lg btn-primary" %>
           </div>
         <% end %>
         <p class="mb-0 mt-3">©2022 <a target="_blank" href="#">Serenity</a> All rights reserved</p>
       </div>
     </div>
   </div>
+  </div>
 </div>
-
+<footer class="text-center text-white fixed-bottom" style="background-color: #D3D3D3;">
+  <div class="text-center text-black p-3" style="background-color: rgba(229, 229, 229);">
+    © 2022 Copyright:
+    <a class="text-black" href="https://google.com/">Serenity.com</a>
+  </div>
+</footer>

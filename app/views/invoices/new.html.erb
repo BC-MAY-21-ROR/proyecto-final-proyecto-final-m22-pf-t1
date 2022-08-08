@@ -2,33 +2,14 @@
  <div id="invoices">
   <%= render "form_search"%>
 
-
-  <%if @custom_data%>
-
-  <% @custom_data.each do |c|%>
-    <%@custom_id=c.id%>
-    <p><strong><%= c.full_name%></strong></p>
-    <% end%>
-  <% end %>
-
-
-
   <%= form_with(model: @invoice) do |form| %>
-  
-      <%= form.hidden_field :date, value:@time_now %>
-      <%= form.hidden_field:amount %>
-      <%= form.hidden_field :customer_id, value: @custom_id %>
-
-    <div>
-      <%= form.submit %>
-      <br>
-  
-    </div>
-  <% end %>
-  <br>
-
+ 
+    <%= form.hidden_field :date, value:@time_now %>
+    <%= form.hidden_field:amount %>
+    <%if @custom_data%>
+    <%= form.collection_select :customer_id, @custom_data.order(:full_name), :id, :full_name %>
+    <% end %>
   <div>
       <%= link_to "Back to invoices", invoices_path %>
-  </div>
   </div>
 </div>

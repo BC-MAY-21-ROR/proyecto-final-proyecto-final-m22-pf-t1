@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 	  resources :order_items
 	end
 
+  post "reports/invoice_daily_report"=> "reports#invoice_daily_report"
     
 	 
   resources :deductions
@@ -23,5 +24,6 @@ Rails.application.routes.draw do
   resources :products
   resources :customers
   resources :dashboard
+  resources :reports
   
-end
+  end
