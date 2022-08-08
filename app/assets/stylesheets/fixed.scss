@@ -1,0 +1,22 @@
+@media (min-width: 501px) {
+    #dashfoo {
+        position: fixed;
+        bottom: 0;
+    }
+
+    #layoutSidenav_content, #businesses, #customers, #deductions, #invoices, #products, #stylists{
+        margin-top: 70px;
+        margin-left: 227px;
+    }
+}
+
+@media (max-width: 500px) {
+    #layoutSidenav_content, #businesses, #customers, #deductions, #invoices, #products, #stylists{
+        margin-top: 80px;
+    }
+
+    #dashfoo {
+        position: fixed;
+        bottom: 0;
+    }
+}
