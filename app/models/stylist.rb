@@ -12,7 +12,5 @@ class Stylist < ApplicationRecord
                              where('lower(name) LIKE ? OR dni LIKE ?', "%#{_search.downcase}%",
                                    "%#{_search}%")
                            }
-  scope :activated, -> { where ("actived=true")}
-
-
+  scope :activated, -> { where('actived=true') }
 end

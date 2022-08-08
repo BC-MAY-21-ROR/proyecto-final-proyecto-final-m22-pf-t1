@@ -63,9 +63,9 @@ Sistema de gestión para peluquerías, barberías y salones de belleza. Solució
 
 ## Requerimientos no funcionales
 
-- [ ] Despliegue en la nube (Heroku, Google, Azure, Amazon)
+- [x] Despliegue en la nube (Heroku, Google, Azure, Amazon)
 - [x] Base de datos Postgres
-- [ ] Diseño responsivo
+- [x] Diseño responsivo
 - [x] Ruby on rails 7
 - [x] Utilizar SandiMeter para analizar el código y refactorizar el código
 - [x] Puntuación en Rubycritic 90 en la carpeta de la App y al menos 65 en las pruebas
