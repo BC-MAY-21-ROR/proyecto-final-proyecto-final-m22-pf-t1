@@ -6,7 +6,7 @@ class BusinessesController < ApplicationController
 
   # GET /businesses or /businesses.json
   def index
-    @businesses = Business.all
+    @businesses = current_user&.business
   end
 
   # GET /businesses/1 or /businesses/1.json

@@ -1,12 +1,7 @@
 <div id="businesses">
-  <% @businesses.each do |business| %>
-    <%= render business %>
-  <% end %>
-
-  <% if current_user.business.nil? %>
+  <% if current_user.business %>
+    <%= render current_user.business %>
+  <% else %>
     <%= link_to "New business", new_business_path, class:"btn btn-primary" %>
   <% end %>
-
 </div>
-
-
