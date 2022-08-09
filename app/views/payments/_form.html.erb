@@ -1,42 +1,62 @@
-<%= form_with(model: payment) do |form| %>
-  <% if payment.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
-
-      <ul>
-        <% payment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="container">
+  <div class="card col-lg-4">
+    <div class="card-header">
+      Pagos
     </div>
-  <% end %>
+    <div class="card-body px-2">
+      <%= form_with(model: payment) do |form| %>
+      <% if payment.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
 
-  <div>
-    <%= form.label :date, style: "display: block" %>
-    <%= form.datetime_field :date %>
-  </div>
+          <ul>
+            <% payment.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div>
-    <%= form.label :invoice_id, style: "display: block" %>
-    <%= form.text_field :invoice_id %>
-  </div>
+      <div class="row mb-3">
+        <%= form.label :date, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-9">
+          <%= form.datetime_field :date, value: DateTime.now.strftime("%Y-%m-%dT%T"),  class:'form-select' %>
+        </div>
+      </div>
 
-  <div>
-    <%= form.label :value, style: "display: block" %>
-    <%= form.number_field :value %>
-  </div>
+      <div class="row mb-3">
+        <%= form.label :invoice_id, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-9">
+          <%= form.text_field :invoice_id, class:"form-control", placeholder:"Invoice ID"%>
+        </div>
+      </div>
 
-  <div>
-    <%= form.label :type, style: "display: block" %>
-    <%= form.number_field :type %>
-  </div>
+      <div class="row mb-3">
+        <%= form.label :value, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-9">
+          <%= form.number_field :value, min: 1000, step: 1000, class:"form-control" %>
+        </div>
+      </div>
 
-  <div>
-    <%= form.label :note, style: "display: block" %>
-    <%= form.text_area :note %>
-  </div>
+      <div class="row mb-3">
+        <%= form.label :type, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-9">
+          <%= form.select :type, ["Efectivo", "Tarjeta"], {}, { :class => 'form-select' } %>
+        </div>
+      </div>
 
-  <div>
-    <%= form.submit %>
+      <div class="row mb-3">
+        <%= form.label :note, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-9">
+          <%= form.text_area :note, class:"form-control", placeholder:"Notas" %>
+        </div>
+      </div>
+
+      <div>
+        <%= link_to "Back to payments", payments_path, class:"btn btn-outline-secondary" %>
+        <%= form.submit class:"btn btn-primary" %>
+      </div>
+    <% end %>    
+    </div>
   </div>
-<% end %>
+</div>
