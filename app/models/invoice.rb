@@ -4,7 +4,7 @@
 class Invoice < ApplicationRecord
   belongs_to :customer
   has_many :order_items, dependent: :destroy
-
+  has_many :payments, dependent: :destroy
   validates :amount, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   accepts_nested_attributes_for :order_items
