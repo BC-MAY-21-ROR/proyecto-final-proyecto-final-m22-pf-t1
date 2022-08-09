@@ -27,16 +27,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_24_195446) do
     t.index ["user_id"], name: "index_businesses_on_user_id"
   end
 
-  create_table "catalogs", force: :cascade do |t|
-    t.string "reference"
-    t.string "name"
-    t.text "description"
-    t.integer "price"
-    t.boolean "actived", default: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -91,9 +81,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_24_195446) do
   create_table "payments", force: :cascade do |t|
     t.datetime "date", null: false
     t.bigint "invoice_id", null: false
-    t.integer "value", null: false
+    t.integer "value", default: 0, null: false
     t.string "type"
-    t.string "note"
+    t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["invoice_id"], name: "index_payments_on_invoice_id"
