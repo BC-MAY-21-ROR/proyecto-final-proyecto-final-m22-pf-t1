@@ -18,43 +18,43 @@
       <% end %>
 
       <div class="row mb-3">
-        <%= form.label :date, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label :date, "Fecha", style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
           <%= form.datetime_field :date, value: DateTime.now.strftime("%Y-%m-%dT%T"),  class:'form-select' %>
         </div>
       </div>
 
       <div class="row mb-3">
-        <%= form.label :amount, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label :amount, "Cantidad", style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
           <%= form.number_field :amount, min: 1000, step: 1000, class:"form-control" %>
         </div>
       </div>
 
       <div class="row mb-3">
-        <%= form.label :stylist_id, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label :stylist_id, "ID Estilista" style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
           <%= form.collection_select :stylist_id, Stylist.order(:name), :id, :name, {}, class:'form-select' %>
         </div>
       </div>
 
       <div class="row mb-3">
-        <%= form.label :description, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label :description, "Descripción", style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
           <%= form.text_area :description, class:"form-control", placeholder:"Descripción" %>
         </div>
       </div>
 
       <div class="row mb-3">
-        <%= form.label :status, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label :status, "Estatus", style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
           <%= form.select :status, ["CxC", "Descontado"], {}, { :class => 'form-select' } %>
         </div>
       </div>
 
       <div>
-        <%= link_to "Back to deductions", deductions_path, class:"btn btn-outline-secondary" %>
-        <%= form.submit class:"btn btn-primary" %>
+        <%= link_to "Regresar a deducciones", deductions_path, class:"btn btn-outline-secondary" %>
+        <%= form.submit "Crear deducción", class:"btn btn-primary" %>
       </div>
     <% end %>    
     </div>

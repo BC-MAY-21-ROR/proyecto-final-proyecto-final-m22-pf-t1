@@ -18,7 +18,7 @@
       <% end %>
 
       <div class="row mb-3">
-        <%= form.label :name, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label :name, "Nombre", style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
           <%= form.text_field :name, class:"form-control", placeholder:"Nombre" %>
         </div>
@@ -32,35 +32,35 @@
       </div>
 
       <div class="row mb-3">
-        <%= form.label :country, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label :country, "País", style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
           <%= form.text_field :country, class:"form-control", placeholder:"Pais" %>
         </div>
       </div>
 
       <div class="row mb-3">
-        <%= form.label :city, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label :city, "Ciudad", style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
           <%= form.text_field :city, class:"form-control", placeholder:"Ciudad" %>
         </div>
       </div>
 
       <div class="row mb-3">
-        <%= form.label :telephone, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label :telephone, "Telefono" , style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
           <%= form.text_field :telephone, class:"form-control", placeholder:"Teléfono" %>
         </div>
       </div>
 
       <div class="row mb-3">
-        <%= form.label :email, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label :email, "E-mail", style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
-          <%= form.text_field :email, class:"form-control", placeholder:"e-mail" %>
+          <%= form.text_field :email, class:"form-control", placeholder:"E-mail" %>
         </div>
       </div>
 
       <div>
-        <%= form.submit class:"btn btn-primary" %>
+        <%= form.submit "Crear negocio", class:"btn btn-primary" %>
       </div>
     <% end %>    
     </div>
