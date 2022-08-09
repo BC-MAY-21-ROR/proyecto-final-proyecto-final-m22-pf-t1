@@ -2,6 +2,7 @@
 
 # Create Logic for Customers
 class CustomersController < ApplicationController
+  load_and_authorize_resource
   before_action :set_customer, only: %i[show edit update destroy]
 
   # GET /customers or /customers.json

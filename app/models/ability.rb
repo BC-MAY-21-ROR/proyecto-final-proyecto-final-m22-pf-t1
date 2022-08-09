@@ -4,6 +4,19 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    user ||= User.new
+    if user.role == "manager"
+      can :manage, :all
+    elsif user.role == "seller"
+      alias_action :create, :read, :update, :to => :cru
+      can :cru, Payment
+      can :cru, Customer
+      can :cru, Product
+      can :cru, Invoice 
+      can :cru, Deduction
+    end
+  end
+end
     # Define abilities for the user here. For example:
     #
     #   return unless user.present?
@@ -28,5 +41,4 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
-  end
-end
+
