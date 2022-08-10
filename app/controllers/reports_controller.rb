@@ -49,4 +49,8 @@ class ReportsController < ApplicationController
       @data[stylist.stylist.name] = [subt, gain] if gain.positive?
     end
   end
+  
+  def weekly_report
+  
+  end
 end

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
  
   get 'reports/daily_report' => 'daily_report'
   get 'reports/monthly_report' => 'monthly_report'
+  get 'reports/weekly_report' => 'we_report'
 
     
   resources :deductions
