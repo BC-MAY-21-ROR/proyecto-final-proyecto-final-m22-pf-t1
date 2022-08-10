@@ -5,12 +5,12 @@
   <%= render @invoice %>
 
   <div>
-  <% if can? :cru, invoice %>
+  <% if can? :cru, @invoice %>
     <%= link_to "Edit this invoice", edit_invoice_path(@invoice) %> |
   <% end %>
     <%= link_to "Back to invoices", invoices_path %>
     <%= link_to 'Add item', invoice_order_items_path(@invoice) %> 
-  <% if can? :destroy, invoice %>
+  <% if can? :destroy, @invoice %>
     <%= button_to "Destroy this invoice", @invoice, method: :delete %>
   <% end %>
   </div>
