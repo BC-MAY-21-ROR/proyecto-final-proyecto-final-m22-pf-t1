@@ -81,9 +81,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_09_222252) do
   create_table "payments", force: :cascade do |t|
     t.datetime "date", null: false
     t.bigint "invoice_id", null: false
-    t.integer "value", null: false
+    t.integer "value", default: 0, null: false
     t.string "type"
-    t.string "note"
+    t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["invoice_id"], name: "index_payments_on_invoice_id"
