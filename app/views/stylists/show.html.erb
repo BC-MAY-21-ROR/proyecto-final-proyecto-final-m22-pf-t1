@@ -5,9 +5,13 @@
   <%= render @stylist %>
 
   <div>
+  <% if can? :cru, @stylist %>
     <%= link_to "Edit this stylist", edit_stylist_path(@stylist) %> |
+  <% end %>
     <%= link_to "Back to stylists", stylists_path %>
 
+  <% if can? :destroy, @stylist %>
     <%= button_to "Destroy this stylist", @stylist, method: :delete %>
+  <% end %>
   </div>
 </div>

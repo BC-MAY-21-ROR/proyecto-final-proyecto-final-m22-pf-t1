@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   get 'reports/monthly_report' => 'monthly_report'
   get 'reports/weekly_report' => 'we_report'
 
-    
   resources :deductions
   resources :stylists
   resources :businesses
@@ -26,6 +25,5 @@ Rails.application.routes.draw do
   resources :products
   resources :customers
   resources :dashboard
-  #resources :reports
-  
   end
+  
