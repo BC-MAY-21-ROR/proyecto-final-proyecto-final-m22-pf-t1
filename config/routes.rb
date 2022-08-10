@@ -11,8 +11,11 @@ Rails.application.routes.draw do
 	  resources :order_items
 	end
 
-  post "reports/invoice_daily_report"=> "reports#invoice_daily_report"
-    
+ 
+  get 'reports/daily_report' => 'daily_report'
+  get 'reports/monthly_report' => 'monthly_report'
+  get 'reports/weekly_report' => 'we_report'
+
   resources :deductions
   resources :stylists
   resources :businesses
@@ -22,7 +25,5 @@ Rails.application.routes.draw do
   resources :products
   resources :customers
   resources :dashboard
-  resources :reports
-  resources :order_items
-
   end
+  

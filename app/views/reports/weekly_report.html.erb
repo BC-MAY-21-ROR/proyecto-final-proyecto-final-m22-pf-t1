@@ -1,0 +1,5 @@
+<%= form_with url: "/reports/weekly_report", method: :get do |form| %>
+  <%= form.label :start_day, "Iniciar:" %>
+  <%= form.date_field :start_day %>
+  <%= form.submit "Search" %>
+<% end %>

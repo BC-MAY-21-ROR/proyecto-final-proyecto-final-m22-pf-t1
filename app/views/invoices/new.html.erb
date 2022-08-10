@@ -1,9 +1,8 @@
  <%= render "layouts/sidenav" %>
   <div id="invoices">
     <%= render "form_search"%>
-
+    
     <%= form_with(model: @invoice) do |form| %>
- 
       <%= form.hidden_field :date, value:@time_now %>
       <%= form.hidden_field:amount %>
       <%if @custom_data%>
@@ -11,8 +10,6 @@
       <% end %>
     <% end %>
     <div>
-        <%= link_to "Regresar a facturas", invoices_path %>
+      <%= link_to "Regresar a facturas", invoices_path %>
     </div>
   </div>
-  <% end %>
-</div>

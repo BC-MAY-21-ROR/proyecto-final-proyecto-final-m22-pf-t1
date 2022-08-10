@@ -8,9 +8,9 @@ class Stylist < ApplicationRecord
   validates :dni, :name, :role, presence: true
   validates :dni, uniqueness: true
 
-  scope :with_name_or_dni, lambda { |_search|
-                             where('lower(name) LIKE ? OR dni LIKE ?', "%#{_search.downcase}%",
-                                   "%#{_search}%")
+  scope :with_name_or_dni, lambda { |search|
+                             where('lower(name) LIKE ? OR dni LIKE ?', "%#{search.downcase}%",
+                                   "%#{search}%")
                            }
   scope :activated, -> { where('actived=true') }
 end

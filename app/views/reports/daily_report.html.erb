@@ -1,0 +1,10 @@
+<table>
+<tr>
+<th>No.factura</th><th>cliente</th><th>monto</th>
+</tr>
+<%@report_daily.each do |column|%>
+  <tr>
+<th><%= column.id %></th><th><%= column.customers.full_name %></th><th><%= column.amount %></th>
+</tr>
+<% end %>
+</table>
