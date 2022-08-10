@@ -1,39 +1,56 @@
 <%= render "layouts/sidenav" %>
-<h2> <strong><%= @invoice.customer.business.name%></strong></h2>
-<h3>Factura : <strong><%= @invoice.id%></strong></h3>
-<h3>Fecha : <strong><%= @invoice.date%></strong></h3>
-<h3>Cliente : <strong><%= @invoice.customer.full_name%></strong></h3>
-<strong>Agregar articulos</strong>
-<table>
-  <tr>
-    <td>Producto</td>
-    <td>Cantidad </td>
-    <td>Precio </td>
-    <td> Ajuste </td>
-    <td>Estilista</td>
-    <td>Opciones</td>
-  </tr>
-<tbody>
-<div id="order_items">
-  <% @order_items.each do |item| %>
-  <tr>
-    <td><%= item.product.reference %></td>
-    <td><%= item.quantity %></td>
-    <td><%=item.product.price %></td>
-     <td><%=item.adjustment %></td>
-    <td><%=item.stylist.name %></td>
-    <td><%= link_to 'Edit', edit_invoice_order_item_path(@invoice,item) %>
-      <td>
-  </tr>
-  <% end %>
-  <tr>
-    <td> <strong>Subtotal</strong></td>
-    <td><strong><%= @sub_total %></strong></td>
-  </tr>
+<div class="container border border-white">
+  <div class="row border border-white">
+    <div class="col-lg-6 grid-margin stretch-card ps-3 border border-white">
+      <div class="card mt-4 border border-white">
+        <div class="card border border-white ps-2">
+          <div class="header">
+            <h2 class="text-center"> <strong><%= @invoice.customer.business.name%></strong></h2>
+          </div>
+          <h3>Factura :<strong><%= @invoice.id%></strong></h3>
+          <h3>Fecha :<strong><%= @invoice.date%></strong></h3>
+          <h3>Cliente :<strong><%= @invoice.customer.full_name%></strong></h3>
+          <strong>Articulos</strong>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">>Producto</th>
+                        <th scope="col">>Cantidad </th>
+                        <th scope="col">>Precio</th>
+                        <th scope="col">> Ajuste</th>
+                        <th scope="col">>Estilista</th>
+                        <th scope="col">>Opciones</th>
+                      </tr>
+                <tbody>
+                    <div id="order_items">
+                      <% @order_items.each do |item| %>
+                      <tr>
+                        <td><%=item.product.reference %></td>
+                        <td><%=item.quantity%></td>
+                        <td><%=item.product.price%></td>
+                        <td><%=item.adjustment%></td>
+                        <td><%=item.stylist.name%></td>
+                        <td><%= link_to '', edit_invoice_order_item_path(@invoice,item),class:"btn btn-primary bi bi-pen"%>
+                          <td>
+                      </tr>
+                      <% end %>
+                      <tr>
+                        <td> <strong>Subtotal</strong></td>
+                        <td><strong><%= @sub_total %></strong></td>
+                      </tr>
+                    </div>
+                </tbody>
+              </table>
+              <div class="d-grid gap-2">
+                <%= link_to "Agregar item",new_invoice_order_item_path, class:"btn btn-primary float-end"%>
+                  <%= link_to "Back to invoices",invoices_path, class:"btn btn-secondary float-end"%>
+                  <%= button_to "Destroy",@invoice,class:"btn btn-danger",method: :delete %>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
 </div>
-</tbody>
-</table>
-
-<%= link_to "Agregar item", new_invoice_order_item_path %>
-  <%= link_to "Back to invoices", invoices_path %>
-  <%= button_to "Destroy ", @invoice, method: :delete %>
