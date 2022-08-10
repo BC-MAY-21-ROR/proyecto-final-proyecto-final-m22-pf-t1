@@ -2,6 +2,7 @@
 
 # Create Logic for Stylists
 class StylistsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_stylist, only: %i[show edit update destroy]
 
   def index

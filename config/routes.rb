@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   resources :customers
   resources :dashboard
   resources :reports
-  
+  resources :order_items
+
   end

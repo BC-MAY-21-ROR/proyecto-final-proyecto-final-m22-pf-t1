@@ -2,6 +2,7 @@
 
 # Create Logic for Payments
 class PaymentsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_payment, only: %i[show edit update destroy]
 
   # GET /payments or /payments.json

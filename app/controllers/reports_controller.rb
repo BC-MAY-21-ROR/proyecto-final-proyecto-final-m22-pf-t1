@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
+  load_and_authorize_resource
   def index
     @sales = invoice_daily_report
     @sales_monthly = invoices_monthly_report
