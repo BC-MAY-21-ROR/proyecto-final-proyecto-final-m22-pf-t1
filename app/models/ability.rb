@@ -14,6 +14,7 @@ class Ability
       can :cru, Product
       can :cru, Invoice 
       can :cru, Deduction
+      can :cru, Stylist
     end
   end
 end

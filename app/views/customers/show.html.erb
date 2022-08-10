@@ -5,9 +5,13 @@
   <%= render @customer %>
 
   <div>
-    <%= link_to "Edit this customer", edit_customer_path(@customer) %> |
+    <% if can? :cru, customer %>
+      <%= link_to "Edit this customer", edit_customer_path(@customer) %> |
+    <% end %>
     <%= link_to "Back to customers", customers_path %>
 
-    <%= button_to "Destroy this customer", @customer, method: :delete %>
+    <% if can? :destroy, customer %>
+      <%= button_to "Destroy this customer", @customer, method: :delete %>
+    <% end %>
   </div>
 </div>

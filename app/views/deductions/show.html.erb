@@ -5,9 +5,13 @@
   <%= render @deduction %>
 
   <div>
-    <%= link_to "Edit this deduction", edit_deduction_path(@deduction) %> |
+    <% if can? :cru, deduction %>
+      <%= link_to "Edit this deduction", edit_deduction_path(@deduction) %> |
+    <% end %>
     <%= link_to "Back to deductions", deductions_path %>
 
-    <%= button_to "Destroy this deduction", @deduction, method: :delete %>
+    <% if can? :destroy, deduction %>
+      <%= button_to "Destroy this deduction", @deduction, method: :delete %>
+    <% end %>
   </div>
 </div>
