@@ -9,6 +9,6 @@ class Invoice < ApplicationRecord
 
   accepts_nested_attributes_for :order_items
 
-  scope :daily_invoice, -> { where(date: Date.today.all_day) }
-  scope :monthly_invoice, -> { where(date: Date.today.all_month) }
+  scope :daily_invoice, -> { where(date: Time.zone.today.all_day) }
+  scope :monthly_invoice, -> { where(date: Time.zone.today.all_month) }
 end
