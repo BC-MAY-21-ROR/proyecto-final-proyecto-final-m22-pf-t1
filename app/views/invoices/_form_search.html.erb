@@ -1,17 +1,47 @@
-<div class="card col-lg-8 justify-content-center">
-  <div class="card-header">
-    Búsqueda
-  </div>
-  <div class="card-body">
-<%= form_with url: "/invoices/new", method: :get do |form|  %>
-<div class="row mb-3">
-  <%= form.label :query, "Cliente:", class:"col-sm-3 col-form-label" %>
-  <div class="col-sm-9">
-  <%= form.text_field :_query,  class: 'form-control ', placeholder: "Nombre completo ó dni" %>
-</div>
-</div>
-  <%= form.submit "Buscar", class: ' d-inline float-end btn btn-primary d-inline '  %>
-<% end %>
-</div>
-</div>
 
+<div class="container col-lg-3 center-block">
+  <div class="shadow mt-5 mb-4">
+  <div class="card">
+    <div class="card-header">
+      <h3>búsqueda</h3>
+    </div>
+    <div class="card-body">
+        <%= form_with url: "/invoices/new", method: :get do |form| %>
+        <div class="col-sm-11">
+          <%= form.label :query, "Cliente:", class:"col-sm-3 col-form-label" %>
+        </div>
+        <div class="mb-3 lg-6">
+          <%= form.text_field :_query,  class: 'form-control', placeholder: "Nombre completo ó dni" %>
+        </div>
+        <div class=" ms-10 mb-5 lg-5">
+           <%= form.submit "Search", class: 'd-inline float-end btn btn-primary d-inline '  %>
+        </div>
+        <% end %>
+        <div class="">
+          <%if @custom_data%>
+          <div class="">
+            <% @custom_data.each do |c|%>
+              <%@custom_id=c.id%>
+              <p><strong><%= c.full_name%></strong></p>
+              <% end%>
+            <% end %>
+
+
+
+            <%= form_with(model: @invoice) do |form| %>
+          
+              <%= form.hidden_field :date, value:@time_now %>
+              <%= form.hidden_field:amount %>
+              <%= form.hidden_field :customer_id, value: @custom_id %>
+
+          </div>   
+        </div>
+        <div class="ms-2 mb-3">
+            <%= link_to "Back to invoices", invoices_path, class:"btn btn-outline-secondary" %>
+            <%= form.submit class:"btn btn-primary" %>
+        </div>
+        <% end %>
+    </div>
+    </div>
+  </div>
+</div>

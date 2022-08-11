@@ -39,7 +39,9 @@
       <%= form.collection_select :stylist_id, Stylist.order(:name), :id, :name %>
   </div>
  
-  <div>
-    <%= form.submit %>
+  <div class="d-grid gap-2">
+    <br>
+    <%=form.submit class:"btn btn-primary float-end"%>
+    <br>
   </div>
 <% end %>
