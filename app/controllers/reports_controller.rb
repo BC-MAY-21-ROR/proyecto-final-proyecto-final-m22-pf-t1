@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
-  load_and_authorize_resource
+ load_and_authorize_resource :user
   def index
     @sales = daily_report
     @sales_monthly = invoices_monthly_report
     calculate_earn(80)
   end
 
-  def daily_report
+  def daily
     @sub = 0
     @report_daily = Invoice.daily_invoice
     @report_daily.each do |i|
@@ -17,13 +17,25 @@ class ReportsController < ApplicationController
     @sub
   end
 
-  def monthly_report
+  def monthly
     @sub = 0
     @report_monthly = Invoice.monthly_invoice
     @report_monthly.each do |i|
       @sub += i.amount
     end
     @sub
+  end
+
+  def weekly
+    if search_params.present?
+      @list=between_dates(search_params[:start_date], search_params[:end_date])
+    end
+  end
+
+  def comissions
+    if search_params.present?
+    calculate_comission(search_params[:start_date], search_params[:end_date])
+    end
   end
 
   def stylists_on_invoice(inv_id)
@@ -50,8 +62,23 @@ class ReportsController < ApplicationController
       @data[stylist.stylist.name] = [subt, gain] if gain.positive?
     end
   end
-  
-  def weekly_report
-  
+
+  def between_dates(start, endd)
+    Invoice.where('date BETWEEN ? AND ?', start, endd)
   end
+
+  def calculate_comission(start,endd)
+    @final_list={}
+    @commissions=between_dates(start, endd)
+    @commission.each do |invoice|
+      calculate_earn(invoice.id)
+      @final_list=@data
+    end 
+  end
+
+private
+
+def search_params
+  params.permit(:start_date, :end_date, :commit)
+end
 end

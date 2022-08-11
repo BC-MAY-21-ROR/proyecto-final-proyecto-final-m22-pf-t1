@@ -11,10 +11,12 @@ Rails.application.routes.draw do
 	  resources :order_items
 	end
 
- 
-  get 'reports/daily_report' => 'daily_report'
-  get 'reports/monthly_report' => 'monthly_report'
-  get 'reports/weekly_report' => 'we_report'
+  get 'reports/index' => 'reports#index'
+  get 'reports/daily' => 'daily'
+  get 'reports/monthly' => 'monthly'
+  get 'reports/weekly' => 'weekly'
+  get 'reports/comissions'=>'comissions'
+
 
   resources :deductions
   resources :stylists

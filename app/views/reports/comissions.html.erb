@@ -1,0 +1,20 @@
+<div class="container">
+  <%= form_with url: "/reports/comissions", method: :get do |form| %>
+      <%= form.label :start_day, "de:" %>
+      <%= form.date_field :start_date, value: Time.zone.today  %>
+      <%= form.label :end_day, "a:" %>
+      <%= form.date_field :end_date, value: Time.zone.today  %>
+    <%= form.submit "Search" %>
+  <% end %>
+
+
+<% if @final_list.present?%>
+
+<% @final_list.each do |key, value|%>
+  <p> <strong> Estilista :<%= hey %> $:<%= value %></strong></p>
+<% end %>
+ 
+<% end %>
+
+</div>
+

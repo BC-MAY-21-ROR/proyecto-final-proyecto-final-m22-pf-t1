@@ -1,18 +1,3 @@
 <div class="container">
-<div>
-<h3>ventas de hoy </h3>
-<%=@sales%>
-
-
-</div>
-
-<div>
-<h3>ventas del mes </h3>
-<%= @sales_monthly%>
-</div>
-<div>
-<%@data.each do |key, value | %>
-  <p> <strong><%= key %>: <%= value[0] %>: ganancia: <%= value[1] %></strong> </p>
-<%end%>
-</div>
+<h2>Reportes</h2>
 </div>
