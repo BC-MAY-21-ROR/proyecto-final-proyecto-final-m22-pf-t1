@@ -12,4 +12,5 @@ class Invoice < ApplicationRecord
 
   scope :daily_invoice, -> { where(date: Time.zone.today.all_day) }
   scope :monthly_invoice, -> { where(date: Time.zone.today.all_month) }
+  #scope :between_dates, -> { where('date BETWEEN ? AND ?', start_date.today.all_day, end_date: end_date.today.all_day) }
 end

@@ -1,0 +1,28 @@
+<div class="container">
+  <%= form_with url: "/reports/weekly", method: :get do |form| %>
+      <%= form.label :start_day, "de:" %>
+      <%= form.date_field :start_date, value: Time.zone.today  %>
+      <%= form.label :end_day, "a:" %>
+      <%= form.date_field :end_date, value: Time.zone.today  %>
+    <%= form.submit "Search" %>
+  <% end %>
+
+
+<%if @list.present?%>
+  <table>
+  <tr>
+  <th>No.factura</th><th>cliente</th><th>monto</th>
+  </tr>
+  <%@tot=0%>
+  <%@list.each do |invoice|%>
+    <%@tot += invoice.amount%>
+    <tr>
+  <th><%= invoice.id %></th><th><%= invoice.customer.full_name %></th><th><%= invoice.amount %></th>
+  </tr>
+
+  <% end %>
+  <tr><td><%= @tot %></td></tr>
+  </table>
+<% end %>
+
+</div>
