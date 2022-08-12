@@ -1,16 +1,21 @@
 <div class="card col-lg-8 justify-content-center">
   <div class="card-header">
-    búsqueda
+   Buscar producto
   </div>
   <div class="card-body">
 <%= form_with url: new_invoice_order_item_path(@invoice), method: :get do |form|  %>
 <div class="row mb-3">
   <%= form.label :query, "Producto:", class:"col-sm-3 col-form-label" %>
-  <div class="col-sm-9">
-  <%= form.text_field :_query,  class: 'form-control ', placeholder: "Nombre ó Referencia" %>
-</div>
-</div>
-  <%= form.submit "Search", class: ' d-inline float-end btn btn-primary d-inline '  %>
+  <%= form.text_field :query,  class: 'form-control ', placeholder: "Nombre o Referencia" %>
+  <%= form.submit "Search", class: 'btn btn-primary d-inline'  %>
 <% end %>
 </div>
+
+  <%if @product_data %>
+    <% @product_data.each do |p|%>
+      <% @product_id = p.id %>
+      <span class="badge text-bg-info"><%= p.name %></span>
+    <% end %>
+  <% end %>
+  </div> 
 </div>

@@ -1,27 +1,26 @@
 <%= render "layouts/sidenav" %>
-<div class="container border border-white">
-  <div class="row border border-white">
-    <div class="col-lg-6 grid-margin stretch-card ps-3 border border-white">
-      <div class="card mt-4 border border-white">
-        <div class="card border border-white ps-2">
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card">
           <div class="header">
             <h2 class="text-center"> <strong><%= @invoice.customer.business.name%></strong></h2>
           </div>
           <h3>Factura :<strong><%= @invoice.id%></strong></h3>
           <h3>Fecha :<strong><%= @invoice.date%></strong></h3>
-          <h3>Cliente :<strong><%= @invoice.customer.full_name%></strong></h3>
+          <h3>Cliente :<strong><%= @invoice.customer.full_name %></strong></h3>
           <strong>Articulos</strong>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">>Producto</th>
-                        <th scope="col">>Cantidad </th>
-                        <th scope="col">>Precio</th>
-                        <th scope="col">> Ajuste</th>
-                        <th scope="col">>Estilista</th>
-                        <th scope="col">>Opciones</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Cantidad </th>
+                        <th scope="col">Precio</th>
+                        <th scope="col"> Ajuste</th>
+                        <th scope="col">Estilista</th>
+                        <th scope="col">Opciones</th>
                       </tr>
                 <tbody>
                     <div id="order_items">
@@ -32,7 +31,8 @@
                         <td><%=item.product.price%></td>
                         <td><%=item.adjustment%></td>
                         <td><%=item.stylist.name%></td>
-                        <td><%= link_to '', edit_invoice_order_item_path(@invoice,item),class:"btn btn-primary bi bi-pen"%>
+                        <td><%= link_to '', edit_invoice_order_item_path(@invoice, item),class:"btn btn-primary bi bi-pen"%>
+                        td><%= link_to 'delete', edit_invoice_order_item_path(@invoice, item),class:"btn btn-primary bi bi-pen"%>
                           <td>
                       </tr>
                       <% end %>
@@ -43,10 +43,11 @@
                     </div>
                 </tbody>
               </table>
-              <div class="d-grid gap-2">
-                <%= link_to "Agregar item",new_invoice_order_item_path, class:"btn btn-primary float-end"%>
-                  <%= link_to "Back to invoices",invoices_path, class:"btn btn-secondary float-end"%>
-                  <%= button_to "Destroy",@invoice,class:"btn btn-danger",method: :delete %>
+              <div>
+                <%= link_to "Agregar item",new_invoice_order_item_path, class:"btn btn-primary" %>
+                  <%= link_to "Back to invoices",invoices_path, class:"btn btn-secondary"%>
+                  <%= button_to "Destroy", @invoice, class:"btn btn-danger", method: :delete %>
+                  <%# link_to 'Destroy item', [@invoice, order_item], method: :delete, data: { confirm: 'Are you sure?' } %>
               </div>
             </div>
           </div>

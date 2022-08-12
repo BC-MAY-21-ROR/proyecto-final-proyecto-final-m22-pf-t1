@@ -3,6 +3,7 @@
 # calculate total amount
 class OrderItemsController < ApplicationController
   load_and_authorize_resource
+  
   before_action :set_order_item, only: %i[show edit update destroy]
   before_action :get_invoice
   before_action :get_stylists
@@ -19,7 +20,7 @@ class OrderItemsController < ApplicationController
   # GET /order_items/new
   def new
     @order_item = @invoice.order_items.build
-    @product_data = search_product(params[:_query]) if params[:_query].present?
+    @product_data = search_product(params[:query]) if params[:query].present?
   end
 
   # GET /order_items/1/edit
@@ -94,6 +95,6 @@ class OrderItemsController < ApplicationController
   end
 
   def search_product_params
-    params.require(:invoice).permit(:_query)
+    params.require(:invoice).permit(:query)
   end
 end
