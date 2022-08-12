@@ -14,7 +14,7 @@ class InvoicesController < ApplicationController
   def new
     @time_now = Time.zone.now.strftime('%Y-%m-%dT%k:%M')
     @invoice = Invoice.new
-    @custom_data = search_by(params[:_query]) if params[:_query].present?
+    @custom_data = search_by(params[:query]) if params[:query].present?
   end
 
   # POST /invoices or /invoices.json
@@ -50,9 +50,9 @@ class InvoicesController < ApplicationController
     end
   end
 
-  def search_by(_search)
-    Customer.select(:id, :full_name, :dni).where('lower(full_name) LIKE ? OR dni LIKE ?', "%#{_search.downcase}%",
-                                                 "%#{_search}%")
+  def search_by(search)
+    Customer.select(:id, :full_name, :dni).where('lower(full_name) LIKE ? OR dni LIKE ?', "%#{search.downcase}%",
+                                                 "%#{search}%")
   end
 
   private
@@ -68,6 +68,6 @@ class InvoicesController < ApplicationController
   end
 
   def search_params
-    params.require(:invoice).permit(:_query)
+    params.require(:invoice).permit(:query)
   end
 end

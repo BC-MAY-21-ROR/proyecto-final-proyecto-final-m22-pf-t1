@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   get 'reports/weekly' => 'weekly'
   get 'reports/comissions'=>'comissions'
 
-
   resources :deductions
   resources :stylists
   resources :businesses

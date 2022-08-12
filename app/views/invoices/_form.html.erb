@@ -12,21 +12,21 @@
   <% end %>
 
   <div>
-    <%= form.label :date, "Fecha", style: "display: block" %>
+    <%= form.label :date, style: "display: block" %>
     <%= form.datetime_field :date %>
   </div>
 
   <div>
-    <%= form.label :amount, "Cantidad", style: "display: block" %>
+    <%= form.label :amount, style: "display: block" %>
     <%= form.number_field :amount %>
   </div>
 
   <div>
-    <%= form.label :customer_id, "ID Cliente", style: "display: block" %>
+    <%= form.label :customer_id, style: "display: block" %>
     <%= form.text_field :customer_id %>
   </div>
 
   <div>
-    <%= form.submit "Crear factura" %>
+    <%= form.submit %>
   </div>
 <% end %>

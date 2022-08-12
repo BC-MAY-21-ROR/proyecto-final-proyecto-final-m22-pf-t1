@@ -61,6 +61,6 @@ class CustomersController < ApplicationController
   end
 
   def search_params
-    params.require(:customer).permit(:_query)
+    params.require(:customer).permit(:query)
   end
 end
