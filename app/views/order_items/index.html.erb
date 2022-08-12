@@ -31,9 +31,15 @@
                         <td><%=item.product.price%></td>
                         <td><%=item.adjustment%></td>
                         <td><%=item.stylist.name%></td>
-                        <td><%= link_to '', edit_invoice_order_item_path(@invoice, item),class:"btn btn-primary bi bi-pen"%>
-                        td><%= link_to 'delete', edit_invoice_order_item_path(@invoice, item),class:"btn btn-primary bi bi-pen"%>
-                          <td>
+                        <td>
+                        <button type="button" class="btn btn-info">
+                          <%= link_to '', edit_invoice_order_item_path(@invoice, item), class:"bi bi-pen text-white" %>
+				                </button>
+                        <button type="button" class="btn btn-danger">
+                                <%= link_to "", invoice_order_item_path(@invoice, item),  data: {turbo_method: :delete, 
+                                  turbo_confirm: "Are you sure?" }, class:"bi bi-trash text-white" %>  
+                        </button>
+                        </td>
                       </tr>
                       <% end %>
                       <tr>

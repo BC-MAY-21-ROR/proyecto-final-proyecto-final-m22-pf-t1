@@ -1,16 +1,10 @@
 <%= render "layouts/sidenav" %>
 
-<%= render "form_search_product"%>
+<%= render "form_search_product" %>
 
 <%= render "form", order_item: @order_item %>
 
 <%# p @product_data %>
-
-<%= form_with url: new_invoice_order_item_path(@invoice), method: :get do |form|  %>
-  <% if @product_data %>
-    <%= form.collection_select :product_id, @product_data.order(:name), :id, :name %>
-  ction_select :stylist_id, Stylist.order(:name), :id, :name %>
-  <% end %>
 
 <% end %>
 

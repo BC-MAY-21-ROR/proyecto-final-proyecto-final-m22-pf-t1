@@ -12,6 +12,13 @@
   <% end %>
 
   <div>
+    <%= form.label :product_id, style: "display: block" %>
+     <% if @product_data %>
+    <%= form.collection_select :product_id, @product_data.order(:name), :id, :name %>
+  <% end %>
+  </div>
+
+  <div>
     <%= form.label :quantity, style: "display: block" %>
     <%= form.number_field :quantity, min: 1, class:"form-control" %>
   </div>
