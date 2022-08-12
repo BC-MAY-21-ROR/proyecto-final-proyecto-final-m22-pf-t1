@@ -2,10 +2,9 @@
 
 class ReportsController < ApplicationController
  load_and_authorize_resource :user
+
   def index
-    @sales = daily_report
-    @sales_monthly = invoices_monthly_report
-    calculate_earn(80)
+
   end
 
   def daily
@@ -68,12 +67,27 @@ class ReportsController < ApplicationController
   end
 
   def calculate_comission(start,endd)
-    @final_list={}
+    @final_list= {}
     @commissions=between_dates(start, endd)
-    @commission.each do |invoice|
+    @commissions.each do |invoice|
       calculate_earn(invoice.id)
-      @final_list=@data
+      @final_list[invoice.id]=@data
     end 
+    calculate_total_comision(@final_list)
+  end
+
+  def calculate_total_comision(list_comissions)
+    @key_list={}
+
+      list_comissions.each do |invoice, data|
+        data.each do |key, value|
+          if @key_list.key?(key)
+        @key_list[key]= @key_list[key]+value[1]
+          else
+            @key_list[key]=value[1]
+          end
+      end
+    end
   end
 
 private
