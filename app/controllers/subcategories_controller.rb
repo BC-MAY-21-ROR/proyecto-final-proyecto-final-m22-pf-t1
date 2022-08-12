@@ -2,5 +2,5 @@
 
 # Create Logic for Subcategories
 class SubcategoriesController < ApplicationController
-    load_and_authorize_resource
+  load_and_authorize_resource
 end

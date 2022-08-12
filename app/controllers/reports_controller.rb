@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
- load_and_authorize_resource :user
+  load_and_authorize_resource :user
   def index
     @sales = daily_report
     @sales_monthly = invoices_monthly_report
@@ -27,15 +27,11 @@ class ReportsController < ApplicationController
   end
 
   def weekly
-    if search_params.present?
-      @list=between_dates(search_params[:start_date], search_params[:end_date])
-    end
+    @list = between_dates(search_params[:start_date], search_params[:end_date]) if search_params.present?
   end
 
   def comissions
-    if search_params.present?
-    calculate_comission(search_params[:start_date], search_params[:end_date])
-    end
+    calculate_comission(search_params[:start_date], search_params[:end_date]) if search_params.present?
   end
 
   def stylists_on_invoice(inv_id)
@@ -67,18 +63,18 @@ class ReportsController < ApplicationController
     Invoice.where('date BETWEEN ? AND ?', start, endd)
   end
 
-  def calculate_comission(start,endd)
-    @final_list={}
-    @commissions=between_dates(start, endd)
+  def calculate_comission(start, endd)
+    @final_list = {}
+    @commissions = between_dates(start, endd)
     @commission.each do |invoice|
       calculate_earn(invoice.id)
-      @final_list=@data
-    end 
+      @final_list = @data
+    end
   end
 
-private
+  private
 
-def search_params
-  params.permit(:start_date, :end_date, :commit)
-end
+  def search_params
+    params.permit(:start_date, :end_date, :commit)
+  end
 end
