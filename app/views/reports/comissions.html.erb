@@ -10,11 +10,21 @@
 
 <% if @final_list.present?%>
 
-<% @final_list.each do |key, value|%>
-  <p> <strong> Estilista :<%= hey %> $:<%= value %></strong></p>
-<% end %>
- 
+<% @final_list.each do |invoice, value|%>
+    <%value.each do |stylist, com| %>
+
+  <p> <strong> Factura :<%= invoice %> Estilista:<%= stylist %>  comision:<%= com[1] %></strong></p>
+  <% end %>
+  <% end %>
 <% end %>
 
 </div>
+
+<div class="container">
+<h2> comision </h2>
+<% @key_list.each do |stylist, value| %>
+  <p> <strong>Estilista:<%= stylist %>  comision:<%= value %></strong></p>
+ <% end %> 
+</div>
+  
 

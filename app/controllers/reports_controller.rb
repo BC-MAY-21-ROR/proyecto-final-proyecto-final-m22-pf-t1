@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
-  load_and_authorize_resource :user
+ load_and_authorize_resource :user
+
   def index
-    @sales = daily_report
-    @sales_monthly = invoices_monthly_report
-    calculate_earn(80)
   end
 
   def daily
@@ -27,11 +25,15 @@ class ReportsController < ApplicationController
   end
 
   def weekly
-    @list = between_dates(search_params[:start_date], search_params[:end_date]) if search_params.present?
+    if search_params.present?
+      @list=between_dates(search_params[:start_date], search_params[:end_date])
+    end
   end
 
   def comissions
-    calculate_comission(search_params[:start_date], search_params[:end_date]) if search_params.present?
+    if search_params.present?
+    calculate_comission(search_params[:start_date], search_params[:end_date])
+    end
   end
 
   def stylists_on_invoice(inv_id)
@@ -63,18 +65,33 @@ class ReportsController < ApplicationController
     Invoice.where('date BETWEEN ? AND ?', start, endd)
   end
 
-  def calculate_comission(start, endd)
-    @final_list = {}
-    @commissions = between_dates(start, endd)
-    @commission.each do |invoice|
+  def calculate_comission(start,endd)
+    @final_list= {}
+    @commissions=between_dates(start, endd)
+    @commissions.each do |invoice|
       calculate_earn(invoice.id)
-      @final_list = @data
+      @final_list[invoice.id]=@data
+    end 
+    calculate_total_comision(@final_list)
+  end
+
+  def calculate_total_comision(list_comissions)
+    @key_list={}
+
+      list_comissions.each do |invoice, data|
+        data.each do |key, value|
+          if @key_list.key?(key)
+        @key_list[key]= @key_list[key]+value[1]
+          else
+            @key_list[key]=value[1]
+          end
+      end
     end
   end
 
-  private
+private
 
-  def search_params
-    params.permit(:start_date, :end_date, :commit)
-  end
+def search_params
+  params.permit(:start_date, :end_date, :commit)
+end
 end
