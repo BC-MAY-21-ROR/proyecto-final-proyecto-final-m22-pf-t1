@@ -2,7 +2,6 @@
 
 # Create Logic for Categories
 class CategoriesController < ApplicationController
-
   before_action :set_category, only: %i[show edit update destroy]
 
   def index

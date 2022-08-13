@@ -12,11 +12,11 @@ class BusinessesController < ApplicationController
   def show; end
 
   def new
-   if @businesses.nil?
-    render :index
-   else
-    @business = Business.new
-   end
+    if @businesses.nil?
+      render :index
+    else
+      @business = Business.new
+    end
   end
 
   def edit; end
@@ -35,18 +35,18 @@ class BusinessesController < ApplicationController
       redirect_to businesses_path, notice: 'Su negocio se ha actualizado'
     else
       render :edit, status: :unprocessable_entity
-   end
+    end
   end
 
   def destroy
-    #@business.destroy
-    #redirect_to businesses_url, notice: 'Business was successfully destroyed.'
+    # @business.destroy
+    # redirect_to businesses_url, notice: 'Business was successfully destroyed.'
   end
 
   private
 
   def set_business
-    @business  = current_user.business
+    @business = current_user.business
   end
 
   def business_params
