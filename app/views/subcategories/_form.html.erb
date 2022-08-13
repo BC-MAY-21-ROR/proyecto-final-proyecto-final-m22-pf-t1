@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="card col-lg-4">
+    <div class="card-header">
+      Cliente
+    </div>
+    <div class="card-body">
+      <%= form_with(model: subcategory) do |form| %>
+      <% if subcategory.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(subcategory.errors.count, "error") %> prohibited this subcategory from being saved:</h2>
+
+          <ul>
+            <% subcategory.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="row mb-3">
+        <%= form.label :name, "Nombre de la categoría", style: "display: block", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-8">
+          <%= form.text_field :name, class:"form-control", placeholder:"Nombre" %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <%= form.label :category_id, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <div class="col-sm-9">
+          <%= form.select :category_id, ([['Productos', 1], ['Servicios', 2]]), {}, { :class => 'form-select' } %>
+        </div>
+      </div>
+      
+      <div>
+        <%= link_to "Back to subcategories", subcategories_path, class:"btn btn-outline-secondary" %>
+        <%= form.submit class:"btn btn-primary" %>
+      </div>
+    <% end %>    
+    </div>
+  </div>
+</div>

@@ -8,4 +8,5 @@ class Business < ApplicationRecord
 
   validates :name, presence: true
   validates :user, uniqueness: { message: 'The business has a owner' }
+  validates :nit, uniqueness: { message: 'El Nit debe ser único' }
 end

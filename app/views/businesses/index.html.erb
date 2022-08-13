@@ -4,5 +4,19 @@
   <% if current_user.business %>
     <%= render current_user.business %>
   <% else %>
-    <%= link_to "Nuevo negocio", new_business_path, class:"btn btn-primary" %>
+  <div class="px-4 py-5 my-5 text-center">
+    <%= image_tag( "https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-beauty-salon-pet-grooming-flaticons-lineal-color-flat-icons.png") -%>
+    <h1 class="display-5 fw-bold">Bienvendo a Serenity</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">
+         Estamos transformando la forma como se gestionan los salones de belleza, con nuestro software podrás organizar tu trabajo diario, automatizar facturas y calcular la nómina o pago de comisiones de tu personal.
+      </p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <%= link_to "Configura tu negocio", new_business_path, class:"btn btn-primary btn-lg px-4 gap-3" %>
+      </div>
+    </div>
+  </div>
   <% end %>
+
+
+

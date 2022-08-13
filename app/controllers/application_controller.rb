@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, alert: exception.message
   end
 
-  protected
+  private
 
   def after_sign_in_path_for(_resource)
     dashboard_index_path
