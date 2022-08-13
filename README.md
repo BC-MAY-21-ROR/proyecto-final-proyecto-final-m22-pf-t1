@@ -9,7 +9,7 @@ Los propietarios de peluquerías y salones de belleza tienen una baja cultura de
 
 | Sprint 1 | Sprint 2 | Sprint 3 | Sprint 4 | Sprint 5 | Sprint 6 | Sprint 7 | Sprint 8 |
 |---|---|---|---|---|---|---|---|
-| Diego | Juan | Edward | Alex | Juan | Diego |
+| Diego | Juan | Edward | Alex | Juan | Diego | Edward |
 
 ## Solución
 
@@ -29,7 +29,7 @@ Sistema de gestión para peluquerías, barberías y salones de belleza. Solució
 - [x]	Asignar cliente a factura
 - [x]	Asignar productos a factura
 - [x]	Asignación de colaborador x cada item
-- [ ]	calcular totales y subtotales
+- [x]	calcular totales y subtotales
 - [ ]	Definir metodo de pago 
 - [ ]	Permitir pagos de contado y a crédito
 
@@ -57,7 +57,7 @@ Sistema de gestión para peluquerías, barberías y salones de belleza. Solució
 
 > Como **Propietario de negocio**, necesito llevar un registro de las ventas	y deducciones del personal para calcular el canon a pagar de los estilistas.
 
-- [ ]	Remuneración x comisiones
+- [x]	Remuneración x comisiones
 - [ ]	Remuneración x Fija
 - [ ]	Remuneración mixta
 
