@@ -1,15 +1,14 @@
-<%= render "layouts/nav" %>
-<div class="container col-xxl-8 px-4 py-5">
+<div class="container col-xxl-8 px-4 py-3">
   <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
     <div class="col-10 col-sm-8 col-lg-6">
-      <%= image_tag "hero", class:"d-block mx-lg-auto img-fluid" %>
+      <%= image_tag "hero1", class:"d-block mx-lg-auto img-fluid" %>
     </div>
     <div class="col-lg-6">
       <h1 class="display-5 fw-bold lh-1 mb-4">Gestiona tu salón Impulsa las ventas</h1>
       <p class="lead">Funciones fáciles de usar, para calcular las comisiones de tus estilitas,
        administrar la información de tus productos y mantener la fidelidad de tus clientes.</p>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <button type="button" class="btn btn-outline-primary btn-lg px-5">mejora tus procesos en unos pocos clics</button>
+        <%= link_to "Impulsa tu negocio", new_user_registration_path, class:"btn btn-outline-primary btn-lg px-5" %>
       </div>
     </div>
   </div>
