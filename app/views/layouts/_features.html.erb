@@ -1,0 +1,44 @@
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Nuestros Servicios</h1>
+        <p class="lead text-muted">Puedes confiar en nuestra increíble lista de características y también nuestro servicio de atención al cliente será una gran experiencia para ti sin duda y en poco tiempo</p>
+        <p>
+          <%= link_to "Comienza a administrar tu negocio ahora", new_user_registration_path, class:"btn btn-primary my-2" %>
+        </p>
+      </div>
+    </div>
+</section>
+<div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <%= image_tag "stylist", class:"d-block mx-lg-auto img-fluid" %>
+            <div class="card-body">
+              <p class="card-title">Panel de estilistas</p>
+              <p class="card-text">Añade colaboradores y gestiona sus pagos de la manera más sencilla</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <%= image_tag "manage", class:"d-block mx-lg-auto img-fluid" %>
+            <div class="card-body">
+              <p class="card-title">Gestión de ingresos</p>
+              <p class="card-text">Accede en todo momento a la contabilidad de tu negocio</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <%= image_tag "invoice", class:"d-block mx-lg-auto img-fluid" %>
+            <div class="card-body">
+              <p class="card-title">Facturación</p>
+              <p class="card-text">Factura en menos de un minuto, más fácil imposible. Tu decides cuando cobrar</p>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
