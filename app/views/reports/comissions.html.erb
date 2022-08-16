@@ -1,30 +1,53 @@
+
+<%=render "layouts/sidenav"%>
 <div class="container">
-  <%= form_with url: "/reports/comissions", method: :get do |form| %>
-      <%= form.label :start_day, "de:" %>
-      <%= form.date_field :start_date, value: Time.zone.today  %>
-      <%= form.label :end_day, "a:" %>
-      <%= form.date_field :end_date, value: Time.zone.today  %>
-    <%= form.submit "Search" %>
-  <% end %>
+  <div class="row border border-white">
+    <div class="col-lg-6 grid-margin stretch-card ps-3 border border-white">
+      <h1 class="text-center">Comisiones</h1>
+        <div class="card mt-4 border border-2">
+          <div class="card border border-white ps-2">
+            <div class="text-center mb-2">
+              <%= form_with url: "/reports/comissions", method: :get do |form| %>
+                  <%= form.label :start_day, "De:" %>
+                  <%= form.date_field :start_date, value: Time.zone.today  %>
+                  <%= form.label :end_day, "a:" %>
+                  <%= form.date_field :end_date, value: Time.zone.today  %>
+            </div>
+            <div class="d-grid mb-3">
+                <%= form.submit "Search", class:"btn btn-primary" %>
+            </div>
+            <% end %>
+            <% if @final_list.present?%>
+            <table>
+                <tr  class="h5">
+                  <th class="ps-5">Factura</th>
 
+                  <th class="pe-5">comision</th>
 
-<% if @final_list.present?%>
+              </tr>
+              <% @final_list.each do |invoice, value|%>
+                  <%value.each do |stylist, com| %>
+              <tr>
+                  <th class="ps-5" scope="row"><%= invoice %></th>
 
-<% @final_list.each do |invoice, value|%>
-    <%value.each do |stylist, com| %>
+                  <th class="pe-5"><h6><%= com[1] %></h6></th>
 
-  <p> <strong> Factura :<%= invoice %> Estilista:<%= stylist %>  comision:<%= com[1] %></strong></p>
-  <% end %>
-  <% end %>
-<% end %>
-
+                </tr>
+                <% end %>
+                <% end %>
+              <% end %>
+              </div>
+              <tfoot class="float-right">
+                
+                <% if @key_list %>
+                <% @key_list.each do |stylist, value| %>
+                <td class="ps-5 h5"><strong>Estilista: </strong><%= stylist %></td> 
+                <td class="pe-5"><strong>Total: </strong><%= value %></h4></td>
+                <% end %> 
+            </table>
+            <% end %>  
+          </div>
+        </div>
+    </div>
+  </div>
 </div>
-
-<div class="container">
-<h2> comision </h2>
-<% @key_list.each do |stylist, value| %>
-  <p> <strong>Estilista:<%= stylist %>  comision:<%= value %></strong></p>
- <% end %> 
-</div>
-  
-
