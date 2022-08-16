@@ -10,6 +10,7 @@
   <% end %>
     <%= link_to "Back to invoices", invoices_path %>
     <%= link_to 'Add item', invoice_order_items_path(@invoice) %> 
+    <%= link_to 'Add Post', invoice_payments_path(@invoice) %> 
   <% if can? :destroy, @invoice %>
     <%= button_to "Destroy this invoice", @invoice, method: :delete %>
   <% end %>

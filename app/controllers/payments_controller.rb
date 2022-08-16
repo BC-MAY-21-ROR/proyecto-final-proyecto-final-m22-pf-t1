@@ -3,11 +3,13 @@
 # Create Logic for Payments
 class PaymentsController < ApplicationController
   load_and_authorize_resource
+  before_action :get_invoice
   before_action :set_payment, only: %i[show edit update destroy]
 
   # GET /payments or /payments.json
   def index
-    @payments = Payment.all
+    #@payments = Payment.all
+    @payments = @invoice.payments
   end
 
   # GET /payments/1 or /payments/1.json
@@ -15,7 +17,7 @@ class PaymentsController < ApplicationController
 
   # GET /payments/new
   def new
-    @payment = Payment.new
+    @payment = @invoice.payments.build
   end
 
   # GET /payments/1/edit
@@ -23,11 +25,12 @@ class PaymentsController < ApplicationController
 
   # POST /payments or /payments.json
   def create
-    @payment = Payment.new(payment_params)
+    @payment = @invoice.payments.build(payment_params)
+    Payment.new(payment_params)
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to payment_url(@payment), notice: 'Payment was successfully created.' }
+        format.html { redirect_to invoice_payments_path(@invoice), notice: 'Payment was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -38,7 +41,7 @@ class PaymentsController < ApplicationController
   def update
     respond_to do |format|
       if @payment.update(payment_params)
-        format.html { redirect_to payment_url(@payment), notice: 'Payment was successfully updated.' }
+        format.html { redirect_to invoice_payment_path(@invoice), notice: 'Payment was successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -58,11 +61,18 @@ class PaymentsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_payment
-    @payment = Payment.find(params[:id])
+    @payment = @invoice.payments.find(params[:id])
+  end
+  def get_invoice
+    @invoice = Invoice.find(params[:invoice_id])
   end
 
   # Only allow a list of trusted parameters through.
   def payment_params
-    params.require(:payment).permit(:date, :invoice_id, :value, :type, :note)
+    params.require(:payment).permit(:date, :invoice_id, :value, :kind, :note)
+  end
+
+  def invoice_params
+    params.require(:invoice).permit(:invoice_id)
   end
 end

@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 	  resources :order_items
 	end
 
+  resources :invoices do
+	  resources :payments
+	end
+
   get 'reports/index' => 'reports#index'
   get 'reports/daily' => 'daily'
   get 'reports/monthly' => 'monthly'
@@ -20,7 +24,6 @@ Rails.application.routes.draw do
   resources :deductions
   resources :stylists
   resources :businesses
-  resources :payments
   resources :subcategories
   resources :categories
   resources :products
