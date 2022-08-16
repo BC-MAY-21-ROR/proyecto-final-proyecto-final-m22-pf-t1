@@ -1,10 +1,41 @@
-<table>
-<tr>
-<th>No.factura</th><th>cliente</th><th>monto</th>
-</tr>
-<%@report_monthly.each do |column|%>
-  <tr>
-<th><%= column.id %></th><th><%= column.customer.full_name %></th><th><%= column.amount %></th>
-</tr>
-<% end %>
-</table>
+
+<%=render "layouts/sidenav"%>
+<div class="container">
+  <div class="row border border-white">
+   <div class="col-lg-6 grid-margin stretch-card ps-3 border border-white">
+   <h1 class="text-center">Reporte Mensual</h1>
+      <div class="card mt-4 border border-2">
+        <div class="card border border-white ps-2">
+          <table class="table caption-top">
+          <thead>
+            <tr>
+              <th>No.factura</th>
+              <th>cliente</th>
+              <th>monto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <%@tot=0%>
+              <%@report_monthly.each do |column|%>
+              <%@tot += column.amount%>
+            </tr>
+            <tr>
+              <th><%= column.id %></th>
+              <th><h6><%= column.customer.full_name %></h6></th>
+              <th><h6><%= column.amount %></h6></th>
+            </tr>
+          </tbody>
+          <% end %>
+          <tfoot class="float-right">
+              <td></td>
+              <td></td>
+              <td><h5 class="float-right">Total: $<%= @tot %></h5></td>
+            </tfoot>
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
