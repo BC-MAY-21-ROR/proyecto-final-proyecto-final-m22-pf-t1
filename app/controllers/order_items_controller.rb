@@ -3,6 +3,7 @@
 # calculate total amount
 class OrderItemsController < ApplicationController
   load_and_authorize_resource
+
   before_action :set_order_item, only: %i[show edit update destroy]
   before_action :get_invoice
   before_action :get_stylists
@@ -56,7 +57,7 @@ class OrderItemsController < ApplicationController
     @order_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to order_items_url, notice: 'Order item was successfully destroyed.' }
+      format.html { redirect_to invoice_order_items_url, notice: 'Order item was successfully destroyed.' }
     end
   end
 
