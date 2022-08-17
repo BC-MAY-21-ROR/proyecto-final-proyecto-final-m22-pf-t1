@@ -54,7 +54,7 @@
                   <%= link_to "Back to invoices",invoices_path, class:"btn btn-secondary"%>
                   <%= link_to 'Pago', new_invoice_payment_path(@invoice), class:"btn btn-secondary" %>
                   <%= button_to "Destroy", @invoice, class:"btn btn-danger", method: :delete %>
-                  <%# link_to 'Destroy item', [@invoice, order_item], method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%# link_to 'Destroy item', [@invoice, order_item], class:"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
               </div>
             </div>
           </div>
