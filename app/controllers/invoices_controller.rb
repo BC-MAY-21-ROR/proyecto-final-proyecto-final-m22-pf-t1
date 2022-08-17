@@ -7,7 +7,7 @@ class InvoicesController < ApplicationController
 
   # GET /invoices or /invoices.json
   def index
-    @invoices = Invoice.all
+    @invoices = Invoice.pending_invoice
   end
 
   # GET /invoices/new

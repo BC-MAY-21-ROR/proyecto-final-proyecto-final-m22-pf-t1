@@ -8,7 +8,6 @@ class PaymentsController < ApplicationController
 
   # GET /payments or /payments.json
   def index
-    #@payments = Payment.all
     @payments = @invoice.payments
   end
 
@@ -27,9 +26,10 @@ class PaymentsController < ApplicationController
   def create
     @payment = @invoice.payments.build(payment_params)
     Payment.new(payment_params)
-
     respond_to do |format|
+   
       if @payment.save
+        set_invoice_status
         format.html { redirect_to invoice_payments_path(@invoice), notice: 'Payment was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -63,8 +63,19 @@ class PaymentsController < ApplicationController
   def set_payment
     @payment = @invoice.payments.find(params[:id])
   end
+
   def get_invoice
     @invoice = Invoice.find(params[:invoice_id])
+  end
+
+  def set_invoice_status
+    balance=@invoice.payments.sum(:value)
+    amount=@invoice.amount
+    if (amount - balance).positive?
+      @invoice.update(status: "partial")
+    else
+      @invoice.update(status: "paid")
+    end
   end
 
   # Only allow a list of trusted parameters through.
