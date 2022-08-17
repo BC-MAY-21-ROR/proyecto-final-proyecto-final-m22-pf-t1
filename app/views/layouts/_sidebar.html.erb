@@ -1,0 +1,35 @@
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+  <div class="offcanvas-header">
+    <%=image_tag "logo", class:"d-block mx-lg-auto img-fluid navbar-brand", width:"160", height:"80" %>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-white">
+    <a href="/" class="d-flex justify-content-center link-dark text-decoration-none">
+      <span class="fs-4">Menú</span>
+    </a>
+    <hr>
+    <ul class="nav flex-column m-auto">
+      <li class="nav-item">
+        <a class="nav-link active nav-pills" aria-current="page">
+            <%=  link_to  "Negocios", businesses_path, class:"nav-link sb-nav-link-icon" %><br>
+            <%=  link_to  "Clientes", customers_path, class:"nav-link sb-nav-link-icon" %><br>
+            <%=  link_to  "Estilistas", stylists_path, class:"nav-link sb-nav-link-icon" %><br>
+            <%=  link_to  "Deducciones", deductions_path, class:"nav-link sb-nav-link-icon" %><br>
+            <%=  link_to  "Productos", products_path, class:"nav-link sb-nav-link-icon" %><br>
+            <%=  link_to  "Facturas", invoices_path, class:"nav-link sb-nav-link-icon" %><br>
+            <%=  link_to  "Reportes", reports_index_path, class:"nav-link sb-nav-link-icon" %><br>
+        </a>
+    </ul>
+    <hr>
+    <div class="m-auto">
+        <% if user_signed_in? %>
+            <div class="small">Conectado como:</div>
+            <%= current_user.email %>
+        <% else %>
+            <%= link_to "Ingresar", new_user_session_path, class:"btn btn-outline-primary" %><br />
+        <% end %>
+    </div>
+</div>
+  </div>
+</div>
