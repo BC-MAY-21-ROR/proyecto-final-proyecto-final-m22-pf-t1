@@ -11,8 +11,13 @@
         <li class="nav-item">
         <% if user_signed_in? %>
           <%= link_to "Dashboard",  dashboard_index_path, class:"nav-link active" %>
-        <% end %>
         </li>
+        <li class="nav-item">
+          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
+            Menú
+          </button>
+        </li>
+        <% end %>
       </ul>
       <form class="d-flex">
         <% if user_signed_in? %>
