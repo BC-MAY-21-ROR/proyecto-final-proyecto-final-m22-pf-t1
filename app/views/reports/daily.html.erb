@@ -1,10 +1,23 @@
-<table>
-<tr>
-<th>No.factura</th><th>cliente</th><th>monto</th>
-</tr>
-<% @report_daily.each do |column|%>
-  <tr>
-<th><%= column.id %></th><th><%= column.customers.full_name %></th><th><%= column.amount %></th>
-</tr>
-<% end %>
-</table>
+<div class="container">
+  <div class="row border border-white">
+    <div class="col-lg-6 grid-margin stretch-card ps-3 border border-white">
+    <h1 class="text-center">Reporte diario</h1>
+        <div class="card mt-4 border border-2">
+          <div class="card border border-white ps-2">
+            <table>
+              <tr>
+                <th>No.factura</th>
+                <th>Cliente</th>
+                <th>Monto</th>
+              </tr>
+              <% @report_daily.each do |column|%>
+              <tr>
+                <th><%= column.id %></th><th><%= column.customers.full_name %></th><th><%= column.amount %></th>
+              </tr>
+              <% end %>
+            </table>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
