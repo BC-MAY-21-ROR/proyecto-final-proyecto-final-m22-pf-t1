@@ -1,27 +1,27 @@
 <div id="<%= dom_id payment %>">
-  <p>
-    <strong>Date:</strong>
-    <%= payment.date %>
-  </p>
+<div class="container d-flex justify-center">
+  <div class="card col-lg-12">
+    <div class="card-header">
+      Pago
+    </div>
+    <div class="card-body">
+      <p>
+        <strong>Date: </strong><%= payment.date %>
+      </p>
+      <p>
+        <strong>Invoice: </strong><%= payment.invoice_id %>
+      </p>
+      <p>
+        <strong>Value: </strong><%= payment.value %>
+      </p>
+      <p>
+        <strong>kind: </strong><%= payment.kind %>
+      </p>
 
-  <p>
-    <strong>Invoice:</strong>
-    <%= payment.invoice_id %>
-  </p>
-
-  <p>
-    <strong>Value:</strong>
-    <%= payment.value %>
-  </p>
-
-  <p>
-    <strong>kind:</strong>
-    <%= payment.kind %>
-  </p>
-
-  <p>
-    <strong>Note:</strong>
-    <%= payment.note %>
-  </p>
-
+      <p>
+        <strong>Note: </strong><%= payment.note %>
+      </p>
+      </div>
+    </div>
+  </div>
 </div>
