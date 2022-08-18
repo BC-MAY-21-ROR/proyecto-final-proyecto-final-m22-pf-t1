@@ -1,15 +1,21 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Payments</h1>
+<div class="px-4 py-5  text-center">
+  <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-payments-automotive-dealership-flaticons-lineal-color-flat-icons-5.png"/>
+    <div class="col-lg-6 mx-auto">
+      <h1 class="display-5 fw-bold">Pago efectuado</h1>
+      <p class="lead mb-4">
+        Bienvenido a la seccion de pagos, por favor de click en el "continuar" para acceder al menu.
+      </p>
+      <p style="color: green"><%= notice %></p>
+      <div id="payments" class="d-flex justify-content-center mb-4">
+        <% @payments.each do |payment| %>
+          <%= render payment %>
+          <p>
+            <%#= link_to "Show this payment", payment %>
+          </p>
+        <% end %>
+      </div>
 
-<div id="payments">
-  <% @payments.each do |payment| %>
-    <%= render payment %>
-    <p>
-      <%#= link_to "Show this payment", payment %>
-    </p>
-  <% end %>
+      <%= link_to "Continuar", new_invoice_payment_path, class:"btn btn-primary btn-lg px-4 gap-3" %>
+      <%= link_to "Volver a facturas",invoices_path, class:"btn btn-outline-secondary btn-lg px-4 gap-3" %>
 </div>
-
-<%= link_to "New payment", new_invoice_payment_path %>
-<%= link_to "Back to payments", invoices_path %>

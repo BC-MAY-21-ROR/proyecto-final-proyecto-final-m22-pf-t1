@@ -15,31 +15,27 @@
         <%= form.text_field :query,  class: 'form-control', placeholder: "Nombre completo ó dni" %>
       </div>
       <div class=" ms-10 mb-5 lg-5">
-         <%= form.submit "Search", class: 'd-inline float-end btn btn-primary d-inline '  %>
+         <%= form.submit "Buscar", class: 'd-inline float-end btn btn-primary d-inline '  %>
+         <%= form.submit "Crear factura", class:"btn btn-primary" %>
       </div>
       <% end %>
-      <div class="">
-        <div class="">
-
-
-
+      <div>
+        <div>
           <%= form_with(model: @invoice) do |form| %>
-        
             <%= form.hidden_field :date, value:@time_now %>
             <%= form.hidden_field:amount %>
             <%if @custom_data%>
             <%= form.collection_select :customer_id, @custom_data, :id, :full_name %>
             <% end %>
             <%#= form.hidden_field :customer_id, value: @custom_id %>
-            
         </div>   
       </div>
       <div class="ms-2 mb-3">
-          <%= link_to "Back to invoices", invoices_path, class:"btn btn-outline-secondary" %>
-          <%= form.submit class:"btn btn-primary" %>
+          
       </div>
       <% end %>
   </div>
+  <%= link_to "Ver facturas", invoices_path, class:"btn btn-outline-secondary" %>
   </div>
 </div>
 </div>
