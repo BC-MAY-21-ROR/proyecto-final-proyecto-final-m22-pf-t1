@@ -1,8 +1,8 @@
 <main>
     <div class="container-fluid px-4">
-        <div class="row">
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-primary text-white mb-4">
+        <div class="row justify-content-md-center">
+            <div class="col-xl-3 col-md-6 pt-5">
+                <div class="card bg-primary text-white mb-4 pt-5">
                     <div class="card-body">Factura</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
                         <%= link_to "Crear nueva factura", new_invoice_path, class: "small text-white stretched-link" %>
@@ -10,8 +10,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-warning text-white mb-4">
+            <div class="col-xl-3 col-md-6 pt-5">
+                <div class="card bg-warning text-white mb-4 pt-5">
                     <div class="card-body">Cliente</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
                         <%= link_to "Agregar nuevo cliente", new_customer_path, class: "small text-white stretched-link" %>
@@ -19,8 +19,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-success text-white mb-4">
+        </div>
+        <div class="row justify-content-md-center">        
+            <div class="col-xl-3 col-md-6 pt-5">
+                <div class="card bg-success text-white mb-4 pt-5">
                     <div class="card-body">Productos</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
                         <%= link_to "Agregar nuevo producto", new_product_path, class: "small text-white stretched-link" %>
@@ -28,11 +30,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-danger text-white mb-4">
-                    <div class="card-body">Deducciones</div>
+            <div class="col-xl-3 col-md-6 pt-5">
+                <div class="card bg-danger text-white mb-4 pt-5">
+                    <div class="card-body">Reportes</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <%= link_to "Registrar nueva deducción", new_deduction_path, class: "small text-white stretched-link" %>
+                        <%= link_to "Crear nuevo reporte", reports_index_path, class: "small text-white stretched-link" %>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>
@@ -40,4 +42,3 @@
         </div>
     </div>
 </main>
-<%= render "layouts/footer" %>
