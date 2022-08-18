@@ -1,40 +1,62 @@
 
 <div class="container">
-  <div class="row border border-white">
-   <div class="col-lg-6 grid-margin stretch-card ps-3 border border-white">
-   <h1 class="text-center">Reporte Mensual</h1>
-      <div class="card mt-4 border border-2">
-        <div class="card border border-white ps-2">
-          <table class="table caption-top">
-          <thead>
-            <tr>
-              <th>No.factura</th>
-              <th>cliente</th>
-              <th>monto</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <%@tot=0%>
-              <%@report_monthly.each do |column|%>
-              <%@tot += column.amount%>
-            </tr>
-            <tr>
-              <th><%= column.id %></th>
-              <th><h6><%= column.customer.full_name %></h6></th>
-              <th><h6><%= column.amount %></h6></th>
-            </tr>
-          </tbody>
-          <% end %>
-          <tfoot class="float-right">
-              <td></td>
-              <td></td>
-              <td><h5 class="float-right">Total: $<%= @tot %></h5></td>
-            </tfoot>
+<div class="row border border-white">
+ <div class="col-lg-6 grid-margin stretch-card ps-3 border border-white">
+ <h1 class="text-center">Reporte Mensual</h1>
+    <div class="card mt-4 border border-2">
+      <div class="card border border-white ps-2">
+        <table class="table caption-top">
+        <thead>
+          <tr>
+            <th>No.factura</th>
+            <th>cliente</th>
+            <th>monto</th>
+            <th>contacto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <%@tot=0%>
+            <%@report_monthly.not_paid_invoice.each do |column|%>
+            <%@tot += column.amount%>
+          </tr>
+          <tr>
+            <th><%= column.id %></th>
+            <th><h6><%= column.customer.full_name %></h6></th>
+            <th><h6><%= number_to_currency(column.amount) %></h6></th>
+            <th><h6><strong><%= column.customer.telephone %>/<strong><%= column.customer.email %></strong></h6></th>
+          </tr>
+        </tbody>
+        <% end %>
+        <tfoot class="float-right">
+            <td></td>
+            <td></td>
+            <td><h5 class="float-right">Total: <%=  number_to_currency(@tot) %></h5></td>
+          </tfoot>
 
-          </table>
-        </div>
+        </table>
       </div>
     </div>
   </div>
+  <div class="col">
+  <h3>Cartera</h3> 
+ <% if @report_monthly.present?%>
+  <table class="table">
+     <tr>
+       <th style="background: green">Liquidado</th><th style="background: yellow">Parcial</th><th style="background: red">Pendiente</th>
+     </tr>
+     <tr>
+       <th ><%=@report_monthly.paid_invoice.count%></th>
+       <th ><%=@report_monthly.partial_invoice.count%></th>
+       <th ><%=@report_monthly.pending_invoice.count%></th>
+     </tr>
+     <tr>
+       <th><%= number_to_currency(@report_monthly.paid_invoice.sum(:amount))%></th>
+       <th><%= number_to_currency(@report_monthly.partial_invoice.sum(:amount))%></th>
+       <th><%= number_to_currency(@report_monthly.pending_invoice.sum(:amount))%></th>
+     </tr>
+     <table>
+    <% end %> 
+ </div>
+</div>
 </div>

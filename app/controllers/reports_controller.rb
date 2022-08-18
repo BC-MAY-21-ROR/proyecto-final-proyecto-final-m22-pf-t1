@@ -57,7 +57,7 @@ class ReportsController < ApplicationController
   end
 
   def between_dates(start, endd)
-    Invoice.where('date BETWEEN ? AND ?', start, endd)
+    Invoice.where('date BETWEEN ? AND ?', start, endd).order(amount: :desc)
   end
 
   def calculate_comission(start, endd)
