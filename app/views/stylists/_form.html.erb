@@ -7,7 +7,7 @@
       <%= form_with(model: stylist) do |form| %>
       <% if stylist.errors.any? %>
         <div style="color: red">
-          <h2><%= pluralize(stylist.errors.count, "error") %> prohibited this stylist from being saved:</h2>
+          <h2><%= pluralize(stylist.errors.count, "error") %> No se puede guardar este estilista: </h2>
 
           <ul>
             <% stylist.errors.each do |error| %>

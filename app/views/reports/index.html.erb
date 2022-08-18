@@ -1,3 +1,31 @@
-<div class="container">
-<h2>Reportes</h2>
+<div class="container-fluid px-4">
+    <div class="row justify-content-md-center">
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-primary text-white mb-4">
+                <div class="card-body">Reporte Diario</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <%= link_to "Crear reporte diario", reports_daily_path, class: "small text-white stretched-link" %>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-body">Reporte Semanal</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <%= link_to "Crear reporte semanal", reports_weekly_path, class: "small text-white stretched-link" %>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-success text-white mb-4">
+                <div class="card-body">Reporte Mensual</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <%= link_to "Crear reporte mensual", reports_monthly_path, class: "small text-white stretched-link" %>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

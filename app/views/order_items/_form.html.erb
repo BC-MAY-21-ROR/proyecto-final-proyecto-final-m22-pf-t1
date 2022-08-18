@@ -3,7 +3,7 @@
 <%= form_with(model: [@invoice, order_item]) do |form| %>
   <% if order_item.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(order_item.errors.count, "error") %> prohibited this order_item from being saved:</h2>
+      <h2><%= pluralize(order_item.errors.count, "error") %> No se puede guardar este artículo: </h2>
 
       <ul>
         <% order_item.errors.each do |error| %>
