@@ -2,11 +2,11 @@
   <div class="row d-flex align-items-center justify-content-center">
     <div class="col-lg-4">
       <div class="card card-body text-center p-4 p-sm-5">
-        <h1 class="mb-2">Iniciar sesion</h1>
-        <p class="my-3">Aun no estas registrado? <%= link_to "Registrarte aquí", new_registration_path(resource_name) %> </p>
+        <h1 class="mb-2">Iniciar sesión</h1>
+        <p class="my-3">Aún no estás registrado? <%= link_to "Registrarte aquí", new_registration_path(resource_name) %> </p>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }, class:"mt-sm-4") do |f| %>
           <div class="mb-3 input-group-lg">
-            <%= f.email_field :email, autofocus: true, autocomplete: "Correo eletronico", class:"form-control", placeholder:"Ingresa tu correo electronico"%>
+            <%= f.email_field :email, autofocus: true, autocomplete: "Correo electrónico", class:"form-control", placeholder:"Ingresa tu correo electrónico"%>
           </div>
           <div class="mb-3 position-relative">
             <div class="input-group input-group-lg">
@@ -17,7 +17,7 @@
             <% if devise_mapping.rememberable? %>
               <div class="field">
                 <%= f.check_box :remember_me, class:"form-check-input" %>
-                <%= f.label :remember_me, class:"form-check-label" %>
+                <%= f.label "Recuérdame", class:"form-check-label" %>
               </div>
             <% end %>
             
@@ -26,7 +26,7 @@
             <% end %>
           </div>
           <div class="actions d-grid">
-            <%= f.submit "Iniciar sesion", class:"btn btn-lg btn-primary" %>
+            <%= f.submit "Iniciar sesión", class:"btn btn-lg btn-primary" %>
           </div>
         <% end %>
       </div>

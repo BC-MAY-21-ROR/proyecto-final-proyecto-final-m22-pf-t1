@@ -12,10 +12,11 @@
     <ul class="nav flex-column m-auto">
       <li class="nav-item">
         <a class="nav-link active nav-pills" aria-current="page">
+            <%= link_to "Dashboard",  dashboard_index_path, class:"nav-link sb-nav-link-icon" %><br>
             <%=  link_to  "Negocios", businesses_path, class:"nav-link sb-nav-link-icon" %><br>
             <%=  link_to  "Clientes", customers_path, class:"nav-link sb-nav-link-icon" %><br>
             <%=  link_to  "Estilistas", stylists_path, class:"nav-link sb-nav-link-icon" %><br>
-            <%=  link_to  "Deducciones", deductions_path, class:"nav-link sb-nav-link-icon" %><br>
+            <%=  link_to  "Comisiones", reports_comissions_path, class:"nav-link sb-nav-link-icon" %><br>
             <%=  link_to  "Productos", products_path, class:"nav-link sb-nav-link-icon" %><br>
             <%=  link_to  "Facturas", invoices_path, class:"nav-link sb-nav-link-icon" %><br>
             <%=  link_to  "Reportes", reports_index_path, class:"nav-link sb-nav-link-icon" %><br>

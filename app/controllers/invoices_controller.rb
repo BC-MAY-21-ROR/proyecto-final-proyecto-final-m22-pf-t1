@@ -23,7 +23,7 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       if @invoice.save
-        format.html { redirect_to invoice_order_items_path(@invoice), notice: 'Invoice was successfully created.' }
+        format.html { redirect_to invoice_order_items_path(@invoice), notice: 'La factura se ha creado con éxito.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -34,7 +34,7 @@ class InvoicesController < ApplicationController
   def update
     respond_to do |format|
       if @invoice.update(invoice_params)
-        format.html { redirect_to invoice_url(@invoice), notice: 'Invoice was successfully updated.' }
+        format.html { redirect_to invoice_url(@invoice), notice: 'La factura se ha actualizado correctamente.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -46,7 +46,7 @@ class InvoicesController < ApplicationController
     @invoice.destroy
 
     respond_to do |format|
-      format.html { redirect_to invoices_url, notice: 'Invoice was successfully destroyed.' }
+      format.html { redirect_to invoices_url, notice: 'La factura ha sido eliminada con éxito.' }
     end
   end
 

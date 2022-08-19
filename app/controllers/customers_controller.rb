@@ -27,7 +27,7 @@ class CustomersController < ApplicationController
     @customer = current_user.business.customers.build(customer_params)
 
     if @customer.save
-      redirect_to customer_url(@customer), notice: 'Customer was successfully created.'
+      redirect_to customers_url, notice: 'El cliente ha sido creado con éxito.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class CustomersController < ApplicationController
   # PATCH/PUT /customers/1 or /customers/1.json
   def update
     if @customer.update(customer_params)
-      redirect_to customer_url(@customer), notice: 'Customer was successfully updated.'
+      redirect_to customers_url, notice: 'El cliente ha sido actualizado con éxito.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -45,7 +45,7 @@ class CustomersController < ApplicationController
   # DELETE /customers/1 or /customers/1.json
   def destroy
     @customer.destroy
-    redirect_to customers_url, notice: 'Customer was successfully destroyed.'
+    redirect_to customers_url, notice: 'El cliente fue eliminado con éxito.'
   end
 
   private
