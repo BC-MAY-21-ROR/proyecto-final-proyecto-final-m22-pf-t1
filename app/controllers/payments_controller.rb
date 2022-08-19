@@ -30,7 +30,7 @@ class PaymentsController < ApplicationController
    
       if @payment.save
         set_invoice_status
-        format.html { redirect_to invoice_payments_path(@invoice), notice: 'Payment was successfully created.' }
+        format.html { redirect_to invoice_payments_path(@invoice), notice: 'El pago se ha realizado con éxito.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -41,7 +41,7 @@ class PaymentsController < ApplicationController
   def update
     respond_to do |format|
       if @payment.update(payment_params)
-        format.html { redirect_to invoice_payment_path(@invoice), notice: 'Payment was successfully updated.' }
+        format.html { redirect_to invoice_payment_path(@invoice), notice: 'El pago se ha actualizado con éxito.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -53,7 +53,7 @@ class PaymentsController < ApplicationController
     @payment.destroy
 
     respond_to do |format|
-      format.html { redirect_to payments_url, notice: 'Payment was successfully destroyed.' }
+      format.html { redirect_to payments_url, notice: 'El pago se ha eliminado con éxito.' }
     end
   end
 

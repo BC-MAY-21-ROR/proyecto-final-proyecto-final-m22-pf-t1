@@ -9,10 +9,10 @@ en:
     failure:
       already_authenticated: "Ya has iniciado sesión."
       inactive: "Su cuenta aún no está activada."
-      invalid: "%{authentication_keys} o contraseña invalidos."
+      invalid: "%{authentication_keys} o contraseña inválidos."
       locked: "Su cuenta está bloqueada."
       last_attempt: "Tienes un intento más antes de que se bloquee tu cuenta."
-      not_found_in_database: "%{authentication_keys} o contraseña invalidos."
+      not_found_in_database: "%{authentication_keys} o contraseña inválidos."
       timeout: "Su sesión ha expirado. Por favor, inicie sesión de nuevo para continuar."
       unauthenticated: "Tienes que iniciar sesión o registrarte antes de continuar."
       unconfirmed: "Tienes que confirmar tu dirección de correo electrónico antes de continuar."

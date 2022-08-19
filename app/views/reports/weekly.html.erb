@@ -7,14 +7,14 @@
     <%= form.date_field :start_date, value: Time.zone.today  %>
     <%= form.label :end_day, "a:" %>
     <%= form.date_field :end_date, value: Time.zone.today%>
-    <%= form.submit "Search", class:"btn btn-primary"%>
+    <%= form.submit "Buscar", class:"btn btn-primary"%>
 </div>
 <% end %>
 
   </div>
   <div class="row border border-white">
     <div class="col-lg-6 grid-margin stretch-card ps-3 border border-white">
-        <div class="card mt-4 ">
+        <div class="mt-4 ">
          <div class="card border border-white ps-2">
               
             
@@ -26,8 +26,8 @@
             <table class="table">
               <tr  class="h5">
                 <th>No.factura</th>
-                <th>cliente</th>
-                <th>monto</th>
+                <th>Cliente</th>
+                <th>Monto</th>
                 <th>Recordatorio</th>
               </tr>
               <%@tot=0%>
