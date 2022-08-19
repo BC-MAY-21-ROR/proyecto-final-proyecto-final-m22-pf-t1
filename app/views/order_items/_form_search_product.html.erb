@@ -1,16 +1,17 @@
-<div class="card col-lg-8 justify-content-center">
+
+<div class="border border-2 rounded-3 d-grid gap-2">
   <div class="card-header">
     Formulario de búsqueda
   </div>
   <div class="card-body">
-<%= form_with url: new_invoice_order_item_path(@invoice), method: :get do |form|  %>
-<div class="row mb-3">
-  <%= form.label :query, "Producto:", class:"col-sm-3 col-form-label" %>
-  <div class="col-sm-9">
-  <%= form.text_field :_query,  class: 'form-control ', placeholder: "Nombre ó Referencia" %>
-</div>
-</div>
-  <%= form.submit "Search", class: ' d-inline float-end btn btn-primary d-inline '  %>
-<% end %>
-</div>
+    <%= form_with url: new_invoice_order_item_path(@invoice), method: :get do |form|  %>
+    <div class="row mb-3">
+      <%= form.label :query, "Producto", class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+      <%= form.text_field :_query,  class: 'form-control', placeholder: "Nombre ó Referencia" %>
+    </div>
+    </div>
+      <%= form.submit "Buscar", class: ' d-inline float-end btn btn-primary d-inline '  %>
+    <% end %>
+  </div>
 </div>

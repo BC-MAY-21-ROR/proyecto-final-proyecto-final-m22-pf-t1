@@ -1,15 +1,12 @@
-<%= render "layouts/sidenav" %>
-<div class="row pe-5 justify-content-center mt-3">
-      <div class="col-lg-4 grid-margin stretch-card mt-2 ">
-        <div class="card border border-white rounded-lg mt-2 mb-2">
 
+<div class="d-flex justify-content-center  ">
+      <div class="d-flex justify-content-center col-lg-12 grid-margin stretch-card  ">
+        <div class="card border border-white rounded-lg col-lg-3">
             <%= render "form", order_item: @order_item %>
-
-            <br>
-
             <div class="d-flex justify-content-center">
               <%= link_to "Regresar a artículos ", invoice_order_items_path(@invoice), class:"btn btn-secondary float-end m-2"%>
                 <%= link_to "Regresar a facturas", invoices_path, class:"btn btn-secondary float-end m-2"%>
             </div>
         </div>
       </div>
+</div>
