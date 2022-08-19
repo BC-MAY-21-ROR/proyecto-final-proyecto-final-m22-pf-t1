@@ -47,7 +47,7 @@
         <h3 class="text-center">Estilistas</h3>
         <% @key_list.each do |stylist, value| %>
           <tr>
-            <td class="ps-5 h5"><strong>Estilista: </strong><%= stylist %></td> 
+            <td class="ps-5 h5"><%= stylist %></td> 
             <td class="pe-5"><strong>Total: </strong><%=  number_to_currency(value) %></h4></td>
           </tr>
           <% end %>

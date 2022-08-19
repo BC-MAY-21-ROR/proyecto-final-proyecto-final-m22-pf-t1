@@ -7,8 +7,13 @@ class InvoicesController < ApplicationController
 
   # GET /invoices or /invoices.json
   def index
-    @invoices = Invoice.pending_invoice
-  end
+      @custom_data = search_by(params[:query]) if params[:query].present?
+      if params[:commit]=="ver facturas"
+        id=params[:customer_id]
+        @invoices = Invoice.where(customer_id: id).pending_invoice
+        @customer=Invoice.find_by(customer_id: id).customer.full_name
+      end
+    end
 
   # GET /invoices/new
   def new
@@ -23,7 +28,7 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       if @invoice.save
-        format.html { redirect_to invoice_order_items_path(@invoice), notice: 'La factura se ha creado con éxito.' }
+        format.html { redirect_to invoice_order_items_path(@invoice), notice: 'Invoice was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -34,7 +39,7 @@ class InvoicesController < ApplicationController
   def update
     respond_to do |format|
       if @invoice.update(invoice_params)
-        format.html { redirect_to invoice_url(@invoice), notice: 'La factura se ha actualizado correctamente.' }
+        format.html { redirect_to invoice_url(@invoice), notice: 'Invoice was successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -46,7 +51,7 @@ class InvoicesController < ApplicationController
     @invoice.destroy
 
     respond_to do |format|
-      format.html { redirect_to invoices_url, notice: 'La factura ha sido eliminada con éxito.' }
+      format.html { redirect_to invoices_url, notice: 'Invoice was successfully destroyed.' }
     end
   end
 
@@ -66,7 +71,7 @@ class InvoicesController < ApplicationController
   def invoice_params
     params.require(:invoice).permit(:date, :amount, :customer_id)
   end
-
+ 
   def search_params
     params.require(:invoice).permit(:query)
   end

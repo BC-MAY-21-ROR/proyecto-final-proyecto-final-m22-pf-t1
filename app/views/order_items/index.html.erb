@@ -29,8 +29,8 @@
                       <tr>
                         <td><%=item.product.reference %></td>
                         <td><%=item.quantity%></td>
-                        <td><%=item.product.price%></td>
-                        <td><%=item.adjustment%></td>
+                        <td><%=number_to_currency(item.product.price)%></td>
+                        <td><%=number_to_currency(item.adjustment)%></td>
                         <td><%=item.stylist.name%></td>
                         <td>
                         <button type="button" class="btn btn-info">
@@ -45,7 +45,7 @@
                       <% end %>
                       <tr>
                         <td> <strong>Subtotal</strong></td>
-                        <td><strong><%= @sub_total %></strong></td>
+                        <td><strong><%= number_to_currency(@sub_total) %></strong></td>
                       </tr>
                     </div>
                 </tbody>
