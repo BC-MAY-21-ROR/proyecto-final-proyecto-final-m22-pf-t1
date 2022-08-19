@@ -1,15 +1,16 @@
-<%= render "layouts/sidenav" %>
+
 <div class="container">
   <div class="row">
     <div class="col">
-      <div class="card">
+      <div class="card border border-white">
           <div class="header">
             <h2 class="text-center"> <strong><%= @invoice.customer.business.name%></strong></h2>
           </div>
-          <h3>Factura :<strong><%= @invoice.id%></strong></h3>
-          <h3>Fecha :<strong><%= @invoice.date%></strong></h3>
-          <h3>Cliente :<strong><%= @invoice.customer.full_name %></strong></h3>
-          <strong>Articulos</strong>
+          <div class="ps-4">
+            <h5>Factura: <strong><%= @invoice.id%></strong></h5>
+            <h5>Fecha: <strong><%= @invoice.date%></strong></h5>
+            <h5>Cliente: <strong><%= @invoice.customer.full_name %></strong></h5>
+          </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table">
@@ -18,7 +19,7 @@
                         <th scope="col">Producto</th>
                         <th scope="col">Cantidad </th>
                         <th scope="col">Precio</th>
-                        <th scope="col"> Ajuste</th>
+                        <th scope="col">Ajuste</th>
                         <th scope="col">Estilista</th>
                         <th scope="col">Opciones</th>
                       </tr>
@@ -49,11 +50,11 @@
                     </div>
                 </tbody>
               </table>
-              <div>
-                <%= link_to "Agregar item",new_invoice_order_item_path, class:"btn btn-primary" %>
-                  <%= link_to "Back to invoices",invoices_path, class:"btn btn-secondary"%>
-                  <%= link_to 'Pago', new_invoice_payment_path(@invoice), class:"btn btn-secondary" %>
-                  <%= button_to "Destroy", @invoice, class:"btn btn-danger", method: :delete %>
+              <div class="d-flex">
+                    <%= link_to "Agregar Producto/Servicio",new_invoice_order_item_path, class:"btn btn-primary me-2" %>
+                    <%= link_to "Volver a facturas",invoices_path, class:"btn btn-secondary me-2"%>
+                    <%= link_to 'Pagar', new_invoice_payment_path(@invoice), class:"btn btn-success me-2" %>
+                    <%= button_to "Eliminar", @invoice, class:"btn btn-danger", method: :delete %>
                   <%# link_to 'Destroy item', [@invoice, order_item], class:"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
               </div>
             </div>
