@@ -1,43 +1,54 @@
-<div id="invoices" class="container">
-
 <div class="container">
-<div class="row">
-  <div class="col-lg-12 grid-margin stretch-card">
-  <div class="card shadow-lg border-0 rounded-lg mt-2 mb-4 ">
-    <div class="card">
-      <div class="card-header">
-        <%= link_to "Nueva factura", new_invoice_path, class:"btn btn-primary float-end"%>
-        <h4 class="card-title">Facturas</h4>
+  <div class="row">
+  
+   <% if !@custom_data.present? %>
+    <div class="col col-6">
+      <%= form_with url: "/invoices", method: :get do |form| %>
+      <div class=row>
+      <div class="col col-6" >
+      <%= form.text_field :query,  class: 'form-control', placeholder: "Nombre completo ó dni" %>
       </div>
-      <div class="card-body">
-      <div class="table-responsive">
-      <table class="table">
-        <thead>
+      <div class="col col-2">
+        <%= form.submit "Buscar", class: 'btn btn-primary  btn-sm '  %>
+      </div>
+    </div>
+    <% end %>
+
+
+  <% else %>  
+    <div class="col col-6">
+      <%= form_with url: "/invoices", method: :get do |form| %>
+            <%if @custom_data%>
+                <%= form.collection_select :customer_id, @custom_data, :id, :full_name ,{:prompt => 'Selecciona ...'}, html_options = { class: 'form-control'} %>
+                <%= form.submit "ver facturas", class:"btn btn-primary btn-sm d-line float-start" %>
+            <% end %>
+        <% end %>
+       
+    </div>
+  <% end %>  
+  </div>
+  <div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="column">
+      <% if @invoices.present?%>
+       <div><strong> cliente : <%= @customer %></strong></div>
+        <table class="table">
           <tr>
-            <th scope="col">Factura</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Artículos</th>
-            <th scope="col">Monto</th>
-            <th scope="col">Cliente</th>
-            <th scope="col">Detalles</th>
+            <th>No.</th><th>Monto</th><th>Fecha </th><th>Abono </th><th>Adeuda </th><th>Pagar</th>
           </tr>
-        </thead>
-        <tbody>
-        <%@invoices.each do |invoice|%>
-          <tr>
-            <th scope="row"><%= invoice.id %></th>
-            <td><%=invoice.date %></td>
-            <td><%=invoice.order_items.count%></td>
-            <td><%=invoice.amount  %></td>
-            <td><%=invoice.customer.full_name%></td>
-            <td ><%=link_to "",invoice_order_items_path(invoice),class:"btn btn-info  bi bi-card-list"%></td>
-          </tr>
-          <tr>
-        <%end%>
-        </tbody>
-      </table>
+            <% @invoices.each do |invoice|%>
+              <tr>
+                  <td><%= invoice.id %></td><td><%= number_to_currency(invoice.amount) %></td><td><%= invoice.date %> </td>
+                  <td><%= number_to_currency(invoice.payments.sum(:value)) %> </td><td><%= number_to_currency(invoice.amount - invoice.payments.sum(:value)) %> 
+              </td><td><%= link_to "Abonar", invoice_order_items_path(invoice)%></td>   
+              </tr>
+              <% end %>
+        </table>
+        <% end %>
+
     </div>
   </div>
-  </div>
 </div>
-</div>
+
