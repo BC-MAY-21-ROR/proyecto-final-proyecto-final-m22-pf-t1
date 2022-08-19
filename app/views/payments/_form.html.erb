@@ -1,13 +1,13 @@
 <div class="container ps-5">
-  <div class="card col-lg-4 text-center border border-1">
+  <div class="card col-lg-4 text-left border border-1">
     <div class="card-header text-center">
       <h1>Pagos</h1>
     </div>
-    <div class="card-body px-2">
+    <div class="card-body px-4">
       <%= form_with(model: [ @invoice, payment]) do |form| %>
       <% if payment.errors.any? %>
         <div style="color: red">
-          <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+          <h2><%= pluralize(payment.errors.count, "error") %> No se puede guardar este pago:</h2>
 
           <ul>
             <% payment.errors.each do |error| %>
@@ -18,28 +18,28 @@
       <% end %>
 
       <div class="row mb-3">
-        <%= form.label :date, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label "Fecha", style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
           <%= form.datetime_field :date, value: DateTime.now.strftime("%Y-%m-%dT%T"),  class:'form-select' %>
         </div>
       </div>
 
       <div class="row mb-3">
-        <%= form.label :invoice_id, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label "# Factura", style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
           <%= form.text_field :invoice_id, class:"form-control", value: @invoice.id, placeholder:"Invoice ID"%>
         </div>
       </div>
 
       <div class="row mb-3">
-        <%= form.label :value, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label "Cantidad", style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
           <%= form.number_field :value, min: 1000, step: 1000, class:"form-control" %>
         </div>
       </div>
 
       <div class="row mb-3">
-        <%= form.label :kind, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label "Método de pago", style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
           <%#= form.select :kind, ["Efectivo", "Tarjeta"], {"Efectivo", "Tarjeta"}, { :class => 'form-select' } %>
           <%= form.text_field :kind,   class: 'form-control', placeholder: "Efectivo/Tarjeta"  %>
@@ -47,15 +47,15 @@
       </div>
 
       <div class="row mb-3">
-        <%= form.label :note, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label "Nota", style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
           <%= form.text_area :note, class:"form-control", placeholder:"Notas" %>
         </div>
       </div>
 
       <div>
-        <%= link_to "Back to payments", invoice_payments_path, class:"btn btn-outline-secondary" %>
-        <%= form.submit class:"btn btn-primary" %>
+        <%= link_to "Regresar", invoice_payments_path, class:"btn btn-outline-secondary" %>
+        <%= form.submit "Guardar", class:"btn btn-primary" %>
       </div>
     <% end %>    
     </div>

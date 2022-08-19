@@ -1,10 +1,9 @@
-
 <div class="container">
   <div class="row border border-white">
     <div class="col-lg-6 grid-margin stretch-card ps-3 border border-white">
-      <h1 class="text-center">Comisiones</h1>
         <div class="card mt-4 border border-2">
           <div class="card border border-white ps-2">
+          <h3 class="text-center py-3">Comisiones</h3>
             <div class="text-center mb-2">
               <%= form_with url: "/reports/comissions", method: :get do |form| %>
                   <%= form.label :start_day, "De:" %>
@@ -17,7 +16,7 @@
             </div>
             <% end %>
             <% if @final_list.present?%>
-            <table>
+            <table class="table">
                 <tr  class="h5">
                   <th class="ps-5">Factura</th>
 
@@ -29,24 +28,31 @@
               <tr>
                   <th class="ps-5" scope="row"><%= invoice %></th>
 
-                  <th class="pe-5"><h6><%= com[1] %></h6></th>
+                  <th class="pe-5"><h6><%=  number_to_currency(com[1]) %></h6></th>
 
                 </tr>
                 <% end %>
                 <% end %>
               <% end %>
               </div>
-              <tfoot class="float-right">
-                
-                <% if @key_list %>
-                <% @key_list.each do |stylist, value| %>
-                <td class="ps-5 h5"><strong>Estilista: </strong><%= stylist %></td> 
-                <td class="pe-5"><strong>Total: </strong><%= value %></h4></td>
-                <% end %> 
+              
             </table>
-            <% end %>  
           </div>
         </div>
+    </div>
+    <div class="col">
+    
+        <table class="table">
+        <% if @key_list %>
+        <h3 class="text-center">Estilistas</h3>
+        <% @key_list.each do |stylist, value| %>
+          <tr>
+            <td class="ps-5 h5"><strong>Estilista: </strong><%= stylist %></td> 
+            <td class="pe-5"><strong>Total: </strong><%=  number_to_currency(value) %></h4></td>
+          </tr>
+          <% end %>
+        <% end %> 
+        </table>
     </div>
   </div>
 </div>

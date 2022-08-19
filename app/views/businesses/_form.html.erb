@@ -25,7 +25,7 @@
       </div>
 
       <div class="row mb-3">
-        <%= form.label :nit, style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label :nit, "NIT", style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
           <%= form.text_field :nit, class:"form-control", placeholder:"NIT" %>
         </div>
@@ -46,7 +46,7 @@
       </div>
 
       <div class="row mb-3">
-        <%= form.label :telephone, "Telefono" , style: "display: block", class:"col-sm-3 col-form-label" %>
+        <%= form.label :telephone, "Teléfono" , style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
           <%= form.text_field :telephone, class:"form-control", placeholder:"Teléfono" %>
         </div>
@@ -60,7 +60,7 @@
       </div>
 
       <div>
-        <%= form.submit "Crear negocio", class:"btn btn-primary" %>
+        <%= form.submit "Guardar", class:"btn btn-primary" %>
       </div>
     <% end %>    
     </div>

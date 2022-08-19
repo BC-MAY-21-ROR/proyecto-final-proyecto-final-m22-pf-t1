@@ -7,7 +7,7 @@
       <%= form_with(model: stylist) do |form| %>
       <% if stylist.errors.any? %>
         <div style="color: red">
-          <h2><%= pluralize(stylist.errors.count, "error") %> prohibited this stylist from being saved:</h2>
+          <h2><%= pluralize(stylist.errors.count, "error") %> No se puede guardar este estilista: </h2>
 
           <ul>
             <% stylist.errors.each do |error| %>
@@ -58,8 +58,8 @@
           <%= form.text_field :business_id, class:"form-control", placeholder:"ID Negocio" %>
         </div>
       </div>
-        <%= link_to "Regresar a estilistas", stylists_path, class:"btn btn-outline-secondary" %>
-        <%= form.submit "Crear estilista", class:"btn btn-primary" %>
+        <%= link_to "Regresar", stylists_path, class:"btn btn-outline-secondary" %>
+        <%= form.submit "Guardar", class:"btn btn-primary" %>
       </div>
     <% end %>    
     </div>

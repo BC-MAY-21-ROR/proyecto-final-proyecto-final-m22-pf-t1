@@ -28,7 +28,7 @@ class StylistsController < ApplicationController
 
     respond_to do |format|
       if @stylist.save
-        format.html { redirect_to stylist_url(@stylist), notice: 'Stylist was successfully created.' }
+        format.html { redirect_to stylists_url, notice: 'El estilista fue creado con éxito.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -38,7 +38,7 @@ class StylistsController < ApplicationController
   def update
     respond_to do |format|
       if @stylist.update(stylist_params)
-        format.html { redirect_to stylist_url(@stylist), notice: 'Stylist was successfully updated.' }
+        format.html { redirect_to stylists_url, notice: 'El estilista se ha actualizado con éxito.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -49,7 +49,7 @@ class StylistsController < ApplicationController
     @stylist.destroy
 
     respond_to do |format|
-      format.html { redirect_to stylists_url, notice: 'Stylist was successfully destroyed.' }
+      format.html { redirect_to stylists_url, notice: 'El estilista fue eliminado con éxito..' }
     end
   end
 

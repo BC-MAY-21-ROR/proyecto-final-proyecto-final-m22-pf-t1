@@ -1,4 +1,3 @@
-<%= render "layouts/sidenav" %>
 <p style="color: green"><%= notice %></p>
 
 
@@ -18,9 +17,9 @@
       <tr>
         <td><%= item.invoice_id %></td>
         <td><%= item.invoice.name %></td>
-        <td><%= link_to 'Show invoice', [@invoice] %></td>
-        <td><%= link_to 'Edit item', edit_invoice_order_item_path(@invoice, order_item) %></td>
-        <td><%= link_to 'Destroy item', [@invoice, order_item], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar factura', [@invoice] %></td>
+        <td><%= link_to 'Editar artículo', edit_invoice_order_item_path(@invoice, order_item) %></td>
+        <td><%= link_to 'Eliminar artículo', [@invoice, order_item], method: :delete, data: { confirm: 'Estas seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -24,7 +24,6 @@
 					<%  @stylists.each do |stylist| %>
 					<tr class="align-middle">
 						<td class="py-1"> 
-            <img src="http://via.placeholder.com/36x36" alt="image">
             <%= stylist.name %> </td>
 						<td> <%= stylist.dni %></td>
 						<td> <%= stylist.telephone %></td>
@@ -34,12 +33,9 @@
               <button type="button" class="btn btn-info">
 							<%= link_to "", edit_stylist_path(stylist), class:"bi bi-pencil text-white" %> 
               </button>
-              <button type="button" class="btn btn-warning">
-							<%= link_to "", edit_stylist_path(stylist), class:"bi bi-plug text-white" %> 
-              </button>
               <button type="button" class="btn btn-danger">
 							<%= link_to "", stylist_path(stylist),  data: {turbo_method: :delete, 
-								turbo_confirm: "Are you sure?" }, class:"bi bi-trash text-white" %> 
+								turbo_confirm: "Estás seguro?" }, class:"bi bi-trash text-white" %> 
 								</button>
             </td>
 					</tr>

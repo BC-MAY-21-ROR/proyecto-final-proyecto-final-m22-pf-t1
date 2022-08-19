@@ -34,7 +34,7 @@ class OrderItemsController < ApplicationController
 
     respond_to do |format|
       if @order_item.save
-        format.html { redirect_to invoice_order_items_path(@invoice), notice: 'Order item was successfully created.' }
+        format.html { redirect_to invoice_order_items_path(@invoice), notice: 'El artículo de la factura se ha creado con éxito.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -45,7 +45,7 @@ class OrderItemsController < ApplicationController
   def update
     respond_to do |format|
       if @order_item.update(order_item_params)
-        format.html { redirect_to invoice_order_items_path(@invoice), notice: 'Order item was successfully updated.' }
+        format.html { redirect_to invoice_order_items_path(@invoice), notice: 'El artículo dela factura se ha actualizado con éxito.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -57,7 +57,7 @@ class OrderItemsController < ApplicationController
     @order_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to invoice_order_items_url, notice: 'Order item was successfully destroyed.' }
+      format.html { redirect_to invoice_order_items_url, notice: 'El artículo dela factura se ha eliminado con éxito.' }
     end
   end
 
