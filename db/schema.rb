@@ -143,7 +143,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_16_224103) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "role", default: "seller"
+    t.string "role", default: "manager"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
