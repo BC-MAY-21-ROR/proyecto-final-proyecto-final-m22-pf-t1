@@ -10,7 +10,6 @@ Bundler.require(*Rails.groups)
 module Serenity
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.autoloader = :classic
 
     config.load_defaults 7.0
 
