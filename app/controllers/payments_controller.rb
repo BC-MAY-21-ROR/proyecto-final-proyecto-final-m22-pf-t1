@@ -4,6 +4,7 @@
 class PaymentsController < ApplicationController
   load_and_authorize_resource
   before_action :get_invoice
+  before_action :set_invoice_status
   before_action :set_payment, only: %i[show edit update destroy]
 
   # GET /payments or /payments.json
@@ -75,6 +76,7 @@ class PaymentsController < ApplicationController
       @invoice.update(status: "partial")
     else
       @invoice.update(status: "paid")
+      @invoice.update(amount: balance)
     end
   end
 

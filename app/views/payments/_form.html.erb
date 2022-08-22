@@ -41,8 +41,7 @@
       <div class="row mb-3">
         <%= form.label "Método de pago", style: "display: block", class:"col-sm-3 col-form-label" %>
         <div class="col-sm-9">
-          <%#= form.select :kind, ["Efectivo", "Tarjeta"], {"Efectivo", "Tarjeta"}, { :class => 'form-select' } %>
-          <%= form.text_field :kind,   class: 'form-control', placeholder: "Efectivo/Tarjeta"  %>
+          <%= form.select :kind, ([['Efectivo', 'cash'], ['Tarjeta', 'card']]), {}, { :class => 'form-select' } %>
           </div>
       </div>
 

@@ -11,7 +11,9 @@ class InvoicesController < ApplicationController
       if params[:commit]=="ver facturas"
         id=params[:customer_id]
         @invoices = Invoice.where(customer_id: id).pending_invoice
-        @customer=Invoice.find_by(customer_id: id).customer.full_name
+        if @invoices.present?
+          @customer=Invoice.find_by(customer_id: id).customer.full_name
+        end
       end
     end
 
@@ -59,6 +61,8 @@ class InvoicesController < ApplicationController
     Customer.select(:id, :full_name, :dni).where('lower(full_name) LIKE ? OR dni LIKE ?', "%#{search.downcase}%",
                                                  "%#{search}%")
   end
+
+ 
 
   private
 
