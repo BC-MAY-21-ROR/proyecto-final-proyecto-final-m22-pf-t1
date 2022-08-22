@@ -12,6 +12,7 @@ class ReportsController < ApplicationController
       @sub += i.amount
     end
     @sub
+    report_box(@report_daily)
   end
 
   def monthly
@@ -21,10 +22,12 @@ class ReportsController < ApplicationController
       @sub += i.amount
     end
     @sub
+    report_box(@report_monthly)
   end
 
   def weekly
     @list = between_dates(search_params[:start_date], search_params[:end_date]) if search_params.present?
+    #report_box(@list) if @list.present?
   end
 
   def comissions
@@ -84,6 +87,22 @@ class ReportsController < ApplicationController
     end
   end
 
+  def report_box(report_invoices)
+     @payment_card=0
+     @payment_cash=0
+      report_invoices.each do |invoice|
+        cash= Payment.where(invoice_id: invoice.id).cash_payments
+        card = Payment.where(invoice_id: invoice.id).card_payments
+
+        if !cash.nil?
+            @payment_cash += cash
+        end
+        if !card.nil?
+          @payment_card += card
+        end
+        
+      end
+  end
   private
 
   def search_params
