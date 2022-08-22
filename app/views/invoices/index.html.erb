@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-  
+    <h4>Facturas por cobrar </h4>
    <% if !@custom_data.present? %>
     <div class="col col-6">
       <%= form_with url: "/invoices", method: :get do |form| %>
@@ -13,17 +13,20 @@
       </div>
     </div>
     <% end %>
-
-
   <% else %>  
     <div class="col col-6">
       <%= form_with url: "/invoices", method: :get do |form| %>
+        <div class=row>
             <%if @custom_data%>
+              <div class="col col-6" >
                 <%= form.collection_select :customer_id, @custom_data, :id, :full_name ,{:prompt => 'Selecciona ...'}, html_options = { class: 'form-control'} %>
+              </div>
+              <div class="col col-2">
                 <%= form.submit "ver facturas", class:"btn btn-primary btn-sm d-line float-start" %>
-            <% end %>
+              </div>
+                <% end %>
+         </div>   
         <% end %>
-       
     </div>
   <% end %>  
   </div>
@@ -32,13 +35,15 @@
 <div class="container">
   <div class="row">
     <div class="column">
-      <% if @invoices.present?%>
+      <% if @customer.present? %>
+      <% if @invoices.present? %>
        <div><strong> cliente : <%= @customer %></strong></div>
         <table class="table">
           <tr>
             <th>No.</th><th>Monto</th><th>Fecha </th><th>Abono </th><th>Adeuda </th><th>Pagar</th>
           </tr>
             <% @invoices.each do |invoice|%>
+               
               <tr>
                   <td><%= invoice.id %></td><td><%= number_to_currency(invoice.amount) %></td><td><%= invoice.date %> </td>
                   <td><%= number_to_currency(invoice.payments.sum(:value)) %> </td><td><%= number_to_currency(invoice.amount - invoice.payments.sum(:value)) %> 
@@ -47,8 +52,10 @@
               <% end %>
         </table>
         <% end %>
+        <% end %>
 
     </div>
   </div>
+
 </div>
 

@@ -7,4 +7,8 @@ class Payment < ApplicationRecord
   validates :date, :value, :kind, presence: true
   validates :value, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :note, length: { maximum: 200 }
+
+  scope :cash_payments, -> {where( kind: "cash" ).sum(:value)}
+  scope :card_payments, -> {where( kind: "card" ).sum(:value)} 
+
 end

@@ -57,6 +57,14 @@
      </tr>
      <table>
     <% end %> 
+    </table>
+    <h3> caja </h3>
+    <table>
+      <tr>
+      <th>Efectivo : <%= number_to_currency(@payment_cash) %></th>
+      <th>Tarjeta : <%= number_to_currency(@payment_card) %></th>
+      </tr>
+    </table>
  </div>
 </div>
 </div>
