@@ -47,7 +47,7 @@
               <tr>
                   <td><%= invoice.id %></td><td><%= number_to_currency(invoice.amount) %></td><td><%= invoice.date %> </td>
                   <td><%= number_to_currency(invoice.payments.sum(:value)) %> </td><td><%= number_to_currency(invoice.amount - invoice.payments.sum(:value)) %> 
-              </td><td><%= link_to "Abonar", invoice_order_items_path(invoice)%></td>   
+              </td><td><%= link_to "Abonar", invoice_order_items_path(invoice), class:"btn btn-primary bi bi-wallet2"%></td>   
               </tr>
               <% end %>
         </table>

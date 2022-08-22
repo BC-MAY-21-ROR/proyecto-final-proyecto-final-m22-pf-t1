@@ -13,7 +13,7 @@ class BusinessesController < ApplicationController
 
   def new
     if @businesses.nil?
-      render :index
+      render :new
     else
       @business = Business.new
     end
