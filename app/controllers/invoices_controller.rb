@@ -16,7 +16,8 @@ class InvoicesController < ApplicationController
         end
       end
     end
-
+  end
+  
   # GET /invoices/new
   def new
     @time_now = Time.zone.now.strftime('%Y-%m-%dT%k:%M')
