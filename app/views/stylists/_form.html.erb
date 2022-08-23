@@ -52,12 +52,8 @@
         </div>
       </div>
 
-      <div class="row mb-3">
-        <%= form.label :business_id, "Negocio", style: "display: block", class:"col-sm-3 col-form-label" %>
-        <div class="col-sm-9">
-          <%= form.text_field :business_id, class:"form-control", placeholder:"ID Negocio" %>
-        </div>
-      </div>
+          <%= form.hidden_field :business_id, value: @business.id %>
+          
         <%= link_to "Regresar", stylists_path, class:"btn btn-outline-secondary" %>
         <%= form.submit "Guardar", class:"btn btn-primary" %>
       </div>

@@ -7,7 +7,7 @@ class ReportsController < ApplicationController
 
   def daily
     @sub = 0
-    @report_daily = Invoice.daily_invoice
+    @report_daily = Invoice.daily_invoice.where(business_id: current_user.id)
     @report_daily.each do |i|
       @sub += i.amount
     end
@@ -17,7 +17,7 @@ class ReportsController < ApplicationController
 
   def monthly
     @sub = 0
-    @report_monthly = Invoice.monthly_invoice
+    @report_monthly = Invoice.monthly_invoice.where(business_id: current_user.id)
     @report_monthly.each do |i|
       @sub += i.amount
     end
@@ -26,8 +26,9 @@ class ReportsController < ApplicationController
   end
 
   def weekly
-    @list = between_dates(search_params[:start_date], search_params[:end_date]) if search_params.present?
-    #report_box(@list) if @list.present?
+    if search_params.present?
+      @list = between_dates(search_params[:start_date], search_params[:end_date]).where(business_id: current_user.id)
+    end
   end
 
   def comissions

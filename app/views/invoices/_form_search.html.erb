@@ -23,11 +23,11 @@
         <div>
           <%= form_with(model: @invoice) do |form| %>
             <%= form.hidden_field :date, value:@time_now %>
+            <%= form.hidden_field :business_id, value: @business.id %>
             <%= form.hidden_field:amount %>
             <%if @custom_data%>
             <%= form.collection_select :customer_id, @custom_data, :id, :full_name, {:prompt => 'Selecciona ...'}, html_options = { class: 'form-control'} %>
             <% end %>
-            <%#= form.hidden_field :customer_id, value: @custom_id %>
         </div>   
       </div>
       <div class="ms-2 mb-3">

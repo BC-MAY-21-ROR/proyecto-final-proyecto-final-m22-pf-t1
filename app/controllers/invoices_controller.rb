@@ -59,7 +59,7 @@ class InvoicesController < ApplicationController
   end
 
   def search_by(search)
-    Customer.select(:id, :full_name, :dni).where('lower(full_name) LIKE ? OR dni LIKE ?', "%#{search.downcase}%",
+    Customer.select(:id, :full_name, :dni).where(business_id: current_user.id).where('lower(full_name) LIKE ? OR dni LIKE ?', "%#{search.downcase}%",
                                                  "%#{search}%")
   end
 
@@ -74,7 +74,7 @@ class InvoicesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def invoice_params
-    params.require(:invoice).permit(:date, :amount, :customer_id)
+    params.require(:invoice).permit(:date, :amount, :customer_id, :business_id)
   end
  
   def search_params

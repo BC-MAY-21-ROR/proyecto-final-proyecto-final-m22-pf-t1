@@ -6,7 +6,11 @@ class StylistsController < ApplicationController
   before_action :set_stylist, only: %i[show edit update destroy]
 
   def index
-    @stylists = Stylist.all
+    if user_signed_in?
+      @stylists = Stylist.where(business_id: current_user.id)
+    else
+      redirect_to dashboard_index_path
+    end
   end
 
   def show; end

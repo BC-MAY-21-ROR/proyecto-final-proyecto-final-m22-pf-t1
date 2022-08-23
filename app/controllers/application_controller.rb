@@ -2,9 +2,16 @@
 
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: [:index]
+  before_action :get_current_business, except: [:index]
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, alert: exception.message
+  end
+
+  def get_current_business
+    if user_signed_in? 
+      @business=Business.find_by(user_id: current_user.id)
+    end
   end
 
   private

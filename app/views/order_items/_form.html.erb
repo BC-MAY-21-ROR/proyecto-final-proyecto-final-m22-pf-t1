@@ -33,7 +33,7 @@
     <%= form.label :Ajuste, style: "display: block" %>
     <%= form.number_field :adjustment, class:"form-control" %>
   </div>
-
+  
   <div>
      <%= form.label :Estilista, style: "display: block" %>
       <%= form.collection_select :stylist_id, Stylist.order(:name), :id, :name, {:prompt => 'Seleccionar estilista...'}, html_options = {class: 'form-select form-select-sm mb-1'}%>
