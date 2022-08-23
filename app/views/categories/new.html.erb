@@ -1,0 +1,10 @@
+<%= form_with(category_url) do |form| %>
+    <div class="row mb-3">
+        <%= form.label :name, "Nombre", style: "display: block", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-8">
+            <%= form.text_field :name, class:"form-control", placeholder:"Nombre y apellido" %>
+        </div>
+        <%= form.submit "Guardar", class:"btn btn-primary" %>
+    </div>
+<% end %>
+
