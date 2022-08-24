@@ -13,10 +13,10 @@ class Invoice < ApplicationRecord
 
   scope :daily_invoice, -> { where(date: Time.zone.today.all_day).order(amount: :desc) }
   scope :monthly_invoice, -> { where(date: Time.zone.today.all_month).order(amount: :desc) }
-  scope :pending_invoice, -> { where(status: "pending")}
-  scope :paid_invoice, -> { where(status: "paid") }
-  scope :partial_invoice, -> { where(status: "partial") }
-  scope :not_paid_invoice, -> { where.not(status: "paid") }
+  scope :pending_invoice, -> { where(status: "pendiente")}
+  scope :paid_invoice, -> { where(status: "pagado") }
+  scope :partial_invoice, -> { where(status: "parcial") }
+  scope :not_paid_invoice, -> { where.not(status: "pagado") }
   
   
 end

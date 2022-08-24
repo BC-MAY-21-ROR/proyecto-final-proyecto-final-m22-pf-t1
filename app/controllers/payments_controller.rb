@@ -73,9 +73,9 @@ class PaymentsController < ApplicationController
     balance=@invoice.payments.sum(:value)
     amount=@invoice.amount
     if (amount - balance).positive?
-      @invoice.update(status: "partial")
+      @invoice.update(status: "parcial")
     else
-      @invoice.update(status: "paid")
+      @invoice.update(status: "pagado")
       @invoice.update(amount: balance)
     end
   end
